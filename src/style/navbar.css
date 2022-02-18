@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* .barracontainer {
+  position: sticky;
+} */
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.navbarrigth {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.navbarleft {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.Logomain {
+  width: 9rem;
+  height: 5rem;
+}
+.navbarleft a {
+  font-size: 3rem;
+  font-family: "Fjalla One", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  color: white;
+}
+.navbarrigth a {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-right: 0.8rem;
+}
+.imgcuenta {
+  margin-right: 1rem;
+}
+.btn {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 5px;
+  display: inline-block;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  background-color: black;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn::after {
+  background-color: black;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.logomenu {
+  display: none;
+}
+@media (max-width: 768px) {
+  .logomenu {
+    display: block;
+  }
+}
