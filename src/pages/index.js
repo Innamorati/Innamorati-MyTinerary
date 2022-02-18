@@ -1,10 +1,11 @@
 import React from "react";
 import Noche from '../assents/Noche.jpg'
-import "../style/index.css"
-import Navbar from "../componentes/navbar.js"
+import '../index.css'
 
 
-function index(){
+
+
+function Index(){
     return(
         <div>
             <img className="imagenNoche" src={Noche} alt='Noche estrellada'></img>
@@ -13,4 +14,4 @@ function index(){
     )    
 }
 
-export default index; 
+export default Index; 
