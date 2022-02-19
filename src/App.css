@@ -8,7 +8,11 @@
   height: 100vh;
   position: relative;
   top: -8rem;
-  z-index: -1;
+  z-index: 1;
+}
+.imagencontainer {
+  height: 81vh !important;
+  z-index: 1;
 }
 .imagenlogo {
   width: 15rem;
@@ -16,6 +20,8 @@
 .Navbar {
   display: flex;
   flex-direction: row;
+  position: relative;
+  z-index: +2;
 }
 .navbarleft {
   height: 5rem;
@@ -41,6 +47,39 @@
 }
 .logomenu {
   display: none;
+}
+
+.carruselcontainer {
+  width: 30%;
+  height: 80%;
+}
+.containerindex {
+  height: 1vh;
+}
+.footercontainer {
+  height: 18vh;
+}
+.destinos {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 300;
+}
+main {
+  background-color: black;
+  z-index: -1;
+}
+.destinos {
+  color: white;
+}
+.divcontainer {
+  display: flex;
+  flex-direction: row;
+}
+.imagenescarrusel {
+  height: 60vh;
+  width: 25%;
 }
 @media (max-width: 768px) {
   .logomenu {

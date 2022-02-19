@@ -1,15 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Index from './pages/index.js'
 import Navbar from './components/navbar.js'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+
 
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <Navbar/>
-      <Index/>
+      <Routes>
+        <Route path="" element={<Index/>}></Route>
+     </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
