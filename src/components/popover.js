@@ -20,9 +20,7 @@ export default function PopoverNavbar() {
 
   return (
     <div >
-      <IconButton aria-describedby={id}  onClick={handleClick} className="botoncuenta">
-      <AccountCircleIcon sx={{fontSize: 50}}/>
-      </IconButton>
+      <AccountCircleIcon aria-describedby={id} onClick={handleClick} sx={{fontSize: 50}} className="botoncuenta"/>
       <Popover
         id={id}
         open={open}

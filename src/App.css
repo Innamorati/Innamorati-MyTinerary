@@ -4,20 +4,17 @@
   box-sizing: border-box;
 }
 .imagenNoche {
+  display: block;
   width: 100%;
   height: 100vh;
   position: relative;
-  top: -8rem;
+  top: -5rem;
   z-index: 1;
 }
 .imagencontainer {
-  height: 81vh !important;
+  height: 93vh !important;
   z-index: 1;
 }
-.imagenlogo {
-  width: 15rem;
-}
-
 .Navbar {
   display: flex;
   flex-direction: row;
@@ -45,43 +42,6 @@
 }
 .navbarleft h1 {
   color: white;
-}
-.btn {
-  margin-right: 2rem;
-}
-.btn {
-  display: flex;
-  height: 3em;
-  width: 100px;
-  align-items: center;
-  justify-content: center;
-  background-color: #eeeeee4b;
-  border-radius: 20px;
-  letter-spacing: 1px;
-  transition: all 0.2s linear;
-  cursor: pointer;
-  border: none;
-  background: #fff;
-}
-
-.btn > svg {
-  margin-right: 5px;
-  margin-left: 5px;
-  font-size: 20px;
-  transition: all 0.4s ease-in;
-}
-
-.btn:hover > svg {
-  font-size: 1.2em;
-  transform: translateX(-5px);
-}
-
-.btn:hover {
-  box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff;
-  transform: translateY(-2px);
-}
-.logomenu {
-  display: none;
 }
 
 .carruselcontainer {
@@ -117,9 +77,6 @@ main {
   width: 100% !important;
   overflow: hidden;
 }
-/* .divcontainer {
-  width: 30rem;
-} */
 
 .imagenescarrusel:hover img {
   filter: blur(1.5px);
@@ -171,6 +128,20 @@ main {
 .botoncuenta {
   color: white !important;
   border-radius: 40px !important;
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 0 !important;
+}
+.botoncuenta > svg {
+  transition: all 0.4s ease-in;
+}
+.botoncuenta:hover {
+  box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff !important;
+  transition: all 0.2s;
+  border: 3px white solid;
+}
+.botoncuenta:hover:after {
+  transition: all 0.2s ease-in;
 }
 .pophover {
   display: flex !important;
@@ -181,7 +152,9 @@ main {
 .input {
   height: 2rem;
 }
-
+.logomain {
+  height: 5rem;
+}
 @media (max-width: 768px) {
   .logomenu {
     display: block;
