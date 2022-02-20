@@ -5,7 +5,7 @@ function Footer(){
     return(
         <div className='footercontainer'>
 
-        <p>Introdicir informacion sobre la pagina, tambien colocar botones de navegacion para las diferentes paginas</p>
+        
 
 
 

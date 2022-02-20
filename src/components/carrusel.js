@@ -1,27 +1,18 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import Datos from '../datos/ciudades';
 import "../style/style.css";
-import Salar from "../assents/salar.jpg"
-import Safari from "../assents/safariafrica.jpg"
-import Caracas from "../assents/ciudades/caracas.png"
-import Venezia from "../assents/ciudades/Venezia.jpg"
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function carrusel() {
   return (
-    <div className="carruselcontainer">
+    <>
       <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
+        spaceBetween={0}
+        centeredSlides={false}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -32,27 +23,41 @@ export default function carrusel() {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
+        breakpoints={{
+          "@0.00": {
+            slidesPerView: 4,
+            spaceBetween: 0,
+            
+          },
+          "@0.75": {
+            slidesPerGroup: 4,
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+          "@1.00": {
+            slidesPerGroup: 4,
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+          "@1.50": {
+            slidesPerGroup: 4,
+            slidesPerView: 4,
+            spaceBetween:  0,
+          },
+        }}
       >
-        <SwiperSlide>
-            <div className="divcontainer">
-                <div className="imagenescarrusel">
-                    <img src={Salar} alt="Salar de uyuni"></img>
-                </div>
-                <div className="imagenescarrusel">
-                    <img src={Safari} alt="Safari afica"></img>
-                </div>
-                <div className="imagenescarrusel">
-                    <img src={Caracas} alt="imgen caracas"/>
-                </div>
-                <div className="imagenescarrusel">
-                    <img src={Venezia} alr="imagen venezia"/>
-                </div>
-            </div>
-        </SwiperSlide>
-        {/* <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide> */}
+        {Datos.map((ciudades)=>   
+                      <SwiperSlide key={ciudades.id}>
+                             <div className="imagenescarrusel">
+                                 <img src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudades.Imagen}` } ></img>
+                                 <div className="textoimagenes">
+                                   <p className="imgtext">{ciudades.Pais}</p>
+                                   <p className="imgtext">{ciudades.ciudad}</p>
+                                 </div>
+                             </div>                        
+                     </SwiperSlide>
+                  )}
       </Swiper>
-    </div>
+    </>
   );
 }

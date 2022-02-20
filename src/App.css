@@ -17,6 +17,7 @@
 .imagenlogo {
   width: 15rem;
 }
+
 .Navbar {
   display: flex;
   flex-direction: row;
@@ -45,12 +46,48 @@
 .navbarleft h1 {
   color: white;
 }
+.btn {
+  margin-right: 2rem;
+}
+.btn {
+  display: flex;
+  height: 3em;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background: #fff;
+}
+
+.btn > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
+}
+
+.btn:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+.btn:hover {
+  box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff;
+  transform: translateY(-2px);
+}
 .logomenu {
   display: none;
 }
 
 .carruselcontainer {
-  width: 30%;
+  display: flex;
+  justify-content: start;
+  width: 100%;
   height: 80%;
 }
 .containerindex {
@@ -65,13 +102,11 @@
   justify-content: center;
   font-size: 3rem;
   font-weight: 300;
+  color: white;
 }
 main {
   background-color: black;
   z-index: -1;
-}
-.destinos {
-  color: white;
 }
 .divcontainer {
   display: flex;
@@ -79,8 +114,74 @@ main {
 }
 .imagenescarrusel {
   height: 60vh;
-  width: 25%;
+  width: 100% !important;
+  overflow: hidden;
 }
+/* .divcontainer {
+  width: 30rem;
+} */
+
+.imagenescarrusel:hover img {
+  filter: blur(1.5px);
+  transform: scale(1.2);
+  transition: all 100ms;
+}
+.imagenescarrusel img {
+  transition: all 0.3s;
+}
+.imagenescarrusel::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+.imagenescarrusel:hover::before {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.textoimagenes {
+  z-index: 5 !important;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.textoimagenes p {
+  display: none;
+  transition: all 0.3s;
+  font-size: 2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 5px;
+}
+.imagenescarrusel:hover .textoimagenes p {
+  transition: all 0.3s;
+  display: block;
+}
+.botoncuenta {
+  color: white !important;
+  border-radius: 40px !important;
+}
+.pophover {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 20rem;
+  height: 13rem;
+}
+.input {
+  height: 2rem;
+}
+
 @media (max-width: 768px) {
   .logomenu {
     display: block;

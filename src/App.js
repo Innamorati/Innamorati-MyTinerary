@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path="" element={<Index/>}></Route>
+        <Route path="/index" element={<Index/>}></Route>
      </Routes>
     </div>
     </BrowserRouter>
