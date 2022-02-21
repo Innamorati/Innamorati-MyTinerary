@@ -3,6 +3,7 @@ import Noche from '../assents/Noche.jpg'
 import '../index.css'
 import Carrusel from '../components/carrusel.js'
 import NocheCamping from "../assents/Carpa.jpg"
+import Carruselexpediciones from "../components/Carruselexpediciones";
 
 
 
@@ -18,6 +19,10 @@ function Index(){
                 <h2 className="Frase">¡Find your perfect trip,
                 insiders who know and love their cities!</h2>
             </div>
+            </div>
+            <div className="Excursiones">
+                <h2 className="destinos">Destinations for the most adventurous</h2>
+                <Carruselexpediciones/>
             </div>
             <h2 className="destinos">Popular MYtineraries</h2>
         <Carrusel/>

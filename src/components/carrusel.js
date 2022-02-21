@@ -25,7 +25,7 @@ export default function carrusel() {
         className="mySwiper"
         breakpoints={{
           "@0.00": {
-            slidesPerView: 4,
+            slidesPerView: 2,
             spaceBetween: 0,
             
           },

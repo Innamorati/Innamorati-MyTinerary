@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import {Link as LinkRouter} from "react-router-dom"
+
 
 
 export const Contenedor = styled.div`
@@ -8,6 +7,12 @@ width: 100%;
 height: 25vh !important;
 background-color: black;
 display: flex;
+@media screen and (max-width: 376px){
+    flex-direction: column;
+    align-items: center;
+    height: 80vh !important;
+    background-color: black !important;
+}
 `;
 export const Navegacion = styled.div`
 height: 100%;
@@ -88,6 +93,13 @@ export const Contactocontenido = styled.div`
 input{
     margin: .8rem 0 0 .8rem;
     height: 1.5rem;
+    @media screen and (max-width: 376px){
+        display: flex;
+        flex-direction: row;
+        input{
+            flex-direction: row;
+        }
+    }
 }
 
 `;
@@ -98,6 +110,11 @@ input{
     margin: .8rem 0 0 .8rem;
     height: 1.5rem;
     width: 22.5rem;
+}
+@media screen and (max-width: 376px){
+    input{
+        margin: .2rem 0 0 .1rem !important;
+    }
 }
 `;
 export const IconoEnviar = styled.button`
