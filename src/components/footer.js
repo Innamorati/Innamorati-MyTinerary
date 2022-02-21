@@ -1,10 +1,26 @@
 import React, { Fragment } from "react";
-import {Contenedor, Navegacion, Navegacioncont, Redes, Mapa, Navegacionbutones, Redesiconos} from "../style/Footer.elements";
+import {Contenedor, 
+Navegacion, 
+Navegacioncont, 
+Redes, 
+Contacto, 
+Navegacionbutones, 
+Redesiconos, 
+Contactotitulo,
+Contactocontenido,
+ContactoMail,
+IconoEnviar,
+Politicas,
+PoliticasTitulo,
+PoliticasLista,
+PoliticasItems,} from "../style/Footer.elements";
 import {Link as LinkRouter} from "react-router-dom"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import SendIcon from '@mui/icons-material/Send';
+
 
 export default function Piepagina(){
 
@@ -34,11 +50,42 @@ export default function Piepagina(){
                         <MailOutlineIcon/>
                     </Redesiconos>
                 </Redes>
-                <Mapa>
+                <Contacto>
+                    <Contactotitulo>
+                        ¡Receive all offers! 
+                    </Contactotitulo>
+                    <Contactocontenido>
+                        <input type="text" placeholder="First name"></input>
+                        <input type="text" placeholder="Last name"></input>
+                    </Contactocontenido>
+                    <ContactoMail>
+                        <input type="mail" placeholder="example@mail.com"></input>
+                    </ContactoMail>
+                    <IconoEnviar>
+                        Send
+                    </IconoEnviar>
+                </Contacto>
                     
-                </Mapa>
+            <Politicas>
+                <PoliticasTitulo>
+                    Police
+                </PoliticasTitulo>
+                    <PoliticasLista>
+                <PoliticasItems>
+                    Legal Warning
+                </PoliticasItems>
+                <PoliticasItems>
+                    Privacy Policy
+                </PoliticasItems>
+                <PoliticasItems>
+                    Cookies Policy
+                </PoliticasItems>
+                <PoliticasItems>
+                    Quality Policy
+                </PoliticasItems>
+                </PoliticasLista>
+                </Politicas>
             </Contenedor>
-
             
         </div>
     )

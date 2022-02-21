@@ -13,7 +13,7 @@ function Index(){
             <div className="imagencontainer">
             <img className="imagenNoche" src={Noche} alt='Noche estrellada'/>
             </div>
-            <h2 className="destinos">Our destinations</h2>
+            <h2 className="destinos">Popular MYtineraries</h2>
         <Carrusel/>
         </main>
         <footer>

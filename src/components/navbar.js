@@ -24,7 +24,7 @@ function NavBar(){
             <Menu open={showMobileMenu}>
                 <MenuItem>
                 <LinkRouter to="*">
-                    <MenuItemLink className="btn">
+                    <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         <div>
                         <HouseIcon/>
                         Home
@@ -33,8 +33,8 @@ function NavBar(){
                     </LinkRouter>
                 </MenuItem>
                 <MenuItem>
-                    <LinkRouter to="Cities">
-                    <MenuItemLink className="btn">
+                <LinkRouter to="Cities">
+                    <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                         <div>
                         <AirplanemodeActiveIcon/>
                         Cities
