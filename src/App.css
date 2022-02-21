@@ -3,3 +3,223 @@
   padding: 0;
   box-sizing: border-box;
 }
+.imagenNoche {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: -5rem;
+  z-index: 1;
+}
+.imagencontainer {
+  height: 87vh !important;
+  z-index: 1;
+}
+.frasecontenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.imagencontainer h2 {
+  position: absolute;
+  top: 30%;
+  left: 18%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  font-family: "Redressed", cursive;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 100;
+}
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: +2;
+}
+.navbarleft {
+  height: 5rem;
+  width: 41%;
+  display: flex;
+  align-items: center;
+}
+.navbarrigth {
+  height: 5rem;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: white;
+}
+.navbarrigth a {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.navbarleft h1 {
+  color: white;
+}
+
+.carruselcontainer {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 80%;
+}
+.footercontainer {
+  height: 18vh;
+}
+.destinos {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 300;
+  color: white;
+}
+main {
+  background-color: black;
+  z-index: -1;
+}
+.divcontainer {
+  display: flex;
+  flex-direction: row;
+}
+.imagenescarrusel {
+  height: 60vh;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.imagenescarrusel:hover img {
+  filter: blur(1.5px);
+  transform: scale(1.2);
+  transition: all 100ms;
+}
+.imagenescarrusel img {
+  transition: all 0.3s;
+}
+.imagenescarrusel::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+.imagenescarrusel:hover::before {
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.textoimagenes {
+  z-index: 5 !important;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.textoimagenes p {
+  display: none;
+  transition: all 0.3s;
+  font-size: 2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 5px;
+}
+.imagenescarrusel:hover .textoimagenes p {
+  transition: all 0.3s;
+  display: block;
+}
+.botoncuenta {
+  color: white !important;
+  border-radius: 40px !important;
+  transition: all 0.2s;
+  cursor: pointer;
+  padding: 0 !important;
+}
+.botoncuenta > svg {
+  transition: all 0.4s ease-in;
+}
+.botoncuenta:hover {
+  box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff !important;
+  transition: all 0.2s;
+  border: 3px white solid;
+}
+.botoncuenta:hover:after {
+  transition: all 0.2s ease-in;
+}
+.pophover {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 20rem;
+  height: 13rem;
+}
+.input {
+  height: 2rem;
+}
+.logomain {
+  height: 5rem;
+}
+.link {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+}
+.Excursiones {
+  height: 60vh;
+}
+
+@media (max-width: 960px) {
+  .imagencontainer {
+    height: 80vh;
+  }
+  .imagencontainer {
+    height: 72vh !important;
+  }
+  .imagenNoche {
+    height: 80vh !important;
+  }
+  .imagencontainer h2 {
+    left: 9%;
+  }
+}
+@media (max-width: 768px) {
+  .logomenu {
+    display: block;
+  }
+  .imagenNoche {
+    height: 55vh !important;
+  }
+  .imagencontainer {
+    height: 47vh !important;
+  }
+  .imagencontainer h2 {
+    top: 14%;
+  }
+}
+@media (max-width: 375px) {
+  .imagenNoche {
+    height: 50vh !important;
+  }
+  .imagencontainer {
+    height: 42vh !important;
+  }
+
+  .imagencontainer h2 {
+    font-size: 1.5rem !important;
+    top: 10%;
+  }
+  .destinos {
+    font-size: 2rem;
+  }
+}

@@ -3,29 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.4.2",
-    "@mui/material": "^5.4.2",
-=======
     "@googlemaps/react-wrapper": "^1.1.24",
     "@mui/icons-material": "^5.4.2",
->>>>>>> d3e1e0c39a316016907fbb4205a0376c621d4440
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-=======
     "react-material-ui-carousel": "^3.2.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
->>>>>>> d3e1e0c39a316016907fbb4205a0376c621d4440
     "swiper": "^8.0.6",
     "web-vitals": "^2.1.4"
   },
