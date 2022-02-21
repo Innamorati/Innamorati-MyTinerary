@@ -22,7 +22,9 @@ function Index(){
             </div>
             <div className="Excursiones">
                 <h2 className="destinos">Destinations for the most adventurous</h2>
-                <Carruselexpediciones/>
+                <div className="segundocarrusel">
+                    <Carruselexpediciones/>
+                </div>
             </div>
             <h2 className="destinos">Popular MYtineraries</h2>
         <Carrusel/>

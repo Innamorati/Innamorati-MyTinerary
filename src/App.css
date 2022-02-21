@@ -12,8 +12,16 @@
   z-index: 1;
 }
 .imagencontainer {
-  height: 87vh !important;
+  height: 100vh !important;
   z-index: 1;
+}
+.segundocarrusel {
+  height: 100%;
+}
+.Excursiones {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .frasecontenedor {
   width: 100%;
@@ -181,10 +189,7 @@ main {
 
 @media (max-width: 960px) {
   .imagencontainer {
-    height: 80vh;
-  }
-  .imagencontainer {
-    height: 72vh !important;
+    height: 77vh !important;
   }
   .imagenNoche {
     height: 80vh !important;
@@ -201,10 +206,13 @@ main {
     height: 55vh !important;
   }
   .imagencontainer {
-    height: 47vh !important;
+    height: 52vh !important;
   }
   .imagencontainer h2 {
     top: 14%;
+  }
+  .destinos {
+    font-size: 2.5rem;
   }
 }
 @media (max-width: 375px) {
@@ -212,7 +220,7 @@ main {
     height: 50vh !important;
   }
   .imagencontainer {
-    height: 42vh !important;
+    height: 44vh !important;
   }
 
   .imagencontainer h2 {
@@ -220,6 +228,6 @@ main {
     top: 10%;
   }
   .destinos {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 }
