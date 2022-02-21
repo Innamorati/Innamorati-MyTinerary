@@ -20,6 +20,9 @@ function Index(){
                 insiders who know and love their cities!</h2>
             </div>
             </div>
+            <div className="Aviso">
+                <h3>Tu destino te espera</h3>
+            </div>
             <div className="Excursiones">
                 <h2 className="destinos">Destinations for the most adventurous</h2>
                 <div className="segundocarrusel">

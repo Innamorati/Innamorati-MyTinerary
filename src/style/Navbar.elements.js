@@ -58,7 +58,7 @@ align-items:center;
 
 }
 @media screen and (max-width: 376px){
-    width: 100%;
+    width: 100% !important;
 }
 
 `;
