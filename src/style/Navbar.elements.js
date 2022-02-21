@@ -62,6 +62,9 @@ export const MenuItem = Styled.li `
 display: flex;
 justify-content: end;
 margin: 0 10px 0 10px;
+a{
+    text-decoration:none;
+}
 
 @media screen and (max-width: 768px){
     justify-content:center:
@@ -87,6 +90,7 @@ width: 100px;
   background: #fff;
   color: black;
   margin-right: 2rem;
+
     div{
         display: flex;
         justify-content:center;
@@ -96,6 +100,7 @@ width: 100px;
     svg{
         display:none;
     }
+
     }
     &:hover{
         box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff;

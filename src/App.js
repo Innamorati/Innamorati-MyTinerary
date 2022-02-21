@@ -4,7 +4,7 @@ import Index from './pages/index.js'
 import Navbar from './components/navbar.js'
 import Cities from "./pages/Cities.js"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
+import Piepagina from './components/footer';
 
 
 
@@ -17,7 +17,9 @@ function App() {
         <Route path="*" element={<Index/>}></Route>
         <Route path="/Cities" element={<Cities/>}></Route>
      </Routes>
+     <Piepagina/>
     </div>
+        
     </BrowserRouter>
   );
 }

@@ -2,13 +2,13 @@ import React from "react";
 import Noche from '../assents/Noche.jpg'
 import '../index.css'
 import Carrusel from '../components/carrusel.js'
-import Footer from '../components/footer.js'
+
 
 
 
 function Index(){
     return(
-        <div className="containerindex">
+        <div>
         <main>
             <div className="imagencontainer">
             <img className="imagenNoche" src={Noche} alt='Noche estrellada'/>
@@ -17,7 +17,6 @@ function Index(){
         <Carrusel/>
         </main>
         <footer>
-        <Footer/>
         </footer>
         </div>   
             

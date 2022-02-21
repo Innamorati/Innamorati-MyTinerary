@@ -1,15 +1,14 @@
-import react from "react";
-import Container from "../style/Cities.elements"
+import React from "react";
+import styled from "styled-components";
+import {Contenedor} from "../style/cities.elements"
 
 
 function Cities() {
     
     return(
-            <Container>
-
-                <h1>Under construction</h1>
-            </Container>
-        
+            <Contenedor>
+                <h1>Under construction</h1>           
+            </Contenedor>
     );
 }
 export default Cities;

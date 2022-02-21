@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import HouseIcon from '@mui/icons-material/House';
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import { grey } from '@mui/material/colors';
+import {Link as LinkRouter} from "react-router-dom"
 function NavBar(){
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     return(
@@ -22,20 +23,24 @@ function NavBar(){
             </ContenedorLogo>
             <Menu open={showMobileMenu}>
                 <MenuItem>
+                <LinkRouter to="*">
                     <MenuItemLink className="btn">
                         <div>
                         <HouseIcon/>
                         Home
                         </div>
                     </MenuItemLink>
+                    </LinkRouter>
                 </MenuItem>
                 <MenuItem>
+                    <LinkRouter to="Cities">
                     <MenuItemLink className="btn">
                         <div>
                         <AirplanemodeActiveIcon/>
                         Cities
                         </div>
                     </MenuItemLink>
+                    </LinkRouter>
                 </MenuItem>
             </Menu>
           </Wrapper>

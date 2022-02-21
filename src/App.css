@@ -50,9 +50,6 @@
   width: 100%;
   height: 80%;
 }
-.containerindex {
-  height: 1vh;
-}
 .footercontainer {
   height: 18vh;
 }
@@ -154,6 +151,12 @@ main {
 }
 .logomain {
   height: 5rem;
+}
+.link {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
 }
 @media (max-width: 768px) {
   .logomenu {
