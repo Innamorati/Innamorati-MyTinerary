@@ -29,7 +29,8 @@ display: flex;
 align-items: center;
 width: 100%;
 p {
-   font-Size:2rem;
+    font-family: 'Dancing Script', cursive;
+   font-Size:2.6rem;
 }
 @media screen and (max-width: 768px){
     display: none;
@@ -55,6 +56,9 @@ align-items:center;
     flex-direction:column ;
 
 }
+@media screen and (max-width: 376px){
+    width: 100%;
+}
 
 `;
 
@@ -67,8 +71,10 @@ a{
 }
 
 @media screen and (max-width: 768px){
-    justify-content:center:
+    justify-content:center !important;
+    align-items:center;
     width: 10rem;
+    width: 100%;
         
     }
 `;
@@ -112,10 +118,11 @@ width: 100px;
         color: black;
         box-shadow: 0;
         border-radius:0;
-        width: 100%;
+        width: 10rem;
 
         &:hover{
-            border-radius: 0;
+            width: 20rem;
+            border-radius: 10px;
             background-color:black;
             color: white;
             box-shadow: 0 0 0, 0 0 0;

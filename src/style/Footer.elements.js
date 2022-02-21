@@ -130,5 +130,9 @@ list-style: none;
 
 `;
 export const PoliticasItems = styled.li`
+cursor: pointer;
 color: white;
+&:hover{
+        transform: translateY(-2px);  
+    }
 `;
