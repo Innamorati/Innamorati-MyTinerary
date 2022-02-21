@@ -2,6 +2,7 @@
 import './App.css';
 import Index from './pages/index.js'
 import Navbar from './components/navbar.js'
+import Cities from "./pages/Cities.js"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path="/index" element={<Index/>}></Route>
+        <Route path="*" element={<Index/>}></Route>
+        <Route path="/Cities" element={<Cities/>}></Route>
      </Routes>
     </div>
     </BrowserRouter>

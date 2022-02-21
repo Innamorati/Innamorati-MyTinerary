@@ -44,7 +44,7 @@ align-items:center;
 @media screen and (max-width: 768px){
     position: absolute;
     top:0px;
-    left: 0;
+    left: ${({ open }) => (open ? "0" : "-100%")};
     width: 50%;
     height: 100vh;
     justify-content:center;
@@ -64,6 +64,8 @@ justify-content: end;
 margin: 0 10px 0 10px;
 
 @media screen and (max-width: 768px){
+    justify-content:center:
+    width: 10rem;
         
     }
 `;
@@ -72,8 +74,8 @@ export const MenuItemLink = Styled.a `
 font-size: 1.2rem;
 font-weight:600;
 display: flex;
-  height: 2em;
-  width: 100px;
+height: 2em;
+width: 100px;
   align-items: center;
   justify-content: center;
   background-color: #eeeeee4b;
@@ -85,37 +87,50 @@ display: flex;
   background: #fff;
   color: black;
   margin-right: 2rem;
+    div{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        height: 100%;
+        width: 100%;
     svg{
-        margin-right: 5px;
-        margin-left: 5px;
-        font-size: 20px;
-        transition: all 0.4s ease-in;
-
-        &:hover{
-            font-size: 1.2em;
-            transform: translateX(-5px); 
-        }
+        display:none;
+    }
     }
     &:hover{
         box-shadow: 3px 3px 10px #d1d1d1, -3px -3px 10px #ffffff;
         transform: translateY(-2px);
     }
     @media screen and (max-width: 768px){
-        background-color: black ;
-        color: white;
+        margin: 0 0 1rem 0;
+        background-color: white ;
+        color: black;
         box-shadow: 0;
+        border-radius:0;
+        width: 100%;
 
         &:hover{
+            border-radius: 0;
+            background-color:black;
+            color: white;
             box-shadow: 0 0 0, 0 0 0;
             transform: translateY(0px);
         }
-     
+        div{
+            svg{
+                display: flex;
+                flex-direction:column;
+                
+            }
+        }
     
 }
 `;
 
 export const IconoMenu = Styled.div`
 display: none;
+position: absolute;
+z-index: 3;
 
     div{
         svg{
@@ -125,7 +140,7 @@ display: none;
 @media screen and (max-width: 768px){
     display: flex !important;
     align-items: center;
-    justify-content: flex-start
+    justify-content: flex-start;
     cursor:pointer;
 }
 `
