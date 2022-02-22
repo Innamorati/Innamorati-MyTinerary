@@ -4,13 +4,21 @@ import styled from "styled-components";
 
 export const Contenedor = styled.div`
 width: 100%;
-height: 25vh !important;
+height: 25vh;
 background-color: black;
 display: flex;
-@media screen and (max-width: 475px){
+padding: 2rem;
+@media screen and (max-width: 1440px){
+    height: 30vh;
+}
+@media screen and (max-width: 768px){
+    flex-direction: column;
+    height: 43rem;
+}
+@media screen and (max-width: 425px){
     flex-direction: column;
     align-items: center;
-    height: 65vh !important;
+    height: 38rem;
     background-color: black !important;
 }
 `;
@@ -25,16 +33,28 @@ justify-content: center;
 h3{
     color: white;
 }
-@media screen and (max-width: 475px){
-    height: 20%;
+@media screen and (max-width: 1440px){
+  h3{
+      font-size: 1.5rem;
+  }  
+}
+@media screen and (max-width: 425px){
+    width:100%;
+    text-align: center;
     h3{
+        margin-top: 1rem;
         font-size: 2rem;
     }
 }
+
 `;
 export const Navegacioncont = styled.div`
 color: white;
 margin-top: .5rem;
+
+@media screen and (max-width: 425px){
+    width: 100%;
+}
 
 `;
 
@@ -50,11 +70,16 @@ text-decoration: none;
     &:hover{
         transform: translateY(-2px);
     }
-    @media screen and (max-width: 476px){
-        a{
-            font-size: 2rem;
-        }
+@media screen and (max-width: 1440px){
+    a{
+        font-size: 1.5rem;
     }
+}
+@media screen and (max-width: 476px){
+    a{
+        font-size: 2rem;
+    }
+}
 `;
 
 export const Redes = styled.div`
@@ -63,9 +88,17 @@ justify-content: center;
 flex-direction: column;
 padding: 1rem;
 width: 15%;
-@media screen and (max-width: 475px){
-    height: 20%;
+@media screen and (max-width: 1440px){
+     height: 100%;
+}
+@media screen and (max-width: 768px){
+    height: 100% ;
+}
+@media screen and (max-width: 425px){
+    width: 100%;
+    height: 30%;
     padding: 0;
+
 }
 
 
@@ -83,14 +116,27 @@ svg{
    &:hover{
     transform: translateY(-2px);
    }
-    
+  
 }
-@media screen and (max-width: 476px){
+@media screen and (max-width: 1440px){
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    svg{
+        font-size: 2.5rem;
+    }
+}
+@media screen and (max-width: 768px){
+    height: 10%;
+}
+@media screen and (max-width: 425px){
       padding: 0;
       width: 100%;
       height: 100%;
       svg{
-          font-size: 4rem;
+          font-size: 2.5rem;
       }
     }
 `;
@@ -102,9 +148,11 @@ justify-content: center;
 align-items: center;
 padding: 1em;
 width: 50%;
-@media screen and (max-width: 476px){
+@media screen and (max-width: 1440px){
+
+}
+@media screen and (max-width: 425px){
         width: 100%;
-        height: 20vh !important;
     }
 
 `;
@@ -112,6 +160,9 @@ width: 50%;
 export const Contactotitulo = styled.h3`
 color: white;
 margin: 0 0 0 .8rem ;
+@media screen and (max-width: 1440px){
+    font-size: 2rem;
+}
 @media screen and (max-width: 476px){
         font-size: 1.8rem;
     }
@@ -122,6 +173,15 @@ export const Contactocontenido = styled.div`
 input{
     margin: .8rem 0 0 .8rem;
     height: 1.5rem;
+}
+@media screen and (max-width: 1440px){
+    input{
+        height: 2rem;
+    }
+}
+@media screen and (max-width: 784px){
+    display:flex;
+    flex-direction: row;
 }
 @media screen and (max-width: 476px){
     input{
@@ -146,6 +206,11 @@ input{
     height: 1.5rem;
     width: 22.5rem;
 }
+@media screen and (max-width: 1440px){
+    input{
+        height: 2rem;
+    }
+}
 @media screen and (max-width: 476px){
     input{
         height: 2rem;
@@ -167,9 +232,12 @@ width: 22.5rem;
     &:hover{
         transform: translateY(-2px);  
     }
-    @media screen and (max-width: 476px){
-        height: 2rem;
-    }
+@media screen and (max-width: 1440px){
+    height: 2rem;
+}
+@media screen and (max-width: 476px){
+    height: 2rem;
+}
 `; 
 export const Politicas = styled.div`
 display: flex;
@@ -186,6 +254,11 @@ export const PoliticasTitulo = styled.h3`
 color: white;
 padding: 1em;
 width: 100%;
+@media screen and (max-width: 1440px){
+    text-align: center;
+    padding: 10px;
+    font-size:2rem;
+}
 @media screen and (max-width: 476px){
       text-align: center;
       font-size: 2rem;
@@ -194,7 +267,9 @@ width: 100%;
 `;
 export const PoliticasLista = styled.ul`
 list-style: none;
-
+@media screen and (max-width: 1440px){
+    font-size: 1.5rem;
+}
 `;
 export const PoliticasItems = styled.li`
 cursor: pointer;

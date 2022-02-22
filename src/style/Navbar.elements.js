@@ -10,6 +10,7 @@ justify-content: center;
 align-items:center;
 height: 5rem;
 padding: 0 2.5rem 0 .5rem;
+background: rgba(5, 5, 5, 0.486);
 
 `;
 

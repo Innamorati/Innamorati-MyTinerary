@@ -11,14 +11,19 @@
   top: -5rem;
   z-index: 1;
 }
+.indexcontenedor {
+  height: 44rem;
+}
+a {
+  text-decoration: none;
+}
 .imagencontainer {
-  height: 110vh !important;
+  height: 120vh;
   z-index: 1;
   display: flex;
   justify-content: center;
   position: relative;
   top: -10rem;
-  height: 30vh;
   background-image: url(../src/assents/Carpa.jpg);
   background-position: center;
   background-size: cover;
@@ -58,12 +63,7 @@
   color: white;
   font-size: 1.4rem;
 }
-/* .botonaccion {
-  position: relative;
-  top: 40%;
-  height: 1rem;
-} */
-/* From cssbuttons.io by @adamgiebl */
+
 .botonaccion {
   background: black;
   color: white;
@@ -162,7 +162,7 @@
   height: 18vh;
 }
 .destinos {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   display: flex;
   justify-content: center;
   font-size: 3rem;
@@ -269,13 +269,44 @@ main {
 .Excursiones {
   height: 60vh;
 }
-
+@media (max-width: 1440px) {
+  .imagencontainer {
+    height: 64rem;
+  }
+  .indexcontenedor {
+    height: 58rem;
+  }
+}
+@media (max-width: 1370px) {
+  .imagencontainer {
+    height: 63rem;
+  }
+  .indexcontenedor {
+    height: 57rem;
+  }
+}
+@media (max-width: 1280px) {
+  .imagencontainer {
+    height: 64rem;
+  }
+  .indexcontenedor {
+    height: 58rem;
+  }
+}
+@media (max-width: 1024px) {
+  .imagencontainer {
+    height: 52rem;
+  }
+  .indexcontenedor {
+    height: 46rem;
+  }
+}
 @media (max-width: 960px) {
   .imagencontainer {
-    height: 77vh !important;
+    height: 110vh;
   }
-  .imagenNoche {
-    height: 80vh !important;
+  .indexcontenedor {
+    height: 95vh;
   }
   .imagencontainer h2 {
     justify-content: center;
@@ -283,17 +314,17 @@ main {
   }
 }
 @media (max-width: 784px) {
+  .indexcontenedor {
+    height: 33rem;
+  }
   .logomenu {
     display: block;
   }
-  .imagenNoche {
-    height: 55vh !important;
-  }
   .imagencontainer {
-    height: 52vh !important;
+    height: 40rem;
   }
   .imagencontainer h2 {
-    top: 14%;
+    top: 26%;
   }
   .destinos {
     font-size: 2.5rem;
@@ -314,18 +345,18 @@ main {
   .destinos {
     font-size: 1.5rem;
   }
+  .imagencontainer h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .imagencontainer p {
+    top: 39%;
+    font-size: 1rem;
+  }
 }
 @media (max-width: 375px) {
-  .imagenNoche {
-    height: 50vh !important;
-  }
   .imagencontainer {
-    height: 40vh !important;
-  }
-
-  .imagencontainer h2 {
-    /* font-size: 1rem !important;
-    top: 10%; */
+    height: 41rem;
   }
   .destinos {
     font-size: 1.2rem;
