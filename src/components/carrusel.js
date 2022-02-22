@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import Datos from '../datos/ciudades';
+import Datos from '../dates/ciudades';
 import "../style/style.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
@@ -25,7 +25,7 @@ export default function carrusel() {
         className="mySwiper"
         breakpoints={{
           "@0.00": {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 0,
             
           },

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "../components/style2.css";
-import Expediciones from "../datos/expediciones"
+import Expediciones from "../dates/expediciones"
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "../App.css"

@@ -1,7 +1,7 @@
 import Styled from "styled-components"
 
 export const Container = Styled.div `
-position: relative;
+position: sticky;
 z-index: 3;
 color:white;
 display:flex;
@@ -10,6 +10,7 @@ justify-content: center;
 align-items:center;
 height: 5rem;
 padding: 0 2.5rem 0 .5rem;
+
 `;
 
 export const Wrapper = Styled.div `
@@ -17,6 +18,7 @@ width:100%;
 height: 4rem;
 display: flex;
 justify-content:flex-end;
+
 @media screen and (max-width: 768px){
     display: flex !important;
     align-items: center;

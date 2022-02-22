@@ -4,20 +4,26 @@ import '../index.css'
 import Carrusel from '../components/carrusel.js'
 import NocheCamping from "../assents/Carpa.jpg"
 import Carruselexpediciones from "../components/Carruselexpediciones";
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 
 
 
 
 
-function Index(){
+    function Index(){
     return(
         <div>
         <main>
             <div className="imagencontainer">
-            <img className="imagenNoche" src={NocheCamping} alt='Noche estrellada'/>
             <div className="Frasecontenedor">
                 <h2 className="Frase">¡Find your perfect trip,
                 insiders who know and love their cities!</h2>
+                <p>¡Your next destination one click!</p>
+                <button class="botonaccion"> Get started
+                    <div class="icon">
+                      <AirplanemodeActiveIcon/>
+                    </div>
+                </button>
             </div>
             </div>
             <div className="Aviso">
