@@ -1,13 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import {Contenedor} from "../style/cities.elements"
+import {
+    Buscador,
+    BuscadorContenedor,
+    Contenedor,
+} from "../style/Cities.elements"
 
 
 function Cities() {
     
     return(
             <Contenedor>
-                <h1>Under construction</h1>           
+                <BuscadorContenedor>
+                    <Buscador>
+                        
+                    </Buscador>
+                </BuscadorContenedor>     
             </Contenedor>
     );
 }
