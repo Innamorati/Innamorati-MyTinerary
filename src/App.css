@@ -5,25 +5,40 @@
 }
 .imagenNoche {
   display: block;
-  width: 100%;
+  width: 120%;
   height: 100vh;
   position: relative;
   top: -5rem;
   z-index: 1;
 }
+.indexcontenedor {
+  height: 44rem;
+}
+a {
+  text-decoration: none;
+}
 .imagencontainer {
-  height: 87vh !important;
+  height: 120vh;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -10rem;
+  background-image: url(../src/assents/Carpa.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .frasecontenedor {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 .imagencontainer h2 {
   position: absolute;
-  top: 30%;
-  left: 18%;
+  top: 23%;
+  left: 0;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -31,6 +46,74 @@
   font-size: 2.5rem;
   color: white;
   font-weight: 100;
+  width: 100%;
+}
+.Frasecontenedor p {
+  position: absolute;
+  z-index: 2;
+  top: 36%;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.botonaccion {
+  background: black;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em black;
+  overflow: hidden;
+  position: relative;
+  top: 40%;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.botonaccion .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em black;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.botonaccion:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.botonaccion .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: black;
+}
+
+.botonaccion .icon svg {
+  transform: translateX(0.1em);
+}
+
+.botonaccion:active .icon {
+  transform: scale(0.95);
+}
+
+.Frasecontenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .Navbar {
   display: flex;
@@ -71,7 +154,7 @@
   height: 18vh;
 }
 .destinos {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   display: flex;
   justify-content: center;
   font-size: 3rem;
@@ -178,46 +261,91 @@ main {
 .Excursiones {
   height: 60vh;
 }
-
-@media (max-width: 960px) {
+@media (max-width: 1440px) {
   .imagencontainer {
-    height: 80vh;
+    height: 64rem;
   }
-  .imagencontainer {
-    height: 72vh !important;
-  }
-  .imagenNoche {
-    height: 80vh !important;
-  }
-  .imagencontainer h2 {
-    left: 9%;
+  .indexcontenedor {
+    height: 58rem;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1370px) {
+  .imagencontainer {
+    height: 63rem;
+  }
+  .indexcontenedor {
+    height: 57rem;
+  }
+}
+@media (max-width: 1280px) {
+  .imagencontainer {
+    height: 64rem;
+  }
+  .indexcontenedor {
+    height: 58rem;
+  }
+}
+@media (max-width: 1024px) {
+  .imagencontainer {
+    height: 52rem;
+  }
+  .indexcontenedor {
+    height: 46rem;
+  }
+}
+@media (max-width: 960px) {
+  .imagencontainer {
+    height: 110vh;
+  }
+  .indexcontenedor {
+    height: 95vh;
+  }
+  .imagencontainer h2 {
+    justify-content: center;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 784px) {
+  .indexcontenedor {
+    height: 33rem;
+  }
   .logomenu {
     display: block;
   }
-  .imagenNoche {
-    height: 55vh !important;
-  }
   .imagencontainer {
-    height: 47vh !important;
+    height: 40rem;
   }
   .imagencontainer h2 {
-    top: 14%;
+    top: 26%;
+  }
+}
+@media (max-width: 690px) {
+  .destinos {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 476px) {
+  .imagencontenedor {
+    overflow: hidden;
+  }
+  .imagenNoche {
+    height: 40vh !important;
+  }
+  .destinos {
+    font-size: 1.5rem;
+  }
+  .imagencontainer h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .imagencontainer p {
+    top: 39%;
+    font-size: 1rem;
   }
 }
 @media (max-width: 375px) {
-  .imagenNoche {
-    height: 50vh !important;
-  }
   .imagencontainer {
-    height: 42vh !important;
-  }
-
-  .imagencontainer h2 {
-    font-size: 1.5rem !important;
-    top: 10%;
+    height: 41rem;
   }
   .destinos {
     font-size: 2rem;

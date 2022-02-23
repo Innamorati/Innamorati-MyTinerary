@@ -1,23 +1,31 @@
 import React from "react";
-import Noche from '../assents/Noche.jpg'
 import '../index.css'
 import Carrusel from '../components/carrusel.js'
-import NocheCamping from "../assents/Carpa.jpg"
 import Carruselexpediciones from "../components/Carruselexpediciones";
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
+import {Link as LinkRouter} from "react-router-dom"
 
 
 
 
-
-function Index(){
+    function Index(){
     return(
         <div>
         <main>
+            <div className="indexcontenedor">
             <div className="imagencontainer">
-            <img className="imagenNoche" src={NocheCamping} alt='Noche estrellada'/>
             <div className="Frasecontenedor">
                 <h2 className="Frase">¡Find your perfect trip,
                 insiders who know and love their cities!</h2>
+                <p>¡Your next destination one click!</p>
+                <LinkRouter to="Cities" >Cities
+                <button className="botonaccion"> Get started
+                    <div className="icon">
+                      <AirplanemodeActiveIcon/>
+                    </div>
+                </button>
+                </LinkRouter>
+            </div>
             </div>
             </div>
             <div className="Excursiones">
