@@ -263,18 +263,18 @@ main {
 }
 @media (max-width: 1440px) {
   .imagencontainer {
-    height: 64rem;
+    height: 61rem;
   }
   .indexcontenedor {
-    height: 58rem;
+    height: 51rem;
   }
 }
 @media (max-width: 1370px) {
   .imagencontainer {
-    height: 63rem;
+    height: 46rem;
   }
   .indexcontenedor {
-    height: 57rem;
+    height: 37rem;
   }
 }
 @media (max-width: 1280px) {
@@ -282,7 +282,7 @@ main {
     height: 64rem;
   }
   .indexcontenedor {
-    height: 58rem;
+    height: 54rem;
   }
 }
 @media (max-width: 1024px) {
@@ -307,7 +307,7 @@ main {
 }
 @media (max-width: 784px) {
   .indexcontenedor {
-    height: 33rem;
+    height: 30rem;
   }
   .logomenu {
     display: block;
@@ -317,6 +317,9 @@ main {
   }
   .imagencontainer h2 {
     top: 26%;
+  }
+  .destinos {
+    text-align: center;
   }
 }
 @media (max-width: 690px) {
@@ -344,10 +347,14 @@ main {
   }
 }
 @media (max-width: 375px) {
+  .indexcontenedor {
+    height: 31rem;
+  }
   .imagencontainer {
     height: 41rem;
   }
   .destinos {
+    text-align: center;
     font-size: 2rem;
   }
 }

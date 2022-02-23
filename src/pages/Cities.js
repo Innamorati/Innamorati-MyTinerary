@@ -1,13 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import {Contenedor} from "../style/Cities.elements"
-
+import {
+Buscador,
+BuscadorContenedor,
+Contenedor,
+Titulo,
+} from "../style/Cities.elements"
+import SearchIcon from '@mui/icons-material/Search';
 
 function Cities() {
     
     return(
             <Contenedor>
-                <h1>Under construction</h1>           
+                <Titulo>
+                    Find your pefect city
+                </Titulo>
+                <BuscadorContenedor>
+                    <Buscador placeholder="Find here"></Buscador>
+                </BuscadorContenedor>         
             </Contenedor>
     );
 }

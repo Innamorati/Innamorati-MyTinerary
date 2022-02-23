@@ -13,13 +13,18 @@ padding: 2rem;
 }
 @media screen and (max-width: 768px){
     flex-direction: column;
-    height: 43rem;
+    height: 35rem;
 }
 @media screen and (max-width: 425px){
     flex-direction: column;
     align-items: center;
     height: 38rem;
+    padding: 0;
     background-color: black !important;
+}
+@media screen and (max-width: 375px){
+    height: 40rem;
+    padding: 1rem;
 }
 `;
 export const Navegacion = styled.div`
@@ -38,14 +43,25 @@ h3{
       font-size: 1.5rem;
   }  
 }
+@media screen and (max-width: 768px){
+    width: 100%;
+    height: 7rem;
+    padding: 0;
+}
 @media screen and (max-width: 425px){
     width:100%;
+    padding: 0;
     text-align: center;
     h3{
         margin-top: 1rem;
         font-size: 2rem;
     }
 }
+@media screen and (max-width: 375px){
+    height: 10rem;
+    padding: .5rem;
+} 
+
 
 `;
 export const Navegacioncont = styled.div`
@@ -92,15 +108,24 @@ width: 15%;
      height: 100%;
 }
 @media screen and (max-width: 768px){
-    height: 100% ;
+    height: 5rem ;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 @media screen and (max-width: 425px){
     width: 100%;
     height: 30%;
-    padding: 0;
+    flex-direction: row;
 
 }
-
+@media screen and (max-width: 375px){
+    padding: 1rem;
+    height: 5rem;
+    flex-direction: row;
+}
 
 `;
 export const Redesiconos = styled.div`
@@ -135,6 +160,7 @@ svg{
       padding: 0;
       width: 100%;
       height: 100%;
+      
       svg{
           font-size: 2.5rem;
       }
@@ -151,10 +177,17 @@ width: 50%;
 @media screen and (max-width: 1440px){
 
 }
+@media screen and (max-width: 768px){
+    width: 100%;
+}
 @media screen and (max-width: 425px){
-        width: 100%;
-    }
+    width: 100%;
+}
 
+@media screen and (max-width: 375px){
+    padding: 0;
+    width: 100%;
+}
 `;
 
 export const Contactotitulo = styled.h3`
@@ -188,12 +221,13 @@ input{
         height:2rem ;
     }
 }
-@media screen and (max-width: 376px){
+@media screen and (max-width: 375px){
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     
     input{
-        flex-direction: row;
+        margin: .4rem 0 .4rem 0 ;
+        width: 17rem;
     }
 }
 
@@ -216,9 +250,11 @@ input{
         height: 2rem;
     }  
     }
-@media screen and (max-width: 376px){
+@media screen and (max-width: 375px){
     input{
-        margin: .2rem 0 0 .1rem !important;
+        width: 17rem;
+        height: 2rem;
+        margin: .4rem 0 .4rem 0;
     }
 }
 `;
@@ -237,6 +273,10 @@ width: 22.5rem;
 }
 @media screen and (max-width: 476px){
     height: 2rem;
+}
+@media screen and (max-width: 375px){
+    width: 17rem;
+    margin: .4rem 0 .4rem 0;
 }
 `; 
 export const Politicas = styled.div`
