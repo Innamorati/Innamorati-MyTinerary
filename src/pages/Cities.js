@@ -5,9 +5,14 @@ import {
     Buscador,
     BuscadorContenedor,
     Contenedor,
-    BotonBuscador,
+    CartasPrincipal,
+    CartasContenedor,
+    CartasImagen,
+    TituloCiudad,
+    ContendeorImagen,
 } from "../style/Cities.elements"
 import SearchIcon from '@mui/icons-material/Search';
+import Datos from "../dates/ciudades"
 
 function Cities() {
     
@@ -19,7 +24,19 @@ function Cities() {
                         
                     </Buscador>
                     <SearchIcon/>
-                </BuscadorContenedor>     
+                </BuscadorContenedor> 
+                <CartasPrincipal>
+                {Datos.map((ciudades)=>
+                    <CartasContenedor key={ciudades.id}>
+                        <ContendeorImagen>
+                            <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudades.Imagen}`}></CartasImagen>
+                        </ContendeorImagen>
+                        <TituloCiudad>
+                            {ciudades.ciudad}
+                        </TituloCiudad>
+                    </CartasContenedor>   
+                )}    
+                </CartasPrincipal>
             </Contenedor>
     );
 }
