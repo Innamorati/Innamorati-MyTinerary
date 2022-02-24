@@ -362,3 +362,11 @@ main {
     font-size: 1.2rem;
   }
 }
+@media (max-width: 320px) {
+  .destinos {
+    text-align: center;
+  }
+  .indexcontenedor {
+    height: 34rem;
+  }
+}

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Contenedor = styled.div`
-
+    background-color: black;
+    min-height: 100vh;
+    padding-top: 10px;
 `;
 
 export const Titulo = styled.h1`
-margin: .5rem 0;
 text-align: center;
+color: white;
 `;
 export const BuscadorContenedor = styled.div`
 width: 100%;

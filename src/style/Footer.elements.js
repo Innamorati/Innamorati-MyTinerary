@@ -14,8 +14,10 @@ padding: 2rem;
 @media screen and (max-width: 768px){
     flex-direction: column;
     height: 43rem;
+    padding: 0;
 }
 @media screen and (max-width: 425px){
+    padding: 0;
     flex-direction: column;
     align-items: center;
     height: 38rem;
@@ -38,7 +40,18 @@ h3{
       font-size: 1.5rem;
   }  
 }
+@media screen and (max-width: 768px){
+    width:100%;
+    padding: 0;
+    height: 10rem;
+    margin: 1rem 0 0 0 ;
+    h3{
+        font-size: 2rem;
+    }
+}
 @media screen and (max-width: 425px){
+    padding: 0;
+    height: 10rem;
     width:100%;
     text-align: center;
     h3{
@@ -75,6 +88,11 @@ text-decoration: none;
         font-size: 1.5rem;
     }
 }
+@media screen and (max-width: 768px){
+    a{
+        font-size: 2rem;
+    }
+}
 @media screen and (max-width: 476px){
     a{
         font-size: 2rem;
@@ -92,11 +110,16 @@ width: 15%;
      height: 100%;
 }
 @media screen and (max-width: 768px){
-    height: 100% ;
+    flex-direction: row;
+    height: 5rem ;
+    width: 100%;
+    padding: 0;
+    align-items: center;
 }
 @media screen and (max-width: 425px){
+    flex-direction: row;
     width: 100%;
-    height: 30%;
+    height: 15%;
     padding: 0;
 
 }
@@ -151,6 +174,10 @@ width: 50%;
 @media screen and (max-width: 1440px){
 
 }
+@media screen and (max-width: 768px){
+    width: 100%;
+    padding: 0;
+}
 @media screen and (max-width: 425px){
         width: 100%;
     }
@@ -162,6 +189,9 @@ color: white;
 margin: 0 0 0 .8rem ;
 @media screen and (max-width: 1440px){
     font-size: 2rem;
+}
+@media screen and (max-width: 768px){
+    margin: 0;
 }
 @media screen and (max-width: 476px){
         font-size: 1.8rem;
@@ -180,20 +210,37 @@ input{
     }
 }
 @media screen and (max-width: 784px){
-    display:flex;
     flex-direction: row;
-}
-@media screen and (max-width: 476px){
+   
     input{
-        height:2rem ;
+        height: 3rem;
+        width: 18.6rem;
+        margin: .4rem .4rem;
+        font-size: 1.8rem;
+        ::placeholder{
+            padding:.5rem;
+        }
+    
     }
 }
-@media screen and (max-width: 376px){
+@media screen and (max-width: 425px){
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    input{
+        height:2rem ;
+        width: 22rem;
+    }
+}
+@media screen and (max-width: 320px){
+    display: flex;
+    flex-direction: column;
     
     input{
         flex-direction: row;
+        width: 18rem;
+        font-size: .9rem;
+        font-weight: 600;
     }
 }
 
@@ -211,14 +258,28 @@ input{
         height: 2rem;
     }
 }
-@media screen and (max-width: 476px){
+@media screen and (max-width: 768px){
+    input{
+        height: 3rem;
+        width: 38rem;
+        margin: .4rem .4rem;
+        font-size: 1.8rem;
+        ::placeholder{
+            padding-left: .5rem;
+        }
+    }
+}
+@media screen and (max-width: 425px){
     input{
         height: 2rem;
+        width: 22rem;
     }  
     }
-@media screen and (max-width: 376px){
+@media screen and (max-width: 320px){
     input{
-        margin: .2rem 0 0 .1rem !important;
+        font-size: .9rem;
+        width: 18rem;
+        font-weight: 600;
     }
 }
 `;
@@ -235,8 +296,19 @@ width: 22.5rem;
 @media screen and (max-width: 1440px){
     height: 2rem;
 }
-@media screen and (max-width: 476px){
+@media screen and (max-width: 768px){
+  margin: .4rem .4rem;
+  height: 3rem;
+  width: 38rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 425px){
     height: 2rem;
+    width: 22rem;
+}
+@media screen and (max-width: 320px){
+  width: 18rem;
 }
 `; 
 export const Politicas = styled.div`
