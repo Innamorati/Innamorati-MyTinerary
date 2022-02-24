@@ -5,7 +5,7 @@ import Navbar from './components/navbar.js'
 import Cities from "./pages/Cities.js"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Piepagina from './components/footer';
-import Detalle from './pages/CitiesDetalles'
+import CitiesDetalles from './pages/CitiesDetalles'
 
 
 
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="*" element={<Index/>}></Route>
         <Route path="/Cities" element={<Cities/>}></Route>
-        <Route path="/Cities/Detalle/:id" element={<Detalle/>}></Route>
+        <Route path="/Cities/Detalle/:id" element={<CitiesDetalles/>}></Route>
      </Routes>
      <Piepagina/>
     </div>

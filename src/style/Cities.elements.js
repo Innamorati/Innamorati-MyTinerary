@@ -4,6 +4,9 @@ export const Contenedor = styled.div`
     background-color: black;
     min-height: 100vh;
     padding-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 `;
 
 export const Titulo = styled.h1`
@@ -35,7 +38,10 @@ justify-content: center;
 flex-wrap: wrap;
 
 `;
-
+export const BotonDetalle = styled.button`
+    background-color: black;
+    border: none;
+`;
 export const CartasContenedor = styled.div`
     margin: 1rem;
     height: 20rem;

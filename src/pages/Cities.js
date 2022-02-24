@@ -10,10 +10,11 @@ import {
     CartasImagen,
     TituloCiudad,
     ContendeorImagen,
+    BotonDetalle,
 } from "../style/Cities.elements"
 import SearchIcon from '@mui/icons-material/Search';
 import Datos from "../dates/ciudades"
-
+import {Link as LinkRouter} from "react-router-dom"
 function Cities() {
     
     return(
@@ -27,14 +28,18 @@ function Cities() {
                 </BuscadorContenedor> 
                 <CartasPrincipal>
                 {Datos.map((ciudades)=>
-                    <CartasContenedor key={ciudades.id}>
-                        <ContendeorImagen>
-                            <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudades.Imagen}`}></CartasImagen>
-                        </ContendeorImagen>
-                        <TituloCiudad>
-                            {ciudades.ciudad}
-                        </TituloCiudad>
-                    </CartasContenedor>   
+                    <BotonDetalle>
+                        <LinkRouter to={`Detalle/${ciudades.id}`}>
+                        <CartasContenedor key={ciudades.id}>
+                            <ContendeorImagen>
+                                <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudades.Imagen}`}></CartasImagen>
+                            </ContendeorImagen>
+                            <TituloCiudad>
+                                {ciudades.ciudad}
+                            </TituloCiudad>
+                        </CartasContenedor>   
+                        </LinkRouter>
+                    </BotonDetalle>
                 )}    
                 </CartasPrincipal>
             </Contenedor>
