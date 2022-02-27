@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios'
 import styled from "styled-components";
 import {
     Titulo,
@@ -13,10 +14,18 @@ import {
     BotonDetalle,
 } from "../style/Cities.elements"
 import SearchIcon from '@mui/icons-material/Search';
-import Datos from "../dates/ciudades"
 import {Link as LinkRouter} from "react-router-dom"
 function Cities() {
+
+    const [Datos, setDatos] = useState()
+    console.log(Datos)
+
+    useEffect(()=>{
+
+        axios.get(`http://localhost:4000/api/ciudades`)
+          .then(respuesta=>setDatos(respuesta.data.respuesta.ciudades))
     
+      },[])
     return(
             <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
@@ -42,7 +51,7 @@ function Cities() {
                     </BotonDetalle>
                 )}    
                 </CartasPrincipal>
-            </Contenedor>
+            </Contenedor> 
     );
 }
 export default Cities;

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import {useParams} from 'react-router-dom'
 import {Link as LinkRouter} from "react-router-dom"
 import Datos from '../dates/ciudades'
@@ -18,6 +18,10 @@ import {
 export default function CitiesDetalles(){
 const {id} = useParams()
 const ciudad = Datos.filter(datos => datos.id == id)
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
     return(
         <Contenedor>
             <CartasPrincipal>

@@ -1,0 +1,100 @@
+//MongoDB Playground
+//https://docs.mongodb.com/manual/crud/
+const database = 'MiTinerary'
+
+
+use(database);
+
+
+db.ciudades.drop();
+
+db.ciudades.insertMany([
+    {
+        
+        "ciudad": "Anchorage",
+        "Pais": "Estados Unidos",
+        "Imagen": "AnchorageAlaska.jpg"
+    },
+    {
+        
+        "ciudad": "Bariloche",
+        "Pais": "Argentina",
+        "Imagen": "bariloche.png"        
+    },
+    {
+        
+        "ciudad": "Brisbane",
+        "Pais": "Australia",
+        "Imagen": "Brisbane.jpg"        
+    },
+    {
+        
+        "ciudad": "Caracas",
+        "Pais": "Venezuela",
+        "Imagen": "caracas.png"        
+    }, 
+    {
+       
+        "ciudad": "Reikiavik",
+        "Pais": "Islandia",
+        "Imagen": "Islandia.jpg"        
+    },
+    {
+        
+        "ciudad": "Madrid",
+        "Pais": "España",
+        "Imagen": "Madrid.jpg"        
+    },
+    {
+        
+        "ciudad": "Moscu",
+        "Pais": "Rusia",
+        "Imagen": "moscu.jpg"        
+    },
+    {
+        
+        "ciudad": "New York",
+        "Pais": "Estados Unidos",
+        "Imagen": "NewYork.jpg"        
+    },  
+    {
+        
+        "ciudad": "Paris",
+        "Pais": "Francia",
+        "Imagen": "paris.jpg"        
+    }, 
+    {
+       
+        "ciudad": "Rio de Janeiro",
+        "Pais": "Brasil",
+        "Imagen": "Rio.jpg"        
+    },  
+    {
+        
+        "ciudad": "Santa Cruz",
+        "Pais": "Argentina",
+        "Imagen": "sancruz.jpg"        
+    }, 
+    {
+        
+        "ciudad": "Venezia",
+        "Pais": "Italia",
+        "Imagen": "Venezia.jpg"        
+    },
+    {
+        
+        "ciudad": "Antananarivo",
+        "Pais": "Madagascar",
+        "Imagen": "Antananarivo.jpg"        
+    },
+    {
+        "ciudad": "Fukuoka",
+        "Pais": "Japan",
+        "Imagen": "Fukuoka.jpg"        
+    },
+    { 
+        "ciudad": "Kenia",
+        "Pais": "South Africa",
+        "Imagen": "Kenia.jpg"        
+    },
+])

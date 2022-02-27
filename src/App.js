@@ -1,4 +1,4 @@
-
+import React, {useState} from 'react';
 import './App.css';
 import Index from './pages/index.js'
 import Navbar from './components/navbar.js'
@@ -9,7 +9,10 @@ import CitiesDetalles from './pages/CitiesDetalles'
 
 
 
-function App() {
+function App () {
+
+ 
+
   return (
     <BrowserRouter>
     <div className="App">
