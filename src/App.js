@@ -9,7 +9,7 @@ import CitiesDetalles from './pages/CitiesDetalles'
 
 
 
-function App () {
+export const App = () => {
 
  
 
@@ -29,4 +29,4 @@ function App () {
   );
 }
 
-export default App;
+

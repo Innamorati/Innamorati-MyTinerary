@@ -1,4 +1,4 @@
-const Datos = [
+const ArregloCiudades = [
     {
         "id": 0,
         "ciudad": "Anchorage",
@@ -72,4 +72,4 @@ const Datos = [
         "Imagen": "Venezia.jpg"        
     },             
 ]
-export default Datos;
+export default ArregloCiudades;
