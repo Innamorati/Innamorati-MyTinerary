@@ -36,6 +36,21 @@ padding: 0 5px 0 35px;
 export const Selector = styled.select`
 
 `;
+export const Avisobusqueda = styled.div`
+    height: 20rem;
+    width: 70%;
+    color: white;
+    display: ${({ visibilidad }) => (visibilidad ? 'none' : 'flex')};
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    svg{
+        color: white;
+        margin-top: 1rem;
+        font-size: 10rem;
+    }
+`;
 export const CartasPrincipal = styled.div`
 display: flex;
 justify-content: center;

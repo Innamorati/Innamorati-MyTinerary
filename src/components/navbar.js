@@ -10,6 +10,8 @@ import { grey } from '@mui/material/colors';
 import {Link as LinkRouter} from "react-router-dom"
 function NavBar(){
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    console.log(showMobileMenu)
+    console.log(<Menu></Menu>)
     return(
         
       <Container>

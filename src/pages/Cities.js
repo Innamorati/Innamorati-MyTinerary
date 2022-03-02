@@ -11,8 +11,10 @@ import {
     ContendeorImagen,
     BotonDetalle,
     Selector,
+    Avisobusqueda,
 } from "../style/Cities.elements"
 import SearchIcon from '@mui/icons-material/Search';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import axios from 'axios'
 import {Link as LinkRouter} from "react-router-dom"
 import {Datos} from '../llamadasApi/LlamadasApi'
@@ -31,7 +33,8 @@ import {Datos} from '../llamadasApi/LlamadasApi'
     const [busqueda, setBusqueda] = useState()
     var   [Datosfiltrados, setDatosfiltrados] = useState()
     var [filtroSelect, setFiltroSelect] = useState()
-    console.log(Datosfiltrados)
+    var [Vacio, setVacio] = useState(false)
+    var longitud = Datosfiltrados?.length
     var unsolodato = Ciudades?.map(ciudades => ciudades.Continente)
     const limpiar = new Set(unsolodato)
     var continentes = [...limpiar]
@@ -40,15 +43,19 @@ import {Datos} from '../llamadasApi/LlamadasApi'
     const parametroBusqueda=e=>{
         setBusqueda(e.target.value);
         filtrar(e.target.value);
-        console.log(e.target.value)
+
     } 
-    const filtrar =(terminoBusqueda)=>{
+    
+    
+    var filtrar =(parametroBusqueda)=>{
+        var sinespacios = parametroBusqueda.split(" ").join("")
         var resultadoBusqueda=filtroSelect.filter((ciudades)=>{
-           if(ciudades.ciudad.toString().toLowerCase().startsWith(terminoBusqueda.toLowerCase())){
+           if(ciudades.ciudad.toString().toLowerCase().startsWith(sinespacios.toLowerCase())){
                return ciudades;
            }
         })
         setDatosfiltrados(resultadoBusqueda)
+        
     }
     
     const filtroContinentes=e=>{
@@ -75,21 +82,27 @@ import {Datos} from '../llamadasApi/LlamadasApi'
             case 'todos':
                 filtroSelect = Ciudades.map(ciudad=>ciudad)
             break;
-            default:
-                filtroSelect = Ciudades.map(ciudad=>ciudad)
-            break;
         }
-        setDatosfiltrados(filtroSelect)
-        setFiltroSelect(filtroSelect)
-        console.log(filtroSelect)
-        
+        setDatosfiltrados(filtroSelect)   
     }
-    
+    var visibilidadAviso = () =>{
+        console.log(longitud)
+        if(longitud >= 1){
+            Vacio = true
+            console.log(Vacio)
+        }
+        else{
+            Vacio = false
+            console.log(Vacio)
+        }
+    }
+    visibilidadAviso()
+    console.log(<Avisobusqueda></Avisobusqueda>)
     return(
         <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <BuscadorContenedor>
-                    <Buscador type="search" value={busqueda} onChange={parametroBusqueda}></Buscador>
+                    <Buscador type="search" value={busqueda} onChange={parametroBusqueda} ></Buscador>
                     <Selector onChange={filtroContinentes}>
                         <option value="todos">Continent</option>
                         {continentes?.map((continente)=>
@@ -99,8 +112,12 @@ import {Datos} from '../llamadasApi/LlamadasApi'
                     
                     <SearchIcon/>
                 </BuscadorContenedor> 
+                <Avisobusqueda visibilidad={Vacio}>
+                    Sorry no match... Please try again.
+                    <ErrorOutlineIcon></ErrorOutlineIcon>
+                </Avisobusqueda>
                 <CartasPrincipal>
-                {Datosfiltrados?.map((ciudades)=>
+                {Datosfiltrados?.map ((ciudades)=> 
                     <BotonDetalle>
                         <LinkRouter to={`Detalle/${ciudades._id}`}>
                         <CartasContenedor key={ciudades.id}>
