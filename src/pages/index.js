@@ -28,13 +28,13 @@ import {Link as LinkRouter} from "react-router-dom"
             </div>
             </div>
             </div>
-            <div className="Excursiones">
                 <h2 className="destinos">Destinations for the most adventurous</h2>
-                <div className="segundocarrusel">
-                    <Carruselexpediciones/>
-                </div>
+            <div className="Excursiones">
+                <Carruselexpediciones/>
             </div>
-            <h2 className="destinos">Popular MYtineraries</h2>
+            <div>
+                <h2 className="destinos">Popular MYtineraries</h2>
+            </div>
         <Carrusel/>
         </main>
         </div>   

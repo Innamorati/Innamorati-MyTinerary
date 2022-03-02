@@ -29,14 +29,6 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.segundocarrusel {
-  height: 100%;
-}
-.Excursiones {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
 .frasecontenedor {
   width: 100%;
   display: flex;
@@ -271,18 +263,18 @@ main {
 }
 @media (max-width: 1440px) {
   .imagencontainer {
-    height: 64rem;
+    height: 61rem;
   }
   .indexcontenedor {
-    height: 58rem;
+    height: 51rem;
   }
 }
 @media (max-width: 1370px) {
   .imagencontainer {
-    height: 63rem;
+    height: 46rem;
   }
   .indexcontenedor {
-    height: 57rem;
+    height: 37rem;
   }
 }
 @media (max-width: 1280px) {
@@ -290,7 +282,7 @@ main {
     height: 64rem;
   }
   .indexcontenedor {
-    height: 58rem;
+    height: 54rem;
   }
 }
 @media (max-width: 1024px) {
@@ -315,7 +307,7 @@ main {
 }
 @media (max-width: 784px) {
   .indexcontenedor {
-    height: 33rem;
+    height: 30rem;
   }
   .logomenu {
     display: block;
@@ -327,7 +319,7 @@ main {
     top: 26%;
   }
   .destinos {
-    font-size: 2.5rem;
+    text-align: center;
   }
 }
 @media (max-width: 690px) {
@@ -355,11 +347,15 @@ main {
   }
 }
 @media (max-width: 375px) {
+  .indexcontenedor {
+    height: 31rem;
+  }
   .imagencontainer {
     height: 41rem;
   }
   .destinos {
-    font-size: 1.2rem;
+    text-align: center;
+    font-size: 2rem;
   }
 }
 @media (max-width: 320px) {
