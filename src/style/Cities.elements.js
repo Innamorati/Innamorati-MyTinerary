@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const Contenedor = styled.div`
     background-color: black;
-    min-height: 100vh;
+    width: 100%;
     padding-top: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    @media screen and (max-width: 320px){
+    height: 100%;
+}
 `;
 
 export const Titulo = styled.h1`
@@ -26,6 +29,11 @@ svg{
         transform: translateY(-50%);
         left: 12.5%;
     }
+@media screen and (max-width: 320px){
+    svg{
+        left: 4%;
+    }
+}
 `;
 export const Buscador = styled.input`
 width: 70%;
@@ -58,8 +66,12 @@ flex-wrap: wrap;
 
 `;
 export const BotonDetalle = styled.button`
+    width: 26rem;
     background-color: black;
     border: none;
+@media screen and (max-width: 320px){
+    width: 16rem;
+}
 `;
 export const CartasContenedor = styled.div`
     margin: 1rem;
@@ -81,6 +93,11 @@ export const CartasContenedor = styled.div`
             z-index: 2;
         }
     }
+ @media screen and (max-width: 320px){
+    height: 10rem;
+    width: 10rem;
+    margin: 0;
+}
 `;
 
 export const ContendeorImagen = styled.div`
@@ -88,15 +105,27 @@ height: 18rem;
 width: 25rem;
 border-radius: 10px;
 overflow: hidden;
+@media screen and (max-width: 320px){
+    width: 16rem;
+    height: 8rem;
+}
 `;
 export const  CartasImagen = styled.img`
 height: 18rem;
 width: 25rem;
 border-radius: 10px;
 transition: all 0.1s ease-in;
+@media screen and (max-width: 320px){
+    width: 16rem;
+    height: 9rem;
+    margin:0;
+}
 `;
 
 export const TituloCiudad = styled.h2`
 text-align: center;
 color: white;
+@media screen and (max-width: 320px){
+    height: 2rem;
+}
 `;
