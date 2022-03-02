@@ -83,7 +83,8 @@ import {Datos} from '../llamadasApi/LlamadasApi'
                 filtroSelect = Ciudades.map(ciudad=>ciudad)
             break;
         }
-        setDatosfiltrados(filtroSelect)   
+        setFiltroSelect(filtroSelect)
+        setDatosfiltrados(filtroSelect)  
     }
     var visibilidadAviso = () =>{
         console.log(longitud)
