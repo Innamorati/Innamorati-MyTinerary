@@ -26,11 +26,12 @@ const controladorCiudades = {
                      continente:Continente}).save()
             .then((respuesta) => res.json({respuesta}))
     },
-    borrarCiudad: async (req,res)=>{
+    borrarCiudad: async (req,res)=>{ 
         const id = req.params.id
         
 
            await Ciudades.findOneAndDelete({_id:id})
+           .then((respuesta) => res.json({respuesta}))
 
     },
     modificarCiudad: async (req, res)=>{

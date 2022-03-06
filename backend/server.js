@@ -3,7 +3,7 @@ const cors = require('cors')
 const express = require('express')
 require ('./configuracion/basededato')
 const Router = require('./rutas/rutas')
-const PORT = 4000 
+const PORT = 4000
 const app = express()
 
 

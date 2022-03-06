@@ -75,6 +75,7 @@ a {
   top: 40%;
   height: 2.8em;
   padding-right: 3.3em;
+  cursor: pointer;
 }
 
 .botonaccion .icon {

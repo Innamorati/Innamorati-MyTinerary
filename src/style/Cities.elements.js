@@ -15,6 +15,7 @@ export const Contenedor = styled.div`
 export const Titulo = styled.h1`
 text-align: center;
 color: white;
+margin-top: 2rem ;
 `;
 export const BuscadorContenedor = styled.div`
 width: 100%;
@@ -27,7 +28,7 @@ svg{
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        left: 12.5%;
+        left: 10.5%;
     }
 @media screen and (max-width: 320px){
     svg{
@@ -40,9 +41,21 @@ width: 70%;
 height: 2rem;
 font-size: 1rem;
 padding: 0 5px 0 35px;
+outline: none;
+
 `;
 export const Selector = styled.select`
-
+width: 8rem;
+font-size: 1.2rem;
+outline: none;
+option{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 100;
+    hover{
+        background-color:red !important;
+    }
+}
 `;
 export const Avisobusqueda = styled.div`
     height: 20rem;
@@ -79,7 +92,7 @@ export const CartasContenedor = styled.div`
     width: 25rem;
     transition: all 0.1s ease-in;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 3px;
     
     &:hover{
         transition: all 0.1s ease-in;
@@ -103,7 +116,7 @@ export const CartasContenedor = styled.div`
 export const ContendeorImagen = styled.div`
 height: 18rem;
 width: 25rem;
-border-radius: 10px;
+border-radius: 3px;
 overflow: hidden;
 @media screen and (max-width: 320px){
     width: 16rem;
@@ -113,8 +126,9 @@ overflow: hidden;
 export const  CartasImagen = styled.img`
 height: 18rem;
 width: 25rem;
-border-radius: 10px;
+border-radius: 3px;
 transition: all 0.1s ease-in;
+object-fit: cover;
 @media screen and (max-width: 320px){
     width: 16rem;
     height: 9rem;

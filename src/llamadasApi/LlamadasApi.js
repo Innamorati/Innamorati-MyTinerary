@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const Datos = async ()=>{
     try{
-        let data = await axios.get(`http://localhost:4000/api/ciudades`)
+        let data = await axios.get(`http://localhost:4000/api/todaslasciudades`)
         return data
     }
     catch(error){
@@ -21,7 +21,7 @@ export const  cargarDatos = async (ingresoDatos) => {
 }
 export const  eliminarCiudad = async (id) => {
     try {
-        let data = await axios.delete(`http://localhost:4000/api/V1/allcities/`)
+        let data = await axios.delete(`http://localhost:4000/api/todaslasciudades/${id}`)
         return data
     }
     catch (error) {

@@ -18,25 +18,27 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import axios from 'axios'
 import {Link as LinkRouter} from "react-router-dom"
 import {Datos} from '../llamadasApi/LlamadasApi'
+import { connect } from 'react-redux'
+import AccionesCiudades from "../redux/acciones/AccionesCiudades.js";
 
 
 
- function Cities() {
+function Cities() {
 
-     useEffect(()=>{
-         Datos()
-         .then(respuesta=> {setCiudades(respuesta.data.respuesta.ciudades); setDatosfiltrados(respuesta.data.respuesta.ciudades); setFiltroSelect(respuesta.data.respuesta.ciudades)})
-           
-     },[])
+    componentDidMount(); {
+        console.log("estoy montando el componente")
+    }
+     
      
     const [Ciudades, setCiudades] = useState()
     const [busqueda, setBusqueda] = useState()
-    var   [Datosfiltrados, setDatosfiltrados] = useState()
-    var [filtroSelect, setFiltroSelect] = useState()
-    var [Vacio, setVacio] = useState(false)
+    const   [Datosfiltrados, setDatosfiltrados] = useState()
+    const [filtroSelect, setFiltroSelect] = useState()
+    var Vacio = false
     var longitud = Datosfiltrados?.length
+    console.log(Vacio)
     var unsolodato = Ciudades?.map(ciudades => ciudades.Continente)
-    const limpiar = new Set(unsolodato)
+    var limpiar = new Set(unsolodato)
     var continentes = [...limpiar]
    
 
@@ -90,24 +92,22 @@ import {Datos} from '../llamadasApi/LlamadasApi'
         console.log(longitud)
         if(longitud >= 1){
             Vacio = true
-            console.log(Vacio)
+            
         }
         else{
             Vacio = false
-            console.log(Vacio)
         }
     }
     visibilidadAviso()
-    console.log(<Avisobusqueda></Avisobusqueda>)
     return(
         <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <BuscadorContenedor>
                     <Buscador type="search" value={busqueda} onChange={parametroBusqueda} ></Buscador>
                     <Selector onChange={filtroContinentes}>
-                        <option value="todos">Continent</option>
-                        {continentes?.map((continente)=>
-                            <option value={continente} onChange={filtroContinentes} >{continente}</option>
+                        <option value="todos">All continents</option>
+                        {continentes?.map((continente, index)=>
+                            <option value={continente} key={index} onChange={filtroContinentes} >{continente}</option>
                             )}
                     </Selector>
                     
@@ -133,7 +133,16 @@ import {Datos} from '../llamadasApi/LlamadasApi'
                     </BotonDetalle>
                 )}    
                 </CartasPrincipal>
-            </Contenedor> 
-    );
+            </Contenedor>
+    )
 }
-export default Cities;
+
+const mapDispatchToProps = {
+    ObetenerCiudades: AccionesCiudades.ObtenerCiudades,
+}
+const mapStateToProps = (state)=>{
+    return{
+        productos: state.ReducerCiudades.ciudades
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Cities);
