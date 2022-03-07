@@ -61,7 +61,8 @@ export const Avisobusqueda = styled.div`
     height: 20rem;
     width: 70%;
     color: white;
-    display: ${({ visibilidad }) => (visibilidad ? 'none' : 'flex')};
+    /* display: ${({ visibilidad }) => (visibilidad ? 'none' : 'flex')}; */
+    display: none; 
     flex-direction: column;
     justify-content: center;
     align-items: center;

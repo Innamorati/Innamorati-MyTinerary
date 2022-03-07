@@ -19,9 +19,9 @@ export const  cargarDatos = async (ingresoDatos) => {
         throw error
     }
 }
-export const  eliminarCiudad = async (id) => {
+export const  BorrarCiudad = async (id) => {
     try {
-        let data = await axios.delete(`http://localhost:4000/api/todaslasciudades/${id}`)
+        let data = await axios.delete(`http://localhost:4000/api/ciudad/${id}`)
         return data
     }
     catch (error) {
@@ -35,6 +35,15 @@ export const  modificarCiudad = async (id,dataInput) => {
         return data
     }
     catch (error) {
+        throw error
+    }
+}
+export const ObtenerUnaCiudad = async (id) =>{
+    try{
+        let data = await axios.get(`http://localhost:4000/api/ciudad/${id}`)
+        return data 
+    }
+    catch(error){
         throw error
     }
 }

@@ -5,10 +5,12 @@ import Navbar from './components/navbar.js'
 import Cities from "./paginas/Cities.js"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Piepagina from './components/footer';
-import CitiesDetalles from './paginas/CitiesDetalles'
+import Detalleciudades from './paginas/CitiesDetalles'
 import Controlciudades from './paginas/Controlciudades'
+import { withRouter } from './components/withRouter';
 
 
+const DetallesCiudadwithRouter = withRouter(Detalleciudades)
 
 export const App = () => {
 
@@ -21,8 +23,8 @@ export const App = () => {
       <Routes>
         <Route path="*" element={<Index/>}></Route>
         <Route path="/Cities" element={<Cities/>}></Route>
-        <Route path="/Cities/Detalle/:id" element={<CitiesDetalles/>}></Route>
-        <Route path="/Control" element={<Controlciudades/>}></Route>
+        <Route path="/Cities/Detalle/:id" element={<DetallesCiudadwithRouter/>}></Route>
+        <Route path="/Cities/Control" element={<Controlciudades/>}></Route>
      </Routes>
      <Piepagina/>
     </div>

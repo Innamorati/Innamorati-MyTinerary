@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from 'react-router-dom'
+import React from "react";
+
 import {Link as LinkRouter} from "react-router-dom"
 import {
     Contenedor,
@@ -13,32 +13,38 @@ import {
     Titulo,
     BotonVolver,
 }from '../style/Detalles.elementos'
-import {Datos} from '../llamadasApi/LlamadasApi'
+import { connect } from "react-redux";
+import AccionesCiudades from "../redux/acciones/AccionesCiudades";
 
-export default function CitiesDetalles(){
-    const [Ciudades, setCiudades] = useState()
-    const {id} = useParams()
-    const ciudad = Ciudades?.filter(datos => datos._id == id)
-    useEffect(()=>{
-        window.scrollTo(0,0)
 
-        Datos()
-        .then(respuesta=> setCiudades(respuesta.data.respuesta.ciudades))
-    },[])
 
+
+class CitiesDetalles extends React.Component{
+    
+    // state = {ciudad:{}}
+    id = this.props.params
+    
+    componentDidMount(){
+        this.props.ObtenerUnaCiudad(this.id)
+    }
+    
+
+
+
+    render(){
+        console.log(this.props.params)
+        console.log(this.props)
     return(
         <Contenedor>
             <CartasPrincipal>
-                {ciudad?.map((ciudad)=>
                     <CartasContenedor>
                         <ContendeorImagen>
-                            <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudad.Imagen}`}/> 
+                            <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${this.props.ciudadDetalle.Imagen}`}/> 
                         </ContendeorImagen>
                         <TituloCiudad>
-                            {ciudad.ciudad}
+                            {this.props.ciudadDetalle.Ciudad}
                         </TituloCiudad>    
                     </CartasContenedor>
-            )}  
             </CartasPrincipal> 
             <Titulo>
                 Under Construction
@@ -48,5 +54,16 @@ export default function CitiesDetalles(){
             </LinkRouter>
        </Contenedor>
     )
-
+    }
 }
+const mapDispatchToProps = {
+    ObtenerUnaCiudad: AccionesCiudades.ObtenerUnaCiudad,
+}
+
+const mapStateToProps =(state)=>{
+    return{
+        ciudades: state.ReducerCiudades.ciudades,
+        ciudadDetalle: state.ReducerCiudades.ciudadDetalle,
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesDetalles)

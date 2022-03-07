@@ -15,16 +15,28 @@ import {Datos} from '../llamadasApi/LlamadasApi'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EditIcon from '@mui/icons-material/Edit';
+import {connect} from 'react-redux'
+import AccionesCiudades from "../redux/acciones/AccionesCiudades.js";
+import {useSelector} from 'react-redux'
 
-function ControlCiudades(){
-    useEffect(()=>{
-        window.scrollTo(0,0)
-         Datos()
-         .then(respuesta=> {setCiudades(respuesta.data.respuesta.ciudades)})
-           
-     },[])
-    const [Ciudades, setCiudades] = useState()
-    console.log(Ciudades)
+class  ControlCiudades extends React.Component {
+    // state ={
+    //     arrayCiudades:[]
+    // }
+
+    componentDidMount() {
+        this.props.ObtenerCiudades()       
+    }
+
+    handleDelete = (id) => {
+        this.props.BorrarCiudad(id)
+        console.log('borrar ciudad id '+id)
+        
+    }
+    
+
+render(){
+    console.log(this.props.ciudades)
 return(
     <Contenedor>
     <Titulo>
@@ -40,16 +52,20 @@ return(
                 <Th>Continente</Th>
                 <Th>Id</Th>
             </Tr>
-            {Ciudades?.map((datos, index) =>
-                <Tr key={index}>
-                    <Td>{datos.ciudad}</Td>
-                    <Td>{datos.Pais}</Td>
-                    <Td>{datos.Imagen}</Td>
-                    <Td>{datos.Continente}</Td>
-                    <Td>{datos._id}</Td>
-                    <Td><DeleteOutlineIcon></DeleteOutlineIcon></Td>
-                </Tr>
-            )}
+            { this.props.ciudades && this.props.ciudades.map((datos) =>{
+
+                return(
+                    <Tr key={datos._id}>
+                        <Td>{datos.ciudad}</Td>
+                        <Td>{datos.Pais}</Td>
+                        <Td>{datos.Imagen}</Td>
+                        <Td>{datos.Continente}</Td>
+                        <Td>{datos._id}</Td>
+                        <Td><DeleteOutlineIcon onClick={()=>this.handleDelete(datos._id)}></DeleteOutlineIcon></Td>
+                    </Tr>
+                )
+                })   
+            }
         </Cuerpotabla>
     </Tabla>
     </ContenedorTabla>
@@ -60,4 +76,18 @@ return(
     </Contenedor>
 );
 }
-export default ControlCiudades;
+}
+const mapDispatchToProps = {
+    ObtenerCiudades: AccionesCiudades.ObtenerCiudades,
+    BorrarCiudad: AccionesCiudades.BorrarCiudad,
+}
+const mapStateToProps = (state)=>{
+    return{
+        ciudades: state.ReducerCiudades.ciudades,
+        filtroselect: state.ReducerCiudades.filtroselect,
+        datosfiltrados: state.ReducerCiudades.datosfiltrados,
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ControlCiudades);

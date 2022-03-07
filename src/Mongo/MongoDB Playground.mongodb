@@ -11,103 +11,103 @@ db.ciudades.drop();
 db.ciudades.insertMany([
     {
         
-        "ciudad": "Anchorage",
+        "Ciudad": "Anchorage",
         "Pais": "Estados Unidos",
         "Imagen": "AnchorageAlaska.jpg",
         "Continente": "America"
     },
     {
         
-        "ciudad": "Bariloche",
+        "Ciudad": "Bariloche",
         "Pais": "Argentina",
         "Imagen": "bariloche.png",
         "Continente": "America"       
     },
     {
         
-        "ciudad": "Brisbane",
+        "Ciudad": "Brisbane",
         "Pais": "Australia",
         "Imagen": "Brisbane.jpg",
         "Continente": "Oceania"       
     },
     {
         
-        "ciudad": "Caracas",
+        "Ciudad": "Caracas",
         "Pais": "Venezuela",
         "Imagen": "caracas.png",
         "Continente": "America"       
     }, 
     {
        
-        "ciudad": "Reikiavik",
+        "Ciudad": "Reikiavik",
         "Pais": "Islandia",
         "Imagen": "Islandia.jpg",
         "Continente": "Europe"        
     },
     {
         
-        "ciudad": "Madrid",
+        "Ciudad": "Madrid",
         "Pais": "España",
         "Imagen": "Madrid.jpg", 
         "Continente": "Europe"       
     },
     {
         
-        "ciudad": "Moscu",
+        "Ciudad": "Moscu",
         "Pais": "Rusia",
         "Imagen": "moscu.jpg", 
         "Continente": "Europe"       
     },
     {
         
-        "ciudad": "New York",
+        "Ciudad": "New York",
         "Pais": "Estados Unidos",
         "Imagen": "NewYork.jpg", 
         "Continente": "America"       
     },  
     {
         
-        "ciudad": "Paris",
+        "Ciudad": "Paris",
         "Pais": "Francia",
         "Imagen": "paris.jpg", 
         "Continente": "Europe"       
     }, 
     {
        
-        "ciudad": "Rio de Janeiro",
+        "Ciudad": "Rio de Janeiro",
         "Pais": "Brasil",
         "Imagen": "Rio.jpg",
         "Continente": "America"        
     },  
     {
         
-        "ciudad": "Santa Cruz",
+        "Ciudad": "Santa Cruz",
         "Pais": "Argentina",
         "Imagen": "sancruz.jpg", 
         "Continente": "America"       
     }, 
     {
         
-        "ciudad": "Venezia",
+        "Ciudad": "Venezia",
         "Pais": "Italia",
         "Imagen": "Venezia.jpg",
         "Continente": "Europe"       
     },
     {
         
-        "ciudad": "Antananarivo",
+        "Ciudad": "Antananarivo",
         "Pais": "Madagascar",
         "Imagen": "Antananarivo.jpg",
         "Continente": "Africa"        
     },
     {
-        "ciudad": "Fukuoka",
+        "Ciudad": "Fukuoka",
         "Pais": "Japan",
         "Imagen": "Fukuoka.jpg",
         "Continente": "Asia"        
     },
     { 
-        "ciudad": "Kenia",
+        "Ciudad": "Kenia",
         "Pais": "South Africa",
         "Imagen": "Kenia.jpg", 
         "Continente": "Africa"       

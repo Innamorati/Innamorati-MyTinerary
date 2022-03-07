@@ -18,6 +18,20 @@ const controladorCiudades = {
             error: error 
         })
     },
+    BorrarCiudad: async(req,res)=>{
+        const id = req.params.id
+        let ciudad
+
+        try{
+            await Ciudades.findOneAndDelete({_id:id})
+            ciudad = await Ciudades.find()
+
+        }catch(error){
+            console.log(error)
+        }
+        res.json({respuesta: ciudad,success:true})
+
+    },
     cargarCiudad: async(req,res)=>{
         console.log(req.body)
         const {Ciudad, Pais, Continente,} = req.body.dataInput
@@ -26,14 +40,6 @@ const controladorCiudades = {
                      continente:Continente}).save()
             .then((respuesta) => res.json({respuesta}))
     },
-    borrarCiudad: async (req,res)=>{ 
-        const id = req.params.id
-        
-
-           await Ciudades.findOneAndDelete({_id:id})
-           .then((respuesta) => res.json({respuesta}))
-
-    },
     modificarCiudad: async (req, res)=>{
         const id = req.params.id
         const ciudad = req.body.dataInput
@@ -41,6 +47,27 @@ const controladorCiudades = {
         let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
          console.log(ciudadb)
 
-    }
+    },
+    obtenerUnaCiudad: async (req, res)=>{
+        const id =req.params.id
+        console.log(req.params)
+        
+        let seleccionada
+        let error = null
+
+        try{
+            seleccionada = await Ciudades.findOne({_id:id})
+            
+        }catch(err){
+            error = err
+            console.log(error)
+        }
+        res.json({
+            respuesta: error ? 'ERROR' : seleccionada, 
+            success: error ? false : true,
+            error: error
+        })
+
+    },
 }
 module.exports = controladorCiudades
