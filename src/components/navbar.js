@@ -21,7 +21,7 @@ function NavBar(){
                </IconoMenu>
             <ContenedorLogo>
                 <img className="logomain" src={Logo}></img>
-                <p>Mi Tinerary</p>
+                <p>MyTinerary</p>
             </ContenedorLogo>
             <Menu open={showMobileMenu}>
                 <MenuItem>

@@ -1,22 +1,8 @@
 import React from "react";
-
-import {Link as LinkRouter} from "react-router-dom"
-import {
-    Contenedor,
-    CartasPrincipal,
-    CartasContenedor,
-    ContendeorImagen,
-    CartasImagen,
-    TituloCiudad,
-} from '../style/Cities.elements'
-import {
-    Titulo,
-    BotonVolver,
-}from '../style/Detalles.elementos'
+import CiudadDetalleCiudad from "../components/CiudadDetalle.Ciudad";
 import { connect } from "react-redux";
 import AccionesCiudades from "../redux/acciones/AccionesCiudades";
-
-
+import CiudadDetallesIntinerario from "../components/CiudadDetallesIntinerario";
 
 
 class CitiesDetalles extends React.Component{
@@ -33,26 +19,12 @@ class CitiesDetalles extends React.Component{
 
     render(){
         console.log(this.props.params)
-        console.log(this.props)
+        console.log(this.props.ciudadDetalle)
     return(
-        <Contenedor>
-            <CartasPrincipal>
-                    <CartasContenedor>
-                        <ContendeorImagen>
-                            <CartasImagen src={process.env.PUBLIC_URL+`/imagenes/ciudades/${this.props.ciudadDetalle.Imagen}`}/> 
-                        </ContendeorImagen>
-                        <TituloCiudad>
-                            {this.props.ciudadDetalle.Ciudad}
-                        </TituloCiudad>    
-                    </CartasContenedor>
-            </CartasPrincipal> 
-            <Titulo>
-                Under Construction
-            </Titulo>
-            <LinkRouter to={`/Cities`}>
-                <BotonVolver>To return</BotonVolver>      
-            </LinkRouter>
-       </Contenedor>
+        <div>
+        <CiudadDetalleCiudad/>
+        <CiudadDetallesIntinerario/>
+        </div>
     )
     }
 }

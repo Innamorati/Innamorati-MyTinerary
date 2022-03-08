@@ -12,104 +12,134 @@ db.ciudades.insertMany([
     {
         
         "Ciudad": "Anchorage",
-        "Pais": "Estados Unidos",
+        "Pais": "United State",
         "Imagen": "AnchorageAlaska.jpg",
-        "Continente": "America"
+        "Continente": "America",
+        "Moneda": "U.S Dollar",
+        "Descripcion": "Anchorage, city (municipality), south-central Alaska, U.S. Lying at the base of the Chugach Mountains, it is a port at the head of Cook Inlet (a bay of the Pacific Ocean).In 1835 Russians established a mission across the inlet from the area that constitutes the modern city of Anchorage. After gold was discovered in the late 19th century, the area’s population surged. Anchorage was founded in 1914 as the headquarters of the Alaska Railroad running north to Fairbanks. A railway link with Seward was finished in 1918, and five years later the entire Alaska Railroad was completed. In the 1930s, during the Dust Bowl drought that devastated agriculture in much of the central continental United States, settlers from the American Midwest were given federal assistance to move to the Anchorage area to develop an agricultural community.",
     },
     {
         
         "Ciudad": "Bariloche",
         "Pais": "Argentina",
         "Imagen": "bariloche.png",
-        "Continente": "America"       
+        "Continente": "America",
+        "Moneda": "Argentine peso",
+        "Descripcion": "San Carlos de Bariloche, also called Bariloche, resort town, Río Negro provincia (province), southwestern Argentina. It lies on the southeastern shore of Lake Nahuel Huapí, in the Andean lake district.Chalet-type building construction, introduced in 1905 by Swiss immigrants, provides an appropriate setting for skiing in the winter months on the slopes of the nearby V. López and Otto peaks, while the many lakes and streams afford opportunities for fishing. The picturesque scenery of the area, designated as Nahuel Huapí National Park in 1934, inspired the setting for Walt Disney’s film Bambi",      
     },
     {
         
         "Ciudad": "Brisbane",
         "Pais": "Australia",
         "Imagen": "Brisbane.jpg",
-        "Continente": "Oceania"       
+        "Continente": "Oceania",
+        "Moneda": "Australian dollar",
+        "Descripcion": "Brisbane, port, capital of Queensland, Australia, and the country’s third largest city. It lies astride the Brisbane River on the southern slopes of the Taylor Range, 12 miles (19 km) above the river’s mouth at Moreton Bay.The site, first explored in 1823 by John Oxley, was occupied in 1824 by a penal colony, which had moved from Redcliffe (22 miles [35 km] northeast). The early name, Edenglassie, was changed to honour Sir Thomas Makdougall Brisbane, governor of New South Wales (1821–25), when the convict settlement was declared a town in 1834. Officially, freemen could not settle within 50 miles (80 km) of the colony until its penal function was abandoned in 1839, but this ban proved ineffective. A short-lived rivalry for eminence with the town of Cleveland was ended when the latter’s wharves burned in 1854, allowing Brisbane to become the leading port. Proclaimed a municipality in 1859, it became the capital of newly independent Queensland that same year.",       
     },
     {
         
         "Ciudad": "Caracas",
         "Pais": "Venezuela",
         "Imagen": "caracas.png",
-        "Continente": "America"       
+        "Continente": "America",
+        "Moneda": "Bolivar and dollar",
+        "Descripcion": "Caracas, city, capital of Venezuela, and one of the principal cities of South America. It is Venezuela’s largest urban agglomeration and the country’s primary centre of industry, commerce, education, and culture. Founded in 1567 as Santiago de León de Caracas, the city grew slowly until the 1940s, after which it expanded by monumental proportions, and its influence came to extend to even the remotest parts of the country. In addition to its role as the national capital, Caracas serves as the seat of government for the Capital District, comprising an area of 167 square miles (433 square km). The city itself, however, spreads across the Capital District boundary, a considerable part of its area lying in the state of Miranda, which borders the district on the east and south",       
     }, 
     {
        
-        "Ciudad": "Reikiavik",
-        "Pais": "Islandia",
+        "Ciudad": "Reykjavik",
+        "Pais": "Iceland",
         "Imagen": "Islandia.jpg",
-        "Continente": "Europe"        
+        "Continente": "Europe",
+        "Moneda": "Króna", 
+        "Descripcion": "Reykjavik, on the coast of Iceland, is the country's capital and largest city. It's home to the National and Saga museums, tracing Iceland’s Viking history. The striking concrete Hallgrimskirkja church and rotating Perlan glass dome offer sweeping views of the sea and nearby hills. Exemplifying the island’s volcanic activity is the geothermal Blue Lagoon spa, near the village of Grindavik.",       
     },
     {
         
         "Ciudad": "Madrid",
-        "Pais": "España",
+        "Pais": "Spain",
         "Imagen": "Madrid.jpg", 
-        "Continente": "Europe"       
+        "Continente": "Europe",
+        "Moneda": "Euro",  
+        "Descripcion": "Madrid, city, capital of Spain and of Madrid provincia (province). Spain’s arts and financial centre, the city proper and province form a comunidad autónoma (autonomous community) in central Spain. Madrid’s status as the national capital reflects the centralizing policy of the 16th-century Spanish king Philip II and his successors. The choice of Madrid, however, was also the result of the city’s previous obscurity and neutrality: it was chosen because it lacked ties with an established nonroyal power rather than because of any strategic, geographic, or economic considerations.",     
     },
     {
         
-        "Ciudad": "Moscu",
-        "Pais": "Rusia",
+        "Ciudad": "Moscow",
+        "Pais": "Russia",
         "Imagen": "moscu.jpg", 
-        "Continente": "Europe"       
+        "Continente": "Europe",
+        "Moneda": "Ruble",
+        "Descripcion": "Moscow, Russian Moskva, city, capital of Russia, located in the far western part of the country. Since it was first mentioned in the chronicles of 1147, Moscow has played a vital role in Russian history. It became the capital of Muscovy (the Grand Principality of Moscow) in the late 13th century; hence, the people of Moscow are known as Muscovites. Today Moscow is not only the political centre of Russia but also the country’s most populous city and its industrial, cultural, scientific, and educational capital. For more than 600 years Moscow also has been the spiritual centre of the Russian Orthodox Church.",      
     },
     {
         
         "Ciudad": "New York",
-        "Pais": "Estados Unidos",
+        "Pais": "United Stated",
         "Imagen": "NewYork.jpg", 
-        "Continente": "America"       
+        "Continente": "America",
+        "Moneda": "U.S. dollar",
+        "Descripcion": "New York City, officially the City of New York, historically New Amsterdam, the Mayor, Alderman, and Commonality of the City of New York, and New Orange, byname the Big Apple, city and port located at the mouth of the Hudson River, southeastern New York state, northeastern U.S. It is the largest and most influential American metropolis, encompassing Manhattan and Staten islands, the western sections of Long Island, and a small portion of the New York state mainland to the north of Manhattan. New York City is in reality a collection of many neighbourhoods scattered among the city’s five boroughs—Manhattan, Brooklyn, the Bronx, Queens, and Staten Island—each exhibiting its own lifestyle.",       
     },  
     {
         
         "Ciudad": "Paris",
-        "Pais": "Francia",
+        "Pais": "France",
         "Imagen": "paris.jpg", 
-        "Continente": "Europe"       
+        "Continente": "Europe",
+        "Moneda": "Euro",
+        "Descripcion": "There are a thousand things to do and see in Paris and however much time you have here, it won’t be enough: Climb to the top of the Eiffel Tower, stroll down the Champs Elysées, visit the Louvre, see many shows and exhibitions, or simply wander along the banks of the Seine...read in French in the Tuileries garden, and quite simply take the time to experience the Parisian way of life!",       
     }, 
     {
        
         "Ciudad": "Rio de Janeiro",
-        "Pais": "Brasil",
+        "Pais": "Brazil",
         "Imagen": "Rio.jpg",
-        "Continente": "America"        
+        "Continente": "America",
+        "Moneda": "Brazilian real",
+        "Descripcion": "Rio de Janeiro is a huge seaside city in Brazil, famed for its Copacabana and Ipanema beaches, 38m Christ the Redeemer statue atop Mount Corcovado and for Sugarloaf Mountain, a granite peak with cable cars to its summit. The city is also known for its sprawling favelas (shanty towns). Its raucous Carnaval festival, featuring parade floats, flamboyant costumes and samba dancers, is considered the world’s largest.",        
     },  
     {
         
         "Ciudad": "Santa Cruz",
         "Pais": "Argentina",
         "Imagen": "sancruz.jpg", 
-        "Continente": "America"       
+        "Continente": "America",
+        "Moneda": "Argentine peso",
+        "Descripcion": "Santa Cruz is a province in Argentina's Patagonian region, in the southern part of the country. It's set between the Andes mountains to the west and the Atlantic Ocean to the east. Los Glaciares National Park, home to the massive Perito Moreno Glacier, is known for its ever-shifting icy landscape. El Chaltén and El Calafate are towns that act as hubs for exploring Los Glaciares.",       
     }, 
     {
         
-        "Ciudad": "Venezia",
-        "Pais": "Italia",
+        "Ciudad": "Venice",
+        "Pais": "Italy",
         "Imagen": "Venezia.jpg",
-        "Continente": "Europe"       
+        "Continente": "Europe",
+        "Moneda": "Euro",
+        "Descripcion": "Venice, the capital of northern Italy’s Veneto region, is built on more than 100 small islands in a lagoon in the Adriatic Sea. It has no roads, just canals – including the Grand Canal thoroughfare – lined with Renaissance and Gothic palaces. The central square, Piazza San Marco, contains St. Mark’s Basilica, which is tiled with Byzantine mosaics, and the Campanile bell tower offering views of the city’s red roofs",       
     },
     {
         
         "Ciudad": "Antananarivo",
         "Pais": "Madagascar",
         "Imagen": "Antananarivo.jpg",
-        "Continente": "Africa"        
+        "Continente": "Africa",
+        "Moneda": "Ariary malgache",
+        "Descripcion": "Antananarivo is the capital city of Madagascar, in the island’s Central Highlands. Overlooking the city, the Rova of Antananarivo palace complex was the center of the Merina kingdom from the 17th century. It features wooden houses and royal tombs. The pink baroque Andafiavaratra Palace sits in the nearby Haute Ville neighborhood. In the city center, heart-shaped Lake Anosy is ringed by jacaranda trees",        
     },
     {
         "Ciudad": "Fukuoka",
         "Pais": "Japan",
         "Imagen": "Fukuoka.jpg",
-        "Continente": "Asia"        
+        "Continente": "Asia",
+        "Moneda": "Japanese yen", 
+        "Descripcion": "Fukuoka, capital of Fukuoka Prefecture, sits on the northern shore of Japan’s Kyushu Island. It’s known for ancient temples, beaches and modern shopping malls, including Canal City. Maizuru Park contains ruins of 17th-century Fukuoka Castle. The central Hakata district contains Tōchō-ji Temple, home to a 10m wooden Buddha and the Hakata Machiya Folk Museum, with displays on daily life in the Meiji and Taishō eras.",       
     },
     { 
-        "Ciudad": "Kenia",
+        "Ciudad": "Kenya",
         "Pais": "South Africa",
         "Imagen": "Kenia.jpg", 
-        "Continente": "Africa"       
+        "Continente": "Africa",
+        "Moneda": "South African rand",
+        "Descripcion": "Kenya is a country in East Africa with coastline on the Indian Ocean. It encompasses savannah, lakelands, the dramatic Great Rift Valley and mountain highlands. It's also home to wildlife like lions, elephants and rhinos. From Nairobi, the capital, safaris visit the Maasai Mara Reserve, known for its annual wildebeest migrations, and Amboseli National Park, offering views of Tanzania's 5,895m Mt. Kilimanjaro.",       
     },
 ])
