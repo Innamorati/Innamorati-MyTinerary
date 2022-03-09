@@ -3,8 +3,9 @@ import CiudadDetalleCiudad from "../components/CiudadDetalle.Ciudad";
 import { connect } from "react-redux";
 import AccionesCiudades from "../redux/acciones/AccionesCiudades";
 import CiudadDetallesIntinerario from "../components/CiudadDetallesIntinerario";
-
-
+import AccionesItinerarios from "../redux/acciones/AccionesItinerarios";
+import {DetalleItinerarioswhithRouter} from '../App'
+import CartaB from '../components/CartaB'
 class CitiesDetalles extends React.Component{
     
     // state = {ciudad:{}}
@@ -18,12 +19,14 @@ class CitiesDetalles extends React.Component{
 
 
     render(){
-        console.log(this.props.params)
-        console.log(this.props.ciudadDetalle)
+        // console.log(this.props)
     return(
         <div>
         <CiudadDetalleCiudad/>
-        <CiudadDetallesIntinerario/>
+        <CartaB>
+            
+        </CartaB>
+        {/* <DetalleItinerarioswhithRouter/> */}
         </div>
     )
     }
@@ -35,7 +38,8 @@ const mapDispatchToProps = {
 const mapStateToProps =(state)=>{
     return{
         ciudades: state.ReducerCiudades.ciudades,
-        ciudadDetalle: state.ReducerCiudades.ciudadDetalle,
+        
+        
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CitiesDetalles)

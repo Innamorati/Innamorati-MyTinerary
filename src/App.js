@@ -8,8 +8,9 @@ import Piepagina from './components/footer';
 import Detalleciudades from './paginas/CitiesDetalles'
 import Controlciudades from './paginas/Controlciudades'
 import { withRouter } from './components/withRouter';
+import CiudadDetallesIntinerario from './components/CiudadDetallesIntinerario';
 
-
+export const DetalleItinerarioswhithRouter = withRouter(CiudadDetallesIntinerario)
 const DetallesCiudadwithRouter = withRouter(Detalleciudades)
 
 export const App = () => {

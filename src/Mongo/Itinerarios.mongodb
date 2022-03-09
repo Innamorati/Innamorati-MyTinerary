@@ -1,0 +1,21 @@
+//MongoDB Playground
+//https://docs.mongodb.com/manual/crud/
+const database = 'MiTinerary'
+
+
+use(database);
+
+
+db.itinerarios.drop();
+
+db.itinerarios.insertMany([
+  {
+    "Actividad":"Patinaje en hielo",
+    "FotoUsuario":"Juca.jpg",
+    "NombreUsuaio":"Juan Carlos",
+    "Duracion":"4",
+    "Like":"0",
+    "Precio": "5",
+    "Etiquetas":"INeedSleep",
+  },      
+])

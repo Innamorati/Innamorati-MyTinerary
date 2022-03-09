@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {
     Titulo,
     Buscador,
@@ -36,8 +36,6 @@ class Cities extends React.Component {
     }
     
     render(){
-        console.log(this.props)
-        
         return(
          <Contenedor>
                 <Titulo>Find your perfect city</Titulo>

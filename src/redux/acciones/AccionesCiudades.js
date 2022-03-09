@@ -28,8 +28,6 @@ import axios from 'axios';
     ObtenerUnaCiudad: (id)=>{
         return async(despachar, getState)=>{
             const respuesta = await axios.get('http://localhost:4000/api/Cities/Detalles/'+id.id)
-            console.log(respuesta.data)
-            console.log(id.id)
             despachar({type:'ObtenerUnaCiudad', payload:respuesta.data.respuesta})
         }
     }

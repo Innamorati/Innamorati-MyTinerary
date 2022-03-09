@@ -1,11 +1,10 @@
-const Ciudades = require('../modelos/ciudades')
+const Ciudades = require('../modelos/Ciudades')
 
 const controladorCiudades = {
     
     obtenerCiudades: async (req, res)=>{
         let ciudades
         let error = null
-
         try{
             ciudades = await Ciudades.find()
         }catch(err){
@@ -21,7 +20,6 @@ const controladorCiudades = {
     BorrarCiudad: async(req,res)=>{
         const id = req.params.id
         let ciudad
-
         try{
             await Ciudades.findOneAndDelete({_id:id})
             ciudad = await Ciudades.find()
@@ -33,7 +31,6 @@ const controladorCiudades = {
 
     },
     cargarCiudad: async(req,res)=>{
-        console.log(req.body)
         const {Ciudad, Pais, Continente,} = req.body.dataInput
         new Ciudades({nombre:Ciudad, 
                      pais:Pais,
@@ -45,13 +42,10 @@ const controladorCiudades = {
         const ciudad = req.body.dataInput
 
         let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
-         console.log(ciudadb)
 
     },
     obtenerUnaCiudad: async (req, res)=>{
-        const id =req.params.id
-        console.log(req.params)
-        
+        const id =req.params.id  
         let seleccionada
         let error = null
 
