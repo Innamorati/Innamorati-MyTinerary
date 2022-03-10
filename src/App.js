@@ -9,8 +9,10 @@ import Detalleciudades from './paginas/CitiesDetalles'
 import Controlciudades from './paginas/Controlciudades'
 import { withRouter } from './components/withRouter';
 import CiudadDetallesIntinerario from './components/CiudadDetallesIntinerario';
+import CiudadDetalleCiudad from './components/CiudadDetalle.Ciudad';
 
 export const DetalleItinerarioswhithRouter = withRouter(CiudadDetallesIntinerario)
+export const CiudadDetalleWhitRouter = withRouter(CiudadDetalleCiudad)
 const DetallesCiudadwithRouter = withRouter(Detalleciudades)
 
 export const App = () => {

@@ -30,7 +30,22 @@ import axios from 'axios';
             const respuesta = await axios.get('http://localhost:4000/api/Cities/Detalles/'+id.id)
             despachar({type:'ObtenerUnaCiudad', payload:respuesta.data.respuesta})
         }
+    },
+    Filtrar: (ciudades , parametro)=>{
+        return(despachar,getState)=>{
+            despachar({type:'Filtro', payload:{ciudades, parametro}})  
     }
-
+    },
+    FiltroSelect: (ciudades, seleccionado)=>{
+        return(despachar, getState)=>{
+            despachar({type:'FiltroSelect', payload:{ciudades, seleccionado}})
+        }
+    },
+    VisibilidadAviso:(longitud)=>{
+        return (despachar,getState) => {
+            despachar({type: 'VisivilidadAlerta', payload:{longitud} },console.log(longitud))
+        }
+    }
 }
+
 export default AccionesCiudades;

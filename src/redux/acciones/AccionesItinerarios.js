@@ -19,6 +19,11 @@ const AccionesItinerarios={
       const respuesta =  estado
       despachar({type:'CambiarEstado', payload: respuesta})
     }
-  }
+  },
+  VisibilidadAvisoItinerarios:(longitud)=>{
+    return (despachar,getState) => {
+        despachar({type: 'VisivilidadAlertaItinerarios', payload:longitud },console.log(despachar))
+    }
+}
 }
 export default AccionesItinerarios;

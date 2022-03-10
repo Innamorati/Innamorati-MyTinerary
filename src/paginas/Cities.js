@@ -1,8 +1,6 @@
 import React from "react";
 import {
     Titulo,
-    Buscador,
-    BuscadorContenedor,
     Contenedor,
     CartasPrincipal,
     CartasContenedor,
@@ -10,8 +8,8 @@ import {
     TituloCiudad,
     ContendeorImagen,
     BotonDetalle,
-    Selector,
     Avisobusqueda,
+
 } from "../style/Cities.elements"
 import SearchIcon from '@mui/icons-material/Search';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -19,33 +17,47 @@ import {Link as LinkRouter} from "react-router-dom"
 import { connect } from 'react-redux'
 import AccionesCiudades from "../redux/acciones/AccionesCiudades.js";
 import Filtro from "../components/filtro";
-import { Store } from "@mui/icons-material";
+
 
 
 
 
 class Cities extends React.Component {
-    state ={
-        arrayCiudades:[]
-    }
 
-    componentDidMount() {
-        this.props.ObtenerCiudades()
-        console.log("estoy montando el componente")
-        
+    constructor(props){
+        super(props)
+        this.state = {
+            visivilidad: false,
+        }
     }
+    longitud = this.props.datosFiltrados.length
+    componentDidMount() {
+        this.props.ObtenerCiudades() 
+    }
+    // CambiarVisivilidad=()=>{
+    //     console.log("hola")
+    //         if(this.props.datosFiltrados.length < 1){
+    //             this.setState({visivilidad:false})
+    //         }
+    //         else{
+    //             this.setState({visivilidad:true})
+    //         }
+        
+    // }
     
     render(){
+        console.log(this.props.visivilidad)
         return(
+           
          <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <Filtro></Filtro>
-                <Avisobusqueda >
+                <Avisobusqueda visibilidad={this.props.visivilidad}>
                     Sorry no match... Please try again.
                     <ErrorOutlineIcon></ErrorOutlineIcon>
                 </Avisobusqueda>
                 <CartasPrincipal>
-                {this.props.datosfiltrados?.map ((ciudades)=> 
+                {this.props.datosFiltrados?.map ((ciudades)=> 
                     <BotonDetalle key={ciudades._id}>
                         <LinkRouter to={`/Cities/Detalle/${ciudades._id}`}>
                         <CartasContenedor >
@@ -61,6 +73,10 @@ class Cities extends React.Component {
                 )}    
                 </CartasPrincipal>
             </Contenedor>
+           
+                
+            
+            
     );
     }
 }
@@ -72,7 +88,8 @@ const mapStateToProps = (state)=>{
     return{
         ciudades: state.ReducerCiudades.ciudades,
         filtroselect: state.ReducerCiudades.filtroselect,
-        datosfiltrados: state.ReducerCiudades.datosfiltrados,
+        datosFiltrados: state.ReducerCiudades.datosFiltrados,
+        visivilidad: state.ReducerCiudades.visivilidad,
 
     }
 }

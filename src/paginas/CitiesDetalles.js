@@ -6,6 +6,7 @@ import CiudadDetallesIntinerario from "../components/CiudadDetallesIntinerario";
 import AccionesItinerarios from "../redux/acciones/AccionesItinerarios";
 import {DetalleItinerarioswhithRouter} from '../App'
 import CartaB from '../components/CartaB'
+import { CiudadDetalleWhitRouter } from "../App";
 class CitiesDetalles extends React.Component{
     
     // state = {ciudad:{}}
@@ -22,11 +23,11 @@ class CitiesDetalles extends React.Component{
         // console.log(this.props)
     return(
         <div>
-        <CiudadDetalleCiudad/>
-        <CartaB>
+        <CiudadDetalleWhitRouter/>
+        {/* <CartaB>
             
-        </CartaB>
-        {/* <DetalleItinerarioswhithRouter/> */}
+        </CartaB> */}
+        <DetalleItinerarioswhithRouter/>
         </div>
     )
     }

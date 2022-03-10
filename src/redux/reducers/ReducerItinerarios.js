@@ -2,7 +2,8 @@ const estadoInicial={
     itinerarios: [],
     auxiliar: [],
     itinerariosCiudades: [],
-    expandir: true
+    expandir: true,
+    visivilidadItinerarios: null,
 }
 
 const ReducerItinerarios = (state = estadoInicial, action)=>{
@@ -24,6 +25,18 @@ const ReducerItinerarios = (state = estadoInicial, action)=>{
                 ...state,
                 expandir: action.payload
             }
+            case 'VisivilidadAlertaItinerarios':
+                let mostrarItinerarios
+                if(action.payload  === 0){
+                    mostrarItinerarios = false
+                }
+                else{
+                    mostrarItinerarios = true
+                }
+                return{
+                    ...state,
+                    visivilidadItinerarios: mostrarItinerarios
+                }
     default:
         return state
 } 

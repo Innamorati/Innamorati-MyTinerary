@@ -77,6 +77,7 @@ export const ItinerariosContenedor = styled.div`
 `;
 
 export const ContenedorMapero = styled.div`
+    transition: all 1s linear;
     width: ${({ open }) => (open ? "30rem" : "18rem")};
     height: 30rem;
     background-color: red;
@@ -118,6 +119,34 @@ export const ContenedorPrecio = styled.div`
         color:green;
     }
 `;
+export const VerMas = styled.button`
+height: 2.3rem;
+width: 8rem;
+border:none;
+font-size: 1rem;
+font-weight: 600;
+border-radius: 5px;
+margin-top: .5rem;
+`;
+export const ContenedortIntinerarios = styled.div`
+background-color: black;
+min-height: 20rem;
+padding-top: 2rem;
+
+`;
+export const IntinerariosInformacion = styled.div`
+margin-bottom: 1rem !important;
+width: ${({expandir}) => (expandir ? "18rem" : "60rem")};
+height: 30rem;
+background-color: #080808;
+margin: 0 10px;
+padding: 1rem;
+border-radius: 3px;
+display: flex;
+justify-content: center;
+justify-content: ${({expandir}) => (expandir ? "center" : "flex-start")};
+transition: all 1.5s ease;
+`;
 export const ContenedorDuracion = styled.div`
     display: flex;
     justify-content: center;
@@ -155,10 +184,24 @@ export const Etiquetas = styled.h4`
     color:white;
     margin-left:10px; 
 `;
-
-// const EstadoExpansor=()=>{
-//     const open = useSelector((props) =>props.expandir)
-//     console.log(open)
-//     return(open)
-// }
-// EstadoExpansor()
+export const ContenedorSinExpandir = styled.div`
+    width: 18rem;
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`;
+export const ContenedorExpandir = styled.div`
+    display: ${({expandir}) => (expandir ? "none" : "flex")};
+    width: 40rem;
+    border-radius: 3px;
+    border:1px solid white;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    h3{
+        font-size: 4rem;
+        text-align:center;
+        color:white;
+    }
+`;

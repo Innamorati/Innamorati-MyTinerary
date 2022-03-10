@@ -61,8 +61,7 @@ export const Avisobusqueda = styled.div`
     height: 20rem;
     width: 70%;
     color: white;
-    /* display: ${({ visibilidad }) => (visibilidad ? 'none' : 'flex')}; */
-    display: none; 
+    display:  ${({ visibilidad }) => (visibilidad ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -143,4 +142,15 @@ color: white;
 @media screen and (max-width: 320px){
     height: 2rem;
 }
+`;
+export const AvisoItinerarios = styled.div`
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    h2{
+        color:white;
+
+    }
 `;

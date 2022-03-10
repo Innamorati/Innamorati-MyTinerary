@@ -18,10 +18,15 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PublicIcon from '@mui/icons-material/Public';
 import AccionesCiudades from "../redux/acciones/AccionesCiudades";
 import { connect } from "react-redux";
+import { ObtenerUnaCiudad } from "../llamadasApi/LlamadasApi";
 class CiudadDetalleCiudad extends React.Component{
-
-
+    id = this.props.params.id
+    componentDidMount(){
+        this.props.ObtenerUnaCiudad(this.id)
+        console.log(this.props)
+    }
     render(){
+    
     return(
         <Contenedor>
             <ContenedorTitulo>
