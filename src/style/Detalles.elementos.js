@@ -1,4 +1,3 @@
-import { connect, useSelector } from "react-redux";
 import styled from "styled-components";
       
 export const ContenedorTitulo = styled.div`

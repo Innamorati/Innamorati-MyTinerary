@@ -4,7 +4,7 @@ import Carrusel from '../components/carrusel.js'
 import Carruselexpediciones from "../components/Carruselexpediciones";
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import {Link as LinkRouter} from "react-router-dom"
-import {Provaider} from 'react-redux'
+
 
 
 

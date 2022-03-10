@@ -1,11 +1,8 @@
 import React from "react";
-import CiudadDetalleCiudad from "../components/CiudadDetalle.Ciudad";
 import { connect } from "react-redux";
 import AccionesCiudades from "../redux/acciones/AccionesCiudades";
-import CiudadDetallesIntinerario from "../components/CiudadDetallesIntinerario";
-import AccionesItinerarios from "../redux/acciones/AccionesItinerarios";
 import {DetalleItinerarioswhithRouter} from '../App'
-import CartaB from '../components/CartaB'
+
 import { CiudadDetalleWhitRouter } from "../App";
 class CitiesDetalles extends React.Component{
     
@@ -24,9 +21,6 @@ class CitiesDetalles extends React.Component{
     return(
         <div>
         <CiudadDetalleWhitRouter/>
-        {/* <CartaB>
-            
-        </CartaB> */}
         <DetalleItinerarioswhithRouter/>
         </div>
     )

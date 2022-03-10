@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import  { useState } from 'react'
 
 import {Buscador, BuscadorContenedor, Selector} from '../style/Cities.elements'
 import { useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import AccionesCiudades from '../redux/acciones/AccionesCiudades';
 
 function Filtro(props){
     const ciudades = useSelector(state => state.ReducerCiudades.ciudades)
-    const [busqueda, setBusqueda] = useState()
+    const [busqueda] = useState()
     const filtroSelect = props.filtroSelect
     const longitud = props.datosFiltrados.length
 

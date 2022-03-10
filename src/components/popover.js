@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/Button';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function PopoverNavbar() {

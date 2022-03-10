@@ -11,7 +11,6 @@ import {
     Avisobusqueda,
 
 } from "../style/Cities.elements"
-import SearchIcon from '@mui/icons-material/Search';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import {Link as LinkRouter} from "react-router-dom"
 import { connect } from 'react-redux'
@@ -34,25 +33,15 @@ class Cities extends React.Component {
     componentDidMount() {
         this.props.ObtenerCiudades() 
     }
-    // CambiarVisivilidad=()=>{
-    //     console.log("hola")
-    //         if(this.props.datosFiltrados.length < 1){
-    //             this.setState({visivilidad:false})
-    //         }
-    //         else{
-    //             this.setState({visivilidad:true})
-    //         }
-        
-    // }
+     mostrar = this.props.visivilidad
     
     render(){
-        console.log(this.props.visivilidad)
         return(
            
          <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <Filtro></Filtro>
-                <Avisobusqueda visibilidad={this.props.visivilidad}>
+                <Avisobusqueda visivilidad={this.props.visivilidad}>
                     Sorry no match... Please try again.
                     <ErrorOutlineIcon></ErrorOutlineIcon>
                 </Avisobusqueda>

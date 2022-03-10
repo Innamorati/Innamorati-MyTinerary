@@ -1,6 +1,5 @@
-import react, {useState} from 'react'
-import { Style } from '@mui/icons-material'
-import styled from "styled-components";
+import  {useState} from 'react'
+
 import {
     Duracion, 
     Etiquetas,
@@ -10,13 +9,9 @@ import {
     ContenedorLike,
     NombreActividad,
     ContenedorPrecio,
-    TituloIntinerarios, 
     ContenedorDuracion,
     ContenedorEtiquetas,
     ContenedorImgfPerfil,
-    ItinerariosContenedor,
-    ContenedorMapero,
-    ContenedortIntinerarios,
     VerMas,
     IntinerariosInformacion,
     ContenedorSinExpandir,
@@ -29,8 +24,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 export default function ContenidoTarjeta({itinerarios}){
 
     const [estado, setEstado] = useState(true)
-    const [valorExpandir, setvalorExpandir] = useState("")
-    const [ValorBoton, setValorBoton] = useState(false)
+ 
 
     const cambiarEstado=()=> {
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {Contenedor, 
 Navegacion, 
 Navegacioncont, 
@@ -19,7 +19,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import SendIcon from '@mui/icons-material/Send';
+
 
 
 export default function Piepagina(){

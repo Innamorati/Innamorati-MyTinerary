@@ -37,29 +37,30 @@ const ReducerCiudades = (state = estadoInicial, action)=>{
             }
         case 'FiltroSelect':
             let Ciudades = action.payload.ciudades
-            let seleccionado = action.payload.seleccionado
             let Seleccionada = []
             switch(action.payload.seleccionado){
+
             case 'America' :
-                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente == action.payload.seleccionado))
+                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente === action.payload.seleccionado))
             break;
             case 'Oceania' :
-                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente == action.payload.seleccionado))
+                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente === action.payload.seleccionado))
             break;
             case 'Europe' :
-                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente == action.payload.seleccionado))
+                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente === action.payload.seleccionado))
             break;
             case 'Africa' :
-                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente == action.payload.seleccionado))
+                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente === action.payload.seleccionado))
             break;
             case 'Asia' :
-                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente == action.payload.seleccionado))
+                Seleccionada = Ciudades.filter((ciudades=> ciudades.Continente === action.payload.seleccionado))
             break;
 
             case 'todos':
                 Seleccionada = Ciudades.map(ciudad=>ciudad)
             break;
             }
+            
             return{
                 ...state,
                 filtroSelect: Seleccionada,
@@ -67,7 +68,7 @@ const ReducerCiudades = (state = estadoInicial, action)=>{
             }
         case 'VisivilidadAlerta':
             let mostrar 
-            if(action.payload.longitud  == 0){
+            if(action.payload.longitud  === 0){
                 mostrar = true
             }
             else{

@@ -52,12 +52,12 @@ class CiudadDetallesIntinerarios extends React.Component{
          <ContenedortIntinerarios>
             <TituloIntinerarios>Itineraries</TituloIntinerarios>
             <ItinerariosContenedor>
-            {this.props.itinerariosCiudades?.map((itinerarios)=>
+            {this.props.itinerariosCiudades.length > 0 ? (this.props.itinerariosCiudades?.map((itinerarios)=>
             <ContenidoTarjeta itinerarios={itinerarios} />
             
-            )}
+            )):<h2 style={{color: 'white'}}>Under construction</h2>}
             <AvisoItinerarios>
-            <h2>Under construction</h2>
+            
         </AvisoItinerarios>
             </ItinerariosContenedor>
         </ContenedortIntinerarios>
