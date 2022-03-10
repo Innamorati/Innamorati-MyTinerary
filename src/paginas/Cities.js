@@ -36,8 +36,8 @@ class Cities extends React.Component {
      mostrar = this.props.visivilidad
     
     render(){
+        console.log(this.props.visib)
         return(
-           
          <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <Filtro></Filtro>
