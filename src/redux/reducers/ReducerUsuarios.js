@@ -14,7 +14,7 @@ const userReducer = (state = initialState, action) => {
 
 
     switch (action.type) {
-        case 'user':
+        case 'iniciarSecion':
             return {
                 ...state,
                 user: action.payload,

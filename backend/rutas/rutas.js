@@ -7,7 +7,7 @@ const controladorUsuarios = require('../controladores/ControladorUsuarios')
 
 const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUnaCiudad } = controladorCiudades
 const { ObtenerItinerarios, ObtenerItinerariosPorCiudad } = controladorItinerarios
-const { signUpUsuarios, obtenerUsuarios, cargarUsuarios } = controladorUsuarios
+const { inicioDeSecion, obtenerUsuarios, cargarUsuarios } = controladorUsuarios
 
 Router.route('/todaslasciudades')
     .get(obtenerCiudades)
@@ -27,11 +27,11 @@ Router.route('/Itinerarios')
 Router.route('/Itinerarios/:ciudad')
     .get(ObtenerItinerariosPorCiudad)
 
-Router.route('/cargar')
+Router.route('/Autenticacion/Registro')
     .post(cargarUsuarios)
 
-Router.route('/Autenticacion/Usuarios')
-    .get(obtenerUsuarios)
+Router.route('/ini')
+    .post(inicioDeSecion)
 
 
 module.exports = Router

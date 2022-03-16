@@ -11,8 +11,10 @@ import {
   ContenedorPrincipal,
   Input,
 } from "../style/PopOver";
+import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
+import PopOverSinUsuario from "./PopOverSinUsuario";
 
-function PopoverNavbar() {
+function PopoverNavbar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -27,15 +29,17 @@ function PopoverNavbar() {
   const id = open ? "simple-popover" : undefined;
 
   const enviarInformacion = (event) => {
-    const datosUsuarios = {
-      Correo: event.target[0].value,
-      Contraseña: event.target[1].value,
-      Desde: "signin",
-    };
     event.preventDefault(event);
+    const datosUsuarios = {
+      correo: event.target[0].value,
+      contrasena: event.target[1].value,
+      from: "iniciarSecion",
+    };
+    props.iniciarSecion(datosUsuarios)
     console.log(datosUsuarios);
-  };
 
+  };
+  console.log(props.user == null)
   return (
     <ContenedorPrincipal>
       <AccountCircleIcon
@@ -59,37 +63,22 @@ function PopoverNavbar() {
         }}
       >
         <Contenedor onSubmit={enviarInformacion}>
-          {/* <form onSubmit={enviarInformacion}> */}
-          <h4>Sign-in</h4>
-          <label>Email:</label>
-          <Input
-            name="correo"
-            type="email"
-            placeholder="exaple@mail.com"
-          ></Input>
-          <label>Password:</label>
-          <Input
-            name="password"
-            type="password"
-            placeholder="*********"
-          ></Input>
-          <ContenedorBoton>
-            <Boton type="submit">Sign In</Boton>
-          </ContenedorBoton>
-          <h4>¿You still don’t have an account?</h4>
-          {/* </form> */}
-          <ContenedorBoton>
-            <LinkRouter to="Registro">
-              <Boton>Sing Up</Boton>
-            </LinkRouter>
-          </ContenedorBoton>
+          {props.user == null ?
+            <PopOverSinUsuario />
+            : "hola"
+          }
+
         </Contenedor>
       </Popover>
     </ContenedorPrincipal>
   );
 }
-const mapDispatchToProps = (state) => { };
+const mapDispatchToProps = {
+  iniciarSecion: AccionesUsuarios.iniciarSecion
+};
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    user: state.ReducerUsuarios.user
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PopoverNavbar);

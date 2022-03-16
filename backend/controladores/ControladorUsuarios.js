@@ -19,7 +19,7 @@ const ControladorUsuarios = {
             error: error
         })
     },
-    cargarUsuarios: async (req, res) => {
+    cargarUsuarios: async (req, respuesta) => {
         const { nombre, apellido, correo, contrasena, pais, from } = req.body.datos
         // new Usuario({ nombre, apellido, correo, contrasena, pais, from }).save()
         try {
@@ -29,7 +29,7 @@ const ControladorUsuarios = {
                 console.log(usuarioExiste.from.indexOf(from))
                 if (usuarioExiste.from.indexOf(from) === 0) {
                     console.log("resultado de if " + (usuarioExiste.from.indexOf(from) === 0))
-                    res.json({ success: false, from: "registro", mensaje: "Ya has realizado signUp de esta forma realiza un SingIn" })
+                    respuesta.json({ success: false, from: "registro", mensaje: "Ya has realizado signUp de esta forma realiza un SingIn" })
                 }
                 else {
                     const contrasenaHasheada = bcryptjs.hashSync(contrasena, 15)
@@ -40,7 +40,7 @@ const ControladorUsuarios = {
                         respuesta.json({
                             success: true,
                             from: "registro",
-                            message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
+                            mensaje: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
                         })
                     }
                     else {
@@ -61,7 +61,7 @@ const ControladorUsuarios = {
                     apellido,
                     correo,
                     contrasena: [contrasenaHasheada],
-                    correoVerificado: true,
+                    correoVerificado: false,
                     pais,
                     from: [from],
                 })
@@ -70,91 +70,81 @@ const ControladorUsuarios = {
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            respuesta.json({ success: false, mensaje: "Algo a salido mal intentalo en unos minutos" })
         }
     },
-    signUpUsuarios: async (req, res) => {
-        console.log('hila')
-        let { nombre, apellido, correo, contrasena, pais, from } = req.body.datos
-        res = datos
+    inicioDeSecion: async (req, respuesta) => {
+        const { correo, contrasena, from } = req.body.datosUsuarios
         try {
-
             const usuarioExiste = await Usuario.findOne({ correo })
-
-            if (usuarioExiste) {
-                console.log(usuarioExiste.from.indexOf(from))
-                if (usuarioExiste.from.indexOf(from) === 0) {
-                    console.log("resultado de if " + (usuarioExiste.from.indexOf(from) === 0))
-                    res.json({
-                        success: false,
-                        from: "signup",
-                        message: "Ya has realizado tu SignUp de esta forma por favor realiza SignIn"
-                    })
-                } else {
-                    const contrasenaHasheada = bcryptjs.hashSync(password, 10)
-                    usuarioExiste.from.push(from)
-                    usuarioExiste.contrasena.push(contrasenaHasheada)
-                    if (from === "form-Signup") {
-
+            if (!usuarioExiste) {
+                respuesta.json({ success: false, mensaje: "Tu usuario no a sido encontrado por favor registrate" })
+            }
+            else {
+                if (from !== "iniciarSecion") {
+                    let contrasenaCoincide = usuarioExiste.contrasena.filter(pass => bcryptjs.compareSync(contrasena, pass))
+                    if (contrasenaCoincide.length > 0) {
+                        const datosUsuarios = {
+                            nombre: usuarioExiste.fullname,
+                            apellido: usuarioExiste.apellido,
+                            correo: usuarioExiste.correo
+                        }
                         await usuarioExiste.save()
-
-                        res.json({
+                        respuesta.json({
                             success: true,
-                            from: "signup",
-                            message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
+                            from: from,
+                            respuesta: { datosUsuarios },
+                            mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                         })
-
-                    } else {
-                        usuarioExiste.save()
-
-                        res.json({
-                            success: true,
-                            from: "signup",
-                            message: "Agregamos " + from + " a tus medios para realizar signIn"
+                    }
+                    else {
+                        respuesta.json({
+                            success: false,
+                            from: from,
+                            mensaje: "No has realizado el registro con " + from + "si quieres ingresar con este metodo debes hacer el signUp con " + from
                         })
                     }
                 }
-            } else {
+                else {
+                    if (usuarioExiste.correoVerificado) {
+                        let contrasenaCoincide = usuarioExiste.contrasena.filter(pass => bcryptjs.compareSync(contrasena, pass))
+                        if (contrasenaCoincide.length > 0) {
+                            const datosUsuarios = {
+                                nombre: usuarioExiste.nombre,
+                                apellido: usuarioExiste.apellido,
+                                correo: usuarioExiste.correo,
+                                from: usuarioExiste.from
+                            }
 
+                            respuesta.json({
+                                success: true,
+                                from: from,
+                                respuesta: { datosUsuarios },
+                                message: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
+                            })
+                        } else {
+                            respuesta.json({
+                                success: false,
+                                from: from,
+                                mensaje: "El usuario o el password no coinciden",
+                            })
+                        }
+                    } else {
+                        respuesta.json({
+                            success: false,
+                            from: from,
+                            mensaje: "No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp"
+                        })
+                    }
 
-                const contrasenaHasheada = bcryptjs.hashSync(password, 10)
-                console.log(contrasenaHasheada)
-
-                const nuevoUsuario = await new Usuario({
-                    nombre,
-                    apellido,
-                    pais,
-                    correo,
-                    contrasena: [contrasenaHasheada],
-                    correoVerificado: true,
-                    from: [from],
-
-                })
-
-                if (from !== "form-Signup") {
-                    await nuevoUsuario.save()
-                    res.json({
-                        success: true,
-                        from: "signup",
-                        message: "Felicitaciones se ha creado tu usuario con " + from
-                    })
-
-                } else {
-
-                    await nuevoUsuario.save()
-
-                    res.json({
-                        success: true,
-                        from: "siggup",
-                        message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp "
-                    })
                 }
             }
-        } catch (error) {
-            console.log(error)
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
         }
-    },
+        catch (error) {
+            console.log(error);
+            respuesta.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+        }
+    }
 
 
 }

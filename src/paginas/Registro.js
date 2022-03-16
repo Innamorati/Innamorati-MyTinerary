@@ -30,7 +30,6 @@ function Registro(props) {
         // props.obtenerUsuarios()
         props.cargarUsuarios(datos)
         console.log(datos, props.todosUsuarios)
-        // console.log(props.todosUsuarios.usuarios)
     }
 
     return (

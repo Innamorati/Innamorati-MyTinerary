@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-    Duracion, 
+    Duracion,
     Etiquetas,
     NumeroLike,
     ImagenPerfil,
@@ -9,7 +9,7 @@ import {
     ContenedorLike,
     NombreActividad,
     ContenedorPrecio,
-    TituloIntinerarios, 
+    TituloIntinerarios,
     ContenedorDuracion,
     ContenedorEtiquetas,
     ContenedorImgfPerfil,
@@ -27,43 +27,43 @@ import { AvisoItinerarios } from "../style/Cities.elements";
 
 
 
-class CiudadDetallesIntinerarios extends React.Component{
+class CiudadDetallesIntinerarios extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
         }
-      }
+    }
     id = this.props.params.id
     longitud = this.props.itinerariosCiudades.length
-    componentDidMount(){
+    componentDidMount() {
         this.props.ObtenerItinerariosPorCiudad(this.id)
     }
     // VisibilidadAvisoItinerarios(longitud)
 
-    mostrarAviso=(longitud)=> {
+    mostrarAviso = (longitud) => {
         this.props.VisibilidadAvisoItinerarios(longitud)
         console.log("hola")
     }
-    
-    render(){
+
+    render() {
         console.log(this.props)
-     return(
-         <div>
-         <ContenedortIntinerarios>
-            <TituloIntinerarios>Itineraries</TituloIntinerarios>
-            <ItinerariosContenedor>
-            {this.props.itinerariosCiudades.length > 0 ? (this.props.itinerariosCiudades?.map((itinerarios)=>
-            <ContenidoTarjeta itinerarios={itinerarios} />
-            
-            )):<h2 style={{color: 'white'}}>Under construction</h2>}
-            <AvisoItinerarios>
-            
-        </AvisoItinerarios>
-            </ItinerariosContenedor>
-        </ContenedortIntinerarios>
-        
-        </div>
-     )   
+        return (
+            <div>
+                <ContenedortIntinerarios>
+                    <TituloIntinerarios>Itineraries</TituloIntinerarios>
+                    <ItinerariosContenedor>
+                        {this.props.itinerariosCiudades.length > 0 ? (this.props.itinerariosCiudades?.map((itinerarios) =>
+                            <ContenidoTarjeta itinerarios={itinerarios} />
+
+                        )) : <h2 style={{ color: 'white' }}>Under construction</h2>}
+                        <AvisoItinerarios>
+
+                        </AvisoItinerarios>
+                    </ItinerariosContenedor>
+                </ContenedortIntinerarios>
+
+            </div>
+        )
     }
 }
 const mapDispatchToProps = {
@@ -72,8 +72,8 @@ const mapDispatchToProps = {
     VisibilidadAvisoItinerarios: AccionesItinerarios.VisibilidadAvisoItinerarios
 }
 
-const mapStateToProps =(state)=>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         itinerariosCiudades: state.ReducerItinerarios.itinerariosCiudades,
         expandir: state.ReducerItinerarios.expandir,
         expandir: state.ReducerItinerarios.expandir,
