@@ -1,6 +1,6 @@
 import Styled from "styled-components"
 
-export const Container = Styled.div `
+export const Container = Styled.div`
 position: sticky;
 z-index: 3;
 color:white;
@@ -14,7 +14,7 @@ background: rgba(5, 5, 5, 0.486);
 
 `;
 
-export const Wrapper = Styled.div `
+export const Wrapper = Styled.div`
 width:100%;
 height: 4rem;
 display: flex;
@@ -27,7 +27,7 @@ justify-content:flex-end;
 }
 `;
 
-export const ContenedorLogo = Styled.div `
+export const ContenedorLogo = Styled.div`
 display: flex;
 align-items: center;
 width: 100%;
@@ -41,7 +41,7 @@ p {
 }
 `;
 
-export const Menu = Styled.ul `
+export const Menu = Styled.ul`
 display: flex;
 justify-content: flex-end;
 align-items:center;
@@ -66,7 +66,7 @@ align-items:center;
 
 `;
 
-export const MenuItem = Styled.li `
+export const MenuItem = Styled.li`
 display: flex;
 justify-content: end;
 margin: 0 10px 0 10px;
@@ -83,7 +83,7 @@ a{
     }
 `;
 
-export const MenuItemLink = Styled.a `
+export const MenuItemLink = Styled.a`
 font-size: 1.2rem;
 font-weight:600;
 display: flex;

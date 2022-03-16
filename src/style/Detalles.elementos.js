@@ -191,13 +191,14 @@ export const ContenedorSinExpandir = styled.div`
     flex-direction: column;
 `;
 export const ContenedorExpandir = styled.div`
-    display: ${({expandir}) => (expandir ? "none" : "flex")};
-    width: 40rem;
+    display: flex;
+    width: ${({expandir}) => (expandir ? "0" : "40rem")};
     border-radius: 3px;
-    border:1px solid white;
+    border: ${({expandir}) => (expandir ? "none" : "1px solid white")};
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: all 1.5s ease;
     h3{
         font-size: 4rem;
         text-align:center;

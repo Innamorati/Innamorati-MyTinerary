@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Contenedor = styled.div`
 width: 100%;
 height: 25vh;
-background-color: black;
+background-color: #080808;
 display: flex;
 padding: 2rem;
 @media screen and (max-width: 1440px){
@@ -334,7 +334,7 @@ width: 22.5rem;
     width: 17rem;
     margin: .4rem 0 .4rem 0;
 }
-`; 
+`;
 export const Politicas = styled.div`
 display: flex;
 flex-direction: column;
