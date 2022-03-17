@@ -14,8 +14,8 @@ const AccionesUsuarios = {
     cargarUsuarios: (datos) => {
         return async (despachar, getState) => {
             const respuesta = await axios.post('http://localhost:4000/api/Autenticacion/Registro', { datos })
-            despachar({ type: 'registro', payload: respuesta.data })
-            console.log(respuesta.data)
+            console.log(datos)
+            despachar({ type: 'mensaje', payload: { seccess: respuesta.data.success, mensaje: respuesta.data.mensaje, view: true } })
         }
     },
     obtenerUsuarios: () => {
@@ -30,15 +30,23 @@ const AccionesUsuarios = {
             const usuarios = await axios.post('http://localhost:4000/api/ini', { datosUsuarios })
             if (usuarios.data.success) {
                 despachar({ type: 'iniciarSecion', payload: usuarios.data.respuesta.datosUsuarios });
-                console.log(usuarios)
-            } else { console.log(usuarios.data.mensaje) }
+                despachar({ type: 'mensaje', payload: usuarios.data.mensaje });
+            }
+            despachar({
+                type: 'mensaje',
+                payload: { success: usuarios.data.success, mensaje: usuarios.data.mensaje, view: true }
+            });
+            // console.log(usuarios)
         }
     },
-    SignOutUser: (closeuser) => {
-        return async (dispatch, getState) => {
-            const user = axios.post('http://localhost:4000/api/auth/signOut', { closeuser })
-            dispatch({ type: 'user', payload: null });
+    cerrarSecion: (correo) => {
+        return async (despachar, getState) => {
+            const usuarios = await axios.post('http://localhost:4000/api/Autenticaion/CerrarSecion', { correo })
+            despachar({ type: 'iniciarSecion', payload: null });
+            despachar({ type: 'mensaje', payload: { mensaje: usuarios.data.mensaje, view: true } });
+            console.log(usuarios)
         }
-    }
+    },
+
 }
 export default AccionesUsuarios;

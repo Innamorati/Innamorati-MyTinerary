@@ -38,3 +38,15 @@ export const ContenedorBoton = Styled.div`
     display: flex;
     justify-content: center;
 `;
+export const ContenedorImagen = Styled.div`
+    height: 3rem;
+    width: 3rem;
+    
+
+    img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+`;

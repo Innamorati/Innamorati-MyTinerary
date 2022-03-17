@@ -25,13 +25,14 @@ function Registro(props) {
             correo: event.target[2].value,
             contrasena: event.target[3].value,
             pais: event.target[4].value,
+            imagen: event.target[5].value,
             from: "registro"
         }
         // props.obtenerUsuarios()
         props.cargarUsuarios(datos)
-        console.log(datos, props.todosUsuarios)
     }
 
+    console.log(props)
     return (
         <Contenedor>
             <Titulo>Complete your registration</Titulo>
@@ -46,6 +47,8 @@ function Registro(props) {
                     <Etiqueta><DentroEtiqueta>Password</DentroEtiqueta></Etiqueta>
                     <Campos type="password"></Campos>
                     <Etiqueta><DentroEtiqueta>Country</DentroEtiqueta></Etiqueta>
+                    <Campos></Campos>
+                    <Etiqueta><DentroEtiqueta>URL image</DentroEtiqueta></Etiqueta>
                     <Campos></Campos>
                     <ContenedorBoton>
                         <Boton type="sunmit">Register</Boton>
@@ -63,7 +66,8 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => {
     return {
-        todosUsuarios: state.ReducerUsuarios.todosUsuarios
+        todosUsuarios: state.ReducerUsuarios.todosUsuarios,
+        snackbar: state.ReducerUsuarios.snackbar
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Registro);

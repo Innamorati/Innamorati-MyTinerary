@@ -2,9 +2,10 @@ const initialState = {
     usuarios: [],
     todosUsuarios: [],
     user: null,
+    mensaje: null,
     snackbar: {
         view: false,
-        message: '',
+        mensaje: '',
         success: false
     },
 
@@ -28,6 +29,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 todosUsuarios: action.payload,
+            }
+        case 'mensaje':
+            return {
+                ...state,
+                snackbar: action.payload,
             }
 
         default:

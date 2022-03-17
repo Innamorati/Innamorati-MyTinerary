@@ -10,6 +10,7 @@ import { withRouter } from "./components/withRouter";
 import CiudadDetallesIntinerario from "./components/CiudadDetallesIntinerario";
 import CiudadDetalleCiudad from "./components/CiudadDetalle.Ciudad";
 import Registro from "./paginas/Registro";
+import CustomizedSnackbars from "../src/components/Snackbar";
 
 export const DetalleItinerarioswhithRouter = withRouter(CiudadDetallesIntinerario);
 export const CiudadDetalleWhitRouter = withRouter(CiudadDetalleCiudad);
@@ -27,6 +28,7 @@ export const App = () => {
           <Route path="/Cities/Detalle/:id" element={<DetallesCiudadwithRouter />}></Route>
           <Route path="/Registro" element={<RegistroWhitRouter />}></Route>
         </Routes>
+        <CustomizedSnackbars></CustomizedSnackbars>
         <Piepagina />
       </div>
     </BrowserRouter>

@@ -1,42 +1,71 @@
 const Usuario = require('../modelos/Usuario')
 const bcryptjs = require('bcryptjs')
+const crypto = require('crypto')
+const nodemailer = require('nodemailer')
+
+
+const verificacionCorreo = async (correo, uniqueString) => {
+
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: "mytinerarycheck@gmail.com",
+            pass: "240499aI",
+        }
+    })
+
+    let sender = "mytinerarycheck@gmail.com"
+    let correoOpciones = {
+        from: sender,
+        to: correo,
+        subject: "Account verification MyTinerary",
+        html: `<h1>Para verificar tu mail presiona <a href=http://localhost:4000/api/Verificacion/${uniqueString}>aqui</a></h1>`
+    };
+    await transporter.sendMail(correoOpciones, function (error, response) {
+        if (error) { console.log(error) }
+        else { console.log("mensaje enviado") }
+    })
+
+}
+
 
 
 const ControladorUsuarios = {
 
-    obtenerUsuarios: async (req, res) => {
-        let usuarios
-        let error = null
-        try {
-            usuarios = await Usuario.find()
-        } catch (err) {
-            error = err
-            console.log(error)
+    verificarCorreo: async (req, respuesta) => {
+        const { uniqueString } = req.params;
+
+        const usuario = await Usuario.findOne({ uniqueString: uniqueString })
+        if (usuario) {
+            usuario.correoVerificado = true
+            await usuario.save()
+            respuesta.redirect("http://localhost:3000/Registro")
+
         }
-        res.json({
-            respuesta: error ? 'ERROR' : { usuarios },
-            estado: error ? false : true,
-            error: error
-        })
+        else { respuesta.json({ success: false, response: "unverified email " }) }
     },
+
     cargarUsuarios: async (req, respuesta) => {
-        const { nombre, apellido, correo, contrasena, pais, from } = req.body.datos
-        // new Usuario({ nombre, apellido, correo, contrasena, pais, from }).save()
+        const { nombre, apellido, correo, contrasena, pais, imagen, from } = req.body.datos
+
         try {
             const usuarioExiste = await Usuario.findOne({ correo })
 
             if (usuarioExiste) {
-                console.log(usuarioExiste.from.indexOf(from))
                 if (usuarioExiste.from.indexOf(from) === 0) {
                     console.log("resultado de if " + (usuarioExiste.from.indexOf(from) === 0))
                     respuesta.json({ success: false, from: "registro", mensaje: "Ya has realizado signUp de esta forma realiza un SingIn" })
                 }
                 else {
-                    const contrasenaHasheada = bcryptjs.hashSync(contrasena, 15)
+                    const contrasenaHasheada = bcryptjs.hashSync(contrasena, 10)
                     usuarioExiste.from.push(from)
                     usuarioExiste.contrasena.push(contrasenaHasheada)
                     if (from === "registro") {
+                        usuarioExiste.uniqueString = crypto.randomBytes(15).toString('hex')
                         await usuarioExiste.save()
+                        await verificacionCorreo(correo, usuarioExiste.uniqueString)
                         respuesta.json({
                             success: true,
                             from: "registro",
@@ -54,8 +83,9 @@ const ControladorUsuarios = {
                 }
             }
             else {
-                const contrasenaHasheada = bcryptjs.hashSync(contrasena, 15)
+                const contrasenaHasheada = bcryptjs.hashSync(contrasena, 10)
                 const nuevoUsuario = await new Usuario({
+                    uniqueString: crypto.randomBytes(15).toString('hex'),
                     success: true,
                     nombre,
                     apellido,
@@ -63,9 +93,31 @@ const ControladorUsuarios = {
                     contrasena: [contrasenaHasheada],
                     correoVerificado: false,
                     pais,
+                    imagen,
                     from: [from],
                 })
-                await nuevoUsuario.save()
+                if (from !== "registro") {
+                    await nuevoUsuario.save()
+                    respuesta.json({
+                        success: true,
+                        from: "registro",
+                        mensaje: "Felicitaciones se ha creado tu usuario con " + from
+                    })
+
+                }
+                else {
+                    //PASAR EMAIL VERIFICADO A FALSE
+                    //ENVIARLE EL E MAIL PARA VERIFICAR
+                    await nuevoUsuario.save()
+                    await verificacionCorreo(correo, nuevoUsuario.uniqueString) //LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
+
+                    respuesta.json({
+                        success: true,
+                        from: "siggup",
+                        mensaje: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp "
+                    }) // AGREGAMOS MENSAJE DE VERIFICACION
+                }
+                // await nuevoUsuario.save()
             }
         }
         catch (error) {
@@ -113,14 +165,15 @@ const ControladorUsuarios = {
                                 nombre: usuarioExiste.nombre,
                                 apellido: usuarioExiste.apellido,
                                 correo: usuarioExiste.correo,
-                                from: usuarioExiste.from
+                                imagen: usuarioExiste.imagen,
+                                from: usuarioExiste.from,
                             }
 
                             respuesta.json({
                                 success: true,
                                 from: from,
                                 respuesta: { datosUsuarios },
-                                message: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
+                                mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                             })
                         } else {
                             respuesta.json({
@@ -144,7 +197,13 @@ const ControladorUsuarios = {
             console.log(error);
             respuesta.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
         }
-    }
+    },
+    cerrarSecion: async (req, respuesta) => {
+
+        const correo = req.body.cerrarSecion
+        const user = await Usuario.findOne({ correo })
+        respuesta.json({ success: true, mensaje: "Secion cerrada", })
+    },
 
 
 }
