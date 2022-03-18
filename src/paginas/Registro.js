@@ -14,6 +14,7 @@ import {
     Boton,
 } from "../style/RegistroStyle";
 import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
+import FacebookRegistro from "../components/FacebookRegistro";
 
 function Registro(props) {
     const registrarse = (event) => {
@@ -36,6 +37,7 @@ function Registro(props) {
     return (
         <Contenedor>
             <Titulo>Complete your registration</Titulo>
+            <FacebookRegistro />
             <ContenedorFormulario>
                 <Formulario onSubmit={registrarse}>
                     <Etiqueta ><DentroEtiqueta>First name</DentroEtiqueta></Etiqueta>

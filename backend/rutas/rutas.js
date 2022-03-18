@@ -1,5 +1,6 @@
 const Router = require('express').Router()
 const Validador = require('../configuracion/Validador')
+const passport = require('../configuracion/Pasaporte')
 
 const controladorCiudades = require('../controladores/controladorCiudades')
 const controladorItinerarios = require('../controladores/ControladoresItinerarios')
@@ -7,7 +8,7 @@ const controladorUsuarios = require('../controladores/ControladorUsuarios')
 
 const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUnaCiudad } = controladorCiudades
 const { ObtenerItinerarios, ObtenerItinerariosPorCiudad } = controladorItinerarios
-const { inicioDeSecion, cerrarSecion, cargarUsuarios, verificarCorreo } = controladorUsuarios
+const { inicioDeSecion, cerrarSecion, cargarUsuarios, verificarCorreo, verificarToken } = controladorUsuarios
 
 Router.route('/todaslasciudades')
     .get(obtenerCiudades)
@@ -38,6 +39,9 @@ Router.route('/Autenticaion/CerrarSecion')
 
 Router.route('/Verificacion/:uniqueString')
     .get(verificarCorreo)
+
+Router.route('/auth/signInToken')
+    .get(passport.authenticate('jwt', { session: false }), verificarToken)
 
 module.exports = Router
 

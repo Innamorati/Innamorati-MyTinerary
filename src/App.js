@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from 'react'
 import "./App.css";
 import Index from "./paginas/Index.js";
 import Navbar from "./components/navbar.js";
@@ -11,13 +11,23 @@ import CiudadDetallesIntinerario from "./components/CiudadDetallesIntinerario";
 import CiudadDetalleCiudad from "./components/CiudadDetalle.Ciudad";
 import Registro from "./paginas/Registro";
 import CustomizedSnackbars from "../src/components/Snackbar";
+import AccionesUsuarios from "./redux/acciones/AccionesUsuarios";
+import { connect } from "react-redux";
 
 export const DetalleItinerarioswhithRouter = withRouter(CiudadDetallesIntinerario);
 export const CiudadDetalleWhitRouter = withRouter(CiudadDetalleCiudad);
 const DetallesCiudadwithRouter = withRouter(Detalleciudades);
 const RegistroWhitRouter = withRouter(Registro);
 
-export const App = () => {
+function App(props) {
+  useEffect(() => {
+
+    if (localStorage.getItem('token') !== null) {
+      const token = localStorage.getItem("token")
+      props.VerificarToken(token)
+    }
+  }, [])
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -34,3 +44,8 @@ export const App = () => {
     </BrowserRouter>
   );
 };
+const mapDispatchToProps = {
+  VerificarToken: AccionesUsuarios.VerificarToken,
+
+}
+export default connect(null, mapDispatchToProps)(App);

@@ -2,6 +2,7 @@ const Usuario = require('../modelos/Usuario')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
+const jwt = require('jsonwebtoken')
 
 
 const verificacionCorreo = async (correo, uniqueString) => {
@@ -41,7 +42,7 @@ const ControladorUsuarios = {
         if (usuario) {
             usuario.correoVerificado = true
             await usuario.save()
-            respuesta.redirect("http://localhost:3000/Registro")
+            respuesta.redirect("http://localhost:3000")
 
         }
         else { respuesta.json({ success: false, response: "unverified email " }) }
@@ -137,15 +138,18 @@ const ControladorUsuarios = {
                     let contrasenaCoincide = usuarioExiste.contrasena.filter(pass => bcryptjs.compareSync(contrasena, pass))
                     if (contrasenaCoincide.length > 0) {
                         const datosUsuarios = {
+                            id: usuarioExiste._id,
                             nombre: usuarioExiste.fullname,
                             apellido: usuarioExiste.apellido,
                             correo: usuarioExiste.correo
                         }
                         await usuarioExiste.save()
+
+                        const token = jwt.sign({ ...datosUsuarios }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
                         respuesta.json({
                             success: true,
                             from: from,
-                            respuesta: { datosUsuarios },
+                            respuesta: { token, datosUsuarios },
                             mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                         })
                     }
@@ -162,17 +166,18 @@ const ControladorUsuarios = {
                         let contrasenaCoincide = usuarioExiste.contrasena.filter(pass => bcryptjs.compareSync(contrasena, pass))
                         if (contrasenaCoincide.length > 0) {
                             const datosUsuarios = {
+                                id: usuarioExiste._id,
                                 nombre: usuarioExiste.nombre,
                                 apellido: usuarioExiste.apellido,
                                 correo: usuarioExiste.correo,
                                 imagen: usuarioExiste.imagen,
                                 from: usuarioExiste.from,
                             }
-
+                            const token = jwt.sign({ ...datosUsuarios }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
                             respuesta.json({
                                 success: true,
                                 from: from,
-                                respuesta: { datosUsuarios },
+                                respuesta: { token, datosUsuarios },
                                 mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                             })
                         } else {
@@ -195,7 +200,7 @@ const ControladorUsuarios = {
         }
         catch (error) {
             console.log(error);
-            respuesta.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            respuesta.json({ success: false, mensaje: "Algo a salido mal intentalo en unos minutos" })
         }
     },
     cerrarSecion: async (req, respuesta) => {
@@ -204,6 +209,21 @@ const ControladorUsuarios = {
         const user = await Usuario.findOne({ correo })
         respuesta.json({ success: true, mensaje: "Secion cerrada", })
     },
+    verificarToken: (req, res) => {
+        console.log(req.user)
+        if (!req.err) {
+            res.json({
+                success: true,
+                response: { id: req.user.id, nombre: req.user.nombre, correo: req.user.correo, from: "token" },
+                mensaje: "Bienvenido nuevamente " + req.user.nombre
+            })
+        } else {
+            res.json({
+                success: false,
+                message: "Por favor realiza nuevamente signIn"
+            })
+        }
+    }
 
 
 }

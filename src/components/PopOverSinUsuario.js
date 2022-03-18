@@ -7,11 +7,14 @@ import {
     Input,
 } from "../style/PopOver";
 import { Link as LinkRouter } from "react-router-dom";
+import FacebookIniciarSecion from "./FacebookIniciarSecion";
+
 export default function PopOverSinUsuario() {
 
     return (
         <>
-            <h4>Sign-in</h4><label>Email:</label><Input
+            <h4>Sign-in</h4>
+            <label>Email:</label><Input
                 name="correo"
                 type="email"
                 placeholder="exaple@mail.com"
@@ -21,6 +24,8 @@ export default function PopOverSinUsuario() {
                 placeholder="*********"
             ></Input><ContenedorBoton>
                 <Boton type="submit">Sign In</Boton>
+                <h4>Or</h4>
+                <FacebookIniciarSecion />
             </ContenedorBoton><h4>¿You still don’t have an account?</h4><ContenedorBoton>
                 <LinkRouter to="Registro">
                     <Boton type="submit">Sing Up</Boton>

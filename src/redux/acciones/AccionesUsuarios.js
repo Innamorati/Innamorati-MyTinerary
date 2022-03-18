@@ -29,6 +29,7 @@ const AccionesUsuarios = {
         return async (despachar, getState) => {
             const usuarios = await axios.post('http://localhost:4000/api/ini', { datosUsuarios })
             if (usuarios.data.success) {
+                localStorage.setItem('token', usuarios.data.respuesta.token)
                 despachar({ type: 'iniciarSecion', payload: usuarios.data.respuesta.datosUsuarios });
                 despachar({ type: 'mensaje', payload: usuarios.data.mensaje });
             }
@@ -42,11 +43,24 @@ const AccionesUsuarios = {
     cerrarSecion: (correo) => {
         return async (despachar, getState) => {
             const usuarios = await axios.post('http://localhost:4000/api/Autenticaion/CerrarSecion', { correo })
+            localStorage.removeItem('token')
             despachar({ type: 'iniciarSecion', payload: null });
             despachar({ type: 'mensaje', payload: { mensaje: usuarios.data.mensaje, view: true } });
             console.log(usuarios)
         }
     },
+    VerificarToken: (token) => {
 
+        return async (despachar, getState) => {
+            console.log(token)
+            const usuario = await axios.get('http://localhost:4000/api/auth/signInToken', { headers: { 'Authorization': 'Bearer ' + token } })
+            console.log(usuario)
+            if (usuario.data.success) {
+                despachar({ type: 'iniciarSecion', payload: usuario.data.response });
+                despachar({ type: 'mensaje', payload: { view: true, mensaje: usuario.data.mensaje, success: usuario.data.success } });
+            } else { localStorage.removeItem('token') }
+
+        }
+    }
 }
 export default AccionesUsuarios;
