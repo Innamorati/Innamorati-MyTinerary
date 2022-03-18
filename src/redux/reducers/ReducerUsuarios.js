@@ -43,10 +43,20 @@ const userReducer = (state = initialState, action) => {
                 token: action.payload,
             }
         case 'paises':
+            let pais = []
+            let limpiar = action.payload
+            limpiar.data.map(paises => {
+                pais.push(
+                    {
+                        nombre: paises.name.common
+                    }
+                )
+            })
             return {
                 ...state,
-                paises: action.payload,
+                paises: pais,
             }
+
 
         default:
             return state

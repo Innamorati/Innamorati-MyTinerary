@@ -13,6 +13,8 @@ import {
     DentroEtiqueta,
     Boton,
     Subtitulo,
+    Menu,
+    Opciones,
 } from "../style/RegistroStyle";
 import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
 import FacebookRegistro from "../components/FacebookRegistro";
@@ -56,7 +58,14 @@ function Registro(props) {
                     <Etiqueta><DentroEtiqueta>Password</DentroEtiqueta></Etiqueta>
                     <Campos type="password"></Campos>
                     <Etiqueta><DentroEtiqueta>Country</DentroEtiqueta></Etiqueta>
-                    <Campos></Campos>
+                    <Campos list="paises"></Campos>
+                    <Menu id="paises">
+                        <Opciones  >Select your country</Opciones>
+                        {props.paises.map((paises, index) =>
+                            <Opciones value={paises.nombre} key={index}>{paises.nombre}</Opciones>
+                        )
+                        }
+                    </Menu>
                     <Etiqueta><DentroEtiqueta>URL image</DentroEtiqueta></Etiqueta>
                     <Campos></Campos>
                     <ContenedorBoton>
@@ -65,7 +74,7 @@ function Registro(props) {
 
                 </Formulario>
             </ContenedorFormulario>
-        </Contenedor>
+        </Contenedor >
     )
 }
 const mapDispatchToProps = {

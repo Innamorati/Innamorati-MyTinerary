@@ -77,15 +77,17 @@ const AccionesUsuarios = {
     },
     obtenerPaises: (tokenAutenticacion) => {
         return async (despachar, getState) => {
-            const pais = await axios.get("https://www.universal-tutorial.com/api/countries", {
+            const pais = await axios.get("https://restcountries.com/v3.1/all", {
                 headers: {
                     'Authorization': 'Bearer ' + tokenAutenticacion,
                     "Accept": "application/json"
                 },
             })
+
             despachar({
                 type: 'paises', payload: pais
             })
+
 
         }
 

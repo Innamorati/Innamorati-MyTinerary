@@ -69,3 +69,9 @@ export const Subtitulo = styled.h4`
     margin-bottom: 2rem;
     font-size: 1.5rem;
 `;
+export const Menu = styled.datalist`
+
+`;
+export const Opciones = styled.option`
+
+`;
