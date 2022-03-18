@@ -16,10 +16,15 @@ export const Boton = Styled.button`
 `;
 export const Input = Styled.input`
     height: 2rem !important;
+    font-size: 1.3rem;
+    background: none;
+    border: none;
     width: 18rem;
     margin: .2rem 0;
     outline:none;
-
+    caret-color:white;
+    color:white;
+    border-bottom: 1px white solid;
 `;
 export const Contenedor = Styled.form`
     background-color: #080808;
@@ -28,6 +33,7 @@ export const Contenedor = Styled.form`
     padding: .5rem;
     label{
         color:white;
+        margin-top: 10px;
         
     }
     h4{
@@ -36,7 +42,8 @@ export const Contenedor = Styled.form`
 `;
 export const ContenedorBoton = Styled.div`
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `;
 export const ContenedorImagen = Styled.div`
     height: 3rem;

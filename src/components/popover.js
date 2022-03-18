@@ -16,6 +16,7 @@ import {
 import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
 import PopOverSinUsuario from "./PopOverSinUsuario";
 import PopOverConUsuario from "./PopOverConUsuario";
+import FacebookIniciarSecion from "./FacebookIniciarSecion";
 
 
 function PopoverNavbar(props) {
@@ -46,16 +47,13 @@ function PopoverNavbar(props) {
 
 
   };
-
   return (
     <ContenedorPrincipal>
-      {props.user == null ? <AccountCircleIcon
-        aria-describedby={id}
+      {props.user == null ? <AccountCircleIcon aria-describedby={id}
         onClick={handleClick}
         sx={{ fontSize: 50 }}
-        className="botoncuenta"
-      />
-        : <ContenedorImagen><img src={props.user.imagen} onClick={handleClick}  ></img></ContenedorImagen>}
+        className="botoncuenta"></AccountCircleIcon>
+        : props.user.imagen == null ? <AccountCircleIcon aria-describedby={id} onClick={handleClick} sx={{ fontSize: 50 }} className="botoncuenta"></AccountCircleIcon> : <ContenedorImagen ><img aria-describedby={id} onClick={handleClick} sx={{ fontSize: 50 }} className="botoncuenta" src={props.user.imagen}></img></ContenedorImagen>}
 
       <Popover
         id={id}
@@ -73,10 +71,29 @@ function PopoverNavbar(props) {
       >
         <Contenedor onSubmit={enviarInformacion}>
           {props.user == null ?
-            <PopOverSinUsuario /> :
-            <PopOverConUsuario></PopOverConUsuario>
-          }
-
+            <>
+              <h4>Sign-in</h4>
+              <label>Email:</label><Input
+                name="correo"
+                type="email"
+              ></Input><label>Password:</label><Input
+                name="password"
+                type="password"
+              ></Input>
+              <ContenedorBoton>
+                <Boton type="submit">Sign In</Boton>
+              </ContenedorBoton>
+              <ContenedorBoton>
+                <h4>Or</h4>
+                <FacebookIniciarSecion />
+              </ContenedorBoton>
+              <h4>¿You still don’t have an account?</h4>
+              <ContenedorBoton>
+                <LinkRouter to="Registro">
+                  <Boton type="submit">Sing Up</Boton>
+                </LinkRouter>
+              </ContenedorBoton></>
+            : <PopOverConUsuario></PopOverConUsuario>}
         </Contenedor>
       </Popover>
 
@@ -90,7 +107,6 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     user: state.ReducerUsuarios.user,
-    snackbar: state.ReducerUsuarios.snackbar
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PopoverNavbar);

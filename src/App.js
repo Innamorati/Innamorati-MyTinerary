@@ -21,7 +21,7 @@ const RegistroWhitRouter = withRouter(Registro);
 
 function App(props) {
   useEffect(() => {
-
+    props.obtenerToken()
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem("token")
       props.VerificarToken(token)
@@ -46,6 +46,7 @@ function App(props) {
 };
 const mapDispatchToProps = {
   VerificarToken: AccionesUsuarios.VerificarToken,
+  obtenerToken: AccionesUsuarios.obtenerToken,
 
 }
 export default connect(null, mapDispatchToProps)(App);

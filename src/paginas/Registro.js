@@ -1,5 +1,5 @@
 import { Input } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { ContenedorBoton } from "../style/PopOver";
 import {
@@ -12,11 +12,18 @@ import {
     Etiqueta,
     DentroEtiqueta,
     Boton,
+    Subtitulo,
 } from "../style/RegistroStyle";
 import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
 import FacebookRegistro from "../components/FacebookRegistro";
 
 function Registro(props) {
+    useEffect(() => {
+        props.obtenerPaises(props.token)
+    }, [])
+
+
+
     const registrarse = (event) => {
 
         event.preventDefault(event)
@@ -29,14 +36,14 @@ function Registro(props) {
             imagen: event.target[5].value,
             from: "registro"
         }
-        // props.obtenerUsuarios()
         props.cargarUsuarios(datos)
     }
 
-    console.log(props)
+
     return (
         <Contenedor>
             <Titulo>Complete your registration</Titulo>
+            <Subtitulo>login with facebook </Subtitulo>
             <FacebookRegistro />
             <ContenedorFormulario>
                 <Formulario onSubmit={registrarse}>
@@ -64,12 +71,16 @@ function Registro(props) {
 const mapDispatchToProps = {
     cargarUsuarios: AccionesUsuarios.cargarUsuarios,
     obtenerUsuarios: AccionesUsuarios.obtenerUsuarios,
+    obtenerToken: AccionesUsuarios.obtenerToken,
+    obtenerPaises: AccionesUsuarios.obtenerPaises,
 };
 
 const mapStateToProps = (state) => {
     return {
         todosUsuarios: state.ReducerUsuarios.todosUsuarios,
-        snackbar: state.ReducerUsuarios.snackbar
+        snackbar: state.ReducerUsuarios.snackbar,
+        paises: state.ReducerUsuarios.paises,
+        token: state.ReducerUsuarios.token,
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Registro);

@@ -14,7 +14,6 @@ const AccionesUsuarios = {
     cargarUsuarios: (datos) => {
         return async (despachar, getState) => {
             const respuesta = await axios.post('http://localhost:4000/api/Autenticacion/Registro', { datos })
-            console.log(datos)
             despachar({ type: 'mensaje', payload: { seccess: respuesta.data.success, mensaje: respuesta.data.mensaje, view: true } })
         }
     },
@@ -45,22 +44,51 @@ const AccionesUsuarios = {
             const usuarios = await axios.post('http://localhost:4000/api/Autenticaion/CerrarSecion', { correo })
             localStorage.removeItem('token')
             despachar({ type: 'iniciarSecion', payload: null });
-            despachar({ type: 'mensaje', payload: { mensaje: usuarios.data.mensaje, view: true } });
+            despachar({ type: 'mensaje', payload: { succes: usuarios.data.success, mensaje: usuarios.data.mensaje, view: true } });
             console.log(usuarios)
         }
     },
     VerificarToken: (token) => {
 
         return async (despachar, getState) => {
-            console.log(token)
             const usuario = await axios.get('http://localhost:4000/api/auth/signInToken', { headers: { 'Authorization': 'Bearer ' + token } })
-            console.log(usuario)
             if (usuario.data.success) {
                 despachar({ type: 'iniciarSecion', payload: usuario.data.response });
                 despachar({ type: 'mensaje', payload: { view: true, mensaje: usuario.data.mensaje, success: usuario.data.success } });
             } else { localStorage.removeItem('token') }
 
         }
+    },
+    obtenerToken: () => {
+        return async (despachar, getState) => {
+            const token = await axios.get("https://www.universal-tutorial.com/api/getaccesstoken", {
+                headers: {
+                    "Accept": "application/json",
+                    "api-token": "Fv534bECn6tsy-ePFN-6gVa8HZq1vcQCYQRKln3mT4JByfg2kgBnMMBP-kknbatkId0",
+                    "user-email": "andresucho067@hotmail.com"
+                },
+            })
+            despachar({
+                type: 'token', payload: token.data.auth_token
+            })
+
+        }
+
+    },
+    obtenerPaises: (tokenAutenticacion) => {
+        return async (despachar, getState) => {
+            const pais = await axios.get("https://www.universal-tutorial.com/api/countries", {
+                headers: {
+                    'Authorization': 'Bearer ' + tokenAutenticacion,
+                    "Accept": "application/json"
+                },
+            })
+            despachar({
+                type: 'paises', payload: pais
+            })
+
+        }
+
     }
 }
 export default AccionesUsuarios;

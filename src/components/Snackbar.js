@@ -5,7 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux'
-
+import { Li, Ul } from '../style/Snackbar';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -27,27 +27,25 @@ function CustomizedSnackbars(props) {
             }
         });
     };
-    // props.setOpen(props.snackbar.view)
     return (
 
         <div>
             {props.snackbar.view === true && (
                 <Stack spacing={2} sx={{ width: '100%' }}>
-                    <Button variant="outlined" onClick={handleClick}>
-                        Open success snackbar
-                    </Button>
                     <Snackbar open={props.snackbar.view} autoHideDuration={4000} onClose={handleClose}>
-                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                            {props.snackbar.mensaje}
-                        </Alert>
+                        {props.snackbar.success === true ?
+                            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                                {typeof props.snackbar.mensaje === "string" ? <p>{props.snackbar.mensaje}</p> : <Ul >{props.snackbar.mensaje.map(mensaje => <Li>{mensaje.mensaje}</Li>)}</Ul>}
+                            </Alert> :
+                            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                                {typeof props.snackbar.mensaje === "string" ? <p>{props.snackbar.mensaje}</p> : <Ul>{props.snackbar.mensaje.map(mensaje => <li>{mensaje.message}</li>)}</Ul>}
+                            </Alert>}
+
                     </Snackbar>
-                    {/* <Alert severity="error">This is an error message!</Alert>
-                <Alert severity="warning">This is a warning message!</Alert>
-                <Alert severity="info">This is an information message!</Alert>
-                <Alert severity="success">This is a success message!</Alert> */}
                 </Stack>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 }
 const mapStateToProps = (state) => {

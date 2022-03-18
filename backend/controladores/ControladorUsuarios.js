@@ -57,7 +57,7 @@ const ControladorUsuarios = {
             if (usuarioExiste) {
                 if (usuarioExiste.from.indexOf(from) === 0) {
                     console.log("resultado de if " + (usuarioExiste.from.indexOf(from) === 0))
-                    respuesta.json({ success: false, from: "registro", mensaje: "Ya has realizado signUp de esta forma realiza un SingIn" })
+                    respuesta.json({ success: false, from: "registro", mensaje: "You have already made a signUp in this way make a SingIn " })
                 }
                 else {
                     const contrasenaHasheada = bcryptjs.hashSync(contrasena, 10)
@@ -70,7 +70,7 @@ const ControladorUsuarios = {
                         respuesta.json({
                             success: true,
                             from: "registro",
-                            mensaje: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
+                            mensaje: "Please verify your mail and then logIn "
                         })
                     }
                     else {
@@ -78,7 +78,7 @@ const ControladorUsuarios = {
                         respuesta.json({
                             success: true,
                             from: "registro",
-                            mensaje: "Agregamos " + from + "a tus medios para realizar signIn"
+                            mensaje: "We add " + from + "to your means to perform signIn "
                         })
                     }
                 }
@@ -102,28 +102,26 @@ const ControladorUsuarios = {
                     respuesta.json({
                         success: true,
                         from: "registro",
-                        mensaje: "Felicitaciones se ha creado tu usuario con " + from
+                        mensaje: "Congratulations, your user has been created with" + from
                     })
 
                 }
                 else {
-                    //PASAR EMAIL VERIFICADO A FALSE
-                    //ENVIARLE EL E MAIL PARA VERIFICAR
                     await nuevoUsuario.save()
                     await verificacionCorreo(correo, nuevoUsuario.uniqueString) //LLAMA A LA FUNCION ENCARGADA DEL ENVIO DEL CORREO ELECTRONICO
 
                     respuesta.json({
                         success: true,
                         from: "siggup",
-                        mensaje: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp "
-                    }) // AGREGAMOS MENSAJE DE VERIFICACION
+                        mensaje: "Please verify your mail and then logIn "
+                    })
                 }
-                // await nuevoUsuario.save()
+
             }
         }
         catch (error) {
             console.log(error)
-            respuesta.json({ success: false, mensaje: "Algo a salido mal intentalo en unos minutos" })
+            respuesta.json({ success: false, mensaje: "The email or password is incorrect" })
         }
     },
     inicioDeSecion: async (req, respuesta) => {
@@ -131,7 +129,7 @@ const ControladorUsuarios = {
         try {
             const usuarioExiste = await Usuario.findOne({ correo })
             if (!usuarioExiste) {
-                respuesta.json({ success: false, mensaje: "Tu usuario no a sido encontrado por favor registrate" })
+                respuesta.json({ success: false, mensaje: "Your user has not been found please register " })
             }
             else {
                 if (from !== "iniciarSecion") {
@@ -150,14 +148,14 @@ const ControladorUsuarios = {
                             success: true,
                             from: from,
                             respuesta: { token, datosUsuarios },
-                            mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
+                            mensaje: "Welcome again " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                         })
                     }
                     else {
                         respuesta.json({
                             success: false,
                             from: from,
-                            mensaje: "No has realizado el registro con " + from + "si quieres ingresar con este metodo debes hacer el signUp con " + from
+                            mensaje: "You have not registered with  " + from + "if you want to enter with this method you must do the signUp with  " + from
                         })
                     }
                 }
@@ -178,20 +176,20 @@ const ControladorUsuarios = {
                                 success: true,
                                 from: from,
                                 respuesta: { token, datosUsuarios },
-                                mensaje: "Bienvenido nuevamente " + datosUsuarios.nombre + " " + datosUsuarios.apellido
+                                mensaje: "Welcome again " + datosUsuarios.nombre + " " + datosUsuarios.apellido
                             })
                         } else {
                             respuesta.json({
                                 success: false,
                                 from: from,
-                                mensaje: "El usuario o el password no coinciden",
+                                mensaje: "The email or password is incorrect ",
                             })
                         }
                     } else {
                         respuesta.json({
                             success: false,
                             from: from,
-                            mensaje: "No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp"
+                            mensaje: "Email not verified, please verify it then log in"
                         })
                     }
 
@@ -200,14 +198,13 @@ const ControladorUsuarios = {
         }
         catch (error) {
             console.log(error);
-            respuesta.json({ success: false, mensaje: "Algo a salido mal intentalo en unos minutos" })
+            respuesta.json({ success: false, mensaje: "Something went wrong try again in a few minutes" })
         }
     },
     cerrarSecion: async (req, respuesta) => {
-
         const correo = req.body.cerrarSecion
         const user = await Usuario.findOne({ correo })
-        respuesta.json({ success: true, mensaje: "Secion cerrada", })
+        respuesta.json({ success: true, mensaje: "Closed session", })
     },
     verificarToken: (req, res) => {
         console.log(req.user)
@@ -215,16 +212,14 @@ const ControladorUsuarios = {
             res.json({
                 success: true,
                 response: { id: req.user.id, nombre: req.user.nombre, correo: req.user.correo, from: "token" },
-                mensaje: "Bienvenido nuevamente " + req.user.nombre
+                mensaje: "Welcome again " + req.user.nombre
             })
         } else {
             res.json({
                 success: false,
-                message: "Por favor realiza nuevamente signIn"
+                mensaje: "Por favor realiza nuevamente signIn"
             })
         }
-    }
-
-
+    },
 }
 module.exports = ControladorUsuarios

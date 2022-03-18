@@ -1,8 +1,10 @@
 const initialState = {
+    paises: [],
     usuarios: [],
     todosUsuarios: [],
     user: null,
     mensaje: null,
+    token: null,
     snackbar: {
         view: false,
         mensaje: '',
@@ -34,6 +36,16 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 snackbar: action.payload,
+            }
+        case 'token':
+            return {
+                ...state,
+                token: action.payload,
+            }
+        case 'paises':
+            return {
+                ...state,
+                paises: action.payload,
             }
 
         default:
