@@ -9,7 +9,7 @@ function FacebookIniciarSecion(props) {
     const responseFacebook = async (respuesta) => {
 
 
-        console.log(respuesta)
+
         const datosUsuarios = {
             correo: respuesta.email,
             contrasena: respuesta.id,

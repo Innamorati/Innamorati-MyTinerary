@@ -45,7 +45,7 @@ const AccionesUsuarios = {
             localStorage.removeItem('token')
             despachar({ type: 'iniciarSecion', payload: null });
             despachar({ type: 'mensaje', payload: { succes: usuarios.data.success, mensaje: usuarios.data.mensaje, view: true } });
-            console.log(usuarios)
+
         }
     },
     VerificarToken: (token) => {

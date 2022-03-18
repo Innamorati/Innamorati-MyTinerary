@@ -9,8 +9,6 @@ function PopOverConUsuario(props) {
     const cerrando = () => {
         let correo = props.user.mail
         props.cerrarSecion(correo)
-        console.log("holi")
-        console.log(props.user.correo)
     }
 
     return (

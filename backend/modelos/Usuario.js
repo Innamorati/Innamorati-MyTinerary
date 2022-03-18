@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const usuarioSchema = new mongoose.Schema({
-  nombre: { type: String, },
-  apellido: { type: String, },
-  correo: { type: String, },
-  contrasena: [{ type: String, }],
-  correoVerificado: { type: Boolean, },
-  pais: { type: String },
+  nombre: { type: String, required: true },
+  apellido: { type: String, required: true },
+  correo: { type: String, required: true },
+  contrasena: [{ type: String, required: true }],
+  correoVerificado: { type: Boolean, required: true },
+  pais: { type: String, required: true },
   imagen: { type: String },
   uniqueString: { type: String, },
   from: { type: Array }
