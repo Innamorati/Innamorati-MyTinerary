@@ -23,25 +23,16 @@ import Filtro from "../components/filtro";
 
 class Cities extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            visivilidad: false,
-        }
-    }
-    longitud = this.props.datosFiltrados.length
+
     componentDidMount() {
         this.props.ObtenerCiudades()
     }
-    mostrar = this.props.visivilidad
-
     render() {
-
         return (
             <Contenedor>
                 <Titulo>Find your perfect city</Titulo>
                 <Filtro></Filtro>
-                <Avisobusqueda visivilidad={this.props.visivilidad}>
+                <Avisobusqueda visivilidad={this.props.datosFiltrados.length === 0}>
                     Sorry no match... Please try again.
                     <ErrorOutlineIcon></ErrorOutlineIcon>
                 </Avisobusqueda>
@@ -76,9 +67,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
     return {
         ciudades: state.ReducerCiudades.ciudades,
-        filtroselect: state.ReducerCiudades.filtroselect,
         datosFiltrados: state.ReducerCiudades.datosFiltrados,
-        visivilidad: state.ReducerCiudades.visivilidad,
 
     }
 }

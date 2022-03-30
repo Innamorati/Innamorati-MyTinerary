@@ -1,5 +1,5 @@
 import styled from "styled-components";
-      
+
 export const ContenedorTitulo = styled.div`
     margin: 2rem 0 1rem 0;
 `;
@@ -23,7 +23,7 @@ export const Contenedor = styled.div`
     background-color: black;
     padding: 10px;
 `;
-export const  ImagenContenedor = styled.div`
+export const ImagenContenedor = styled.div`
     width: 30rem ;
     border-radius: 10px;
     border-radius: 3px;
@@ -135,7 +135,7 @@ padding-top: 2rem;
 `;
 export const IntinerariosInformacion = styled.div`
 margin-bottom: 1rem !important;
-width: ${({expandir}) => (expandir ? "18rem" : "60rem")};
+width: ${({ expandir }) => (expandir ? "18rem" : "60rem")};
 height: 30rem;
 background-color: #080808;
 margin: 0 10px;
@@ -143,7 +143,7 @@ padding: 1rem;
 border-radius: 3px;
 display: flex;
 justify-content: center;
-justify-content: ${({expandir}) => (expandir ? "center" : "flex-start")};
+justify-content: ${({ expandir }) => (expandir ? "center" : "flex-start")};
 transition: all 1.5s ease;
 `;
 export const ContenedorDuracion = styled.div`
@@ -192,11 +192,12 @@ export const ContenedorSinExpandir = styled.div`
 `;
 export const ContenedorExpandir = styled.div`
     display: flex;
-    width: ${({expandir}) => (expandir ? "0" : "40rem")};
+    height: 28.2rem;
+    flex-direction: column;
+    width: ${({ expandir }) => (expandir ? "0" : "40rem")};
     border-radius: 3px;
-    border: ${({expandir}) => (expandir ? "none" : "1px solid white")};
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow: hidden;
     transition: all 1.5s ease;
     h3{

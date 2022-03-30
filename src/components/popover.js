@@ -17,6 +17,7 @@ import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
 import PopOverSinUsuario from "./PopOverSinUsuario";
 import PopOverConUsuario from "./PopOverConUsuario";
 import FacebookIniciarSecion from "./FacebookIniciarSecion";
+import { ImageNotSupported } from "@mui/icons-material";
 
 
 function PopoverNavbar(props) {
@@ -44,16 +45,21 @@ function PopoverNavbar(props) {
       from: "iniciarSecion",
     };
     props.iniciarSecion(datosUsuarios)
-
-
   };
+  console.log(props)
   return (
-    <ContenedorPrincipal>
-      {props.user == null ? <AccountCircleIcon aria-describedby={id}
-        onClick={handleClick}
+    <ContenedorPrincipal >
+
+      <ContenedorImagen
         sx={{ fontSize: 50 }}
-        className="botoncuenta"></AccountCircleIcon>
-        : props.user.imagen == null ? <AccountCircleIcon aria-describedby={id} onClick={handleClick} sx={{ fontSize: 50 }} className="botoncuenta"></AccountCircleIcon> : <ContenedorImagen ><img aria-describedby={id} onClick={handleClick} sx={{ fontSize: 50 }} className="botoncuenta" src={props.user.imagen}></img></ContenedorImagen>}
+        onClick={handleClick}
+      >
+        {props.user !== null ? <img src={props.user.imagen}></img> : <AccountCircleIcon>
+        </AccountCircleIcon>}
+      </ContenedorImagen>
+
+
+
 
       <Popover
         id={id}

@@ -5,10 +5,12 @@ const passport = require('../configuracion/Pasaporte')
 const controladorCiudades = require('../controladores/controladorCiudades')
 const controladorItinerarios = require('../controladores/ControladoresItinerarios')
 const controladorUsuarios = require('../controladores/ControladorUsuarios')
+const controladoresActividades = require('../controladores/controladoresActividades')
 
 const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUnaCiudad } = controladorCiudades
 const { ObtenerItinerarios, ObtenerItinerariosPorCiudad } = controladorItinerarios
 const { inicioDeSecion, cerrarSecion, cargarUsuarios, verificarCorreo, verificarToken } = controladorUsuarios
+const { obtenerActividades, obtenerTodasLasActividades } = controladoresActividades
 
 Router.route('/todaslasciudades')
     .get(obtenerCiudades)
@@ -42,6 +44,12 @@ Router.route('/Verificacion/:uniqueString')
 
 Router.route('/auth/signInToken')
     .get(passport.authenticate('jwt', { session: false }), verificarToken)
+
+Router.route('/Actividades/:id')
+    .get(obtenerActividades)
+
+Router.route('/allActividades')
+    .get(obtenerTodasLasActividades)
 
 module.exports = Router
 

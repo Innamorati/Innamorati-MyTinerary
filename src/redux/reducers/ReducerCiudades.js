@@ -1,20 +1,27 @@
 const estadoInicial = {
     ciudades: [],
+    auxiliar: [],
     filtroSelect: [],
     datosFiltrados: [],
     ciudadDetalle: [],
+    continentes: [],
     visivilidad: false,
 }
 
 const ReducerCiudades = (state = estadoInicial, action) => {
     switch (action.type) {
         case 'fetch':
+            let todosloscontinentes = action.payload?.map(ciudades => ciudades.Continente)
+            let limpiar = new Set(todosloscontinentes)
+            let continentes = [...limpiar]
             return {
                 ...state,
                 ciudades: action.payload,
                 auxiliar: action.payload,
                 filtroSelect: action.payload,
                 datosFiltrados: action.payload,
+                continentes: continentes,
+
             }
 
         case 'borrar':
@@ -35,48 +42,35 @@ const ReducerCiudades = (state = estadoInicial, action) => {
                 ...state,
                 datosFiltrados: filtrando
             }
-        case 'FiltroSelect':
-            let Ciudades = action.payload.ciudades
+        case 'selecFiltro':
             let Seleccionada = []
-            switch (action.payload.seleccionado) {
-
+            let Ciudades = action.payload.ciudades
+            let seleccion = action.payload.seleccionado
+            switch (seleccion) {
                 case 'America':
-                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente = action.payload.seleccionado))
+                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente === seleccion))
                     break;
                 case 'Oceania':
-                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente = action.payload.seleccionado))
+                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente === seleccion))
                     break;
                 case 'Europe':
-                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente = action.payload.seleccionado))
+                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente === seleccion))
                     break;
                 case 'Africa':
-                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente = action.payload.seleccionado))
+                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente === seleccion))
                     break;
                 case 'Asia':
-                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente = action.payload.seleccionado))
+                    Seleccionada = Ciudades.filter((ciudades => ciudades.Continente === seleccion))
                     break;
 
                 case 'todos':
-                    Seleccionada = Ciudades.map(ciudad => ciudad)
+                    Seleccionada = Ciudades.filter(ciudades => ciudades)
                     break;
             }
-
             return {
                 ...state,
                 filtroSelect: Seleccionada,
                 datosFiltrados: Seleccionada,
-            }
-        case 'VisivilidadAlerta':
-            let mostrar
-            if (action.payload.longitud === 0) {
-                mostrar = true
-            }
-            else {
-                mostrar = false
-            }
-            return {
-                ...state,
-                visivilidad: mostrar
             }
         default:
             return state

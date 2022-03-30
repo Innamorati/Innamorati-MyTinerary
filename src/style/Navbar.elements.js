@@ -83,7 +83,7 @@ a{
     }
 `;
 
-export const MenuItemLink = Styled.a`
+export const MenuItemLink = Styled.div`
 font-size: 1.2rem;
 font-weight:600;
 display: flex;

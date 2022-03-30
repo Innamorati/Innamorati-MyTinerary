@@ -7,36 +7,33 @@ import { connect } from "react-redux";
 import AccionesCiudades from '../redux/acciones/AccionesCiudades';
 
 function Filtro(props) {
-    const ciudades = useSelector(state => state.ReducerCiudades.ciudades)
+    // const ciudades = useSelector(state => state.ReducerCiudades.ciudades)
     const [busqueda] = useState()
-    const filtroSelect = props.filtroSelect
-    const longitud = props.datosFiltrados.length
+    // const filtroSelect = props.filtroSelect
 
 
 
-    let todosloscontinentes = props.auxiliar?.map(ciudades => ciudades.Continente)
-    let limpiar = new Set(todosloscontinentes)
-    let continentes = [...limpiar]
+    // let todosloscontinentes = props.continentes?.map(ciudades => ciudades.Continente)
+    // let limpiar = new Set(todosloscontinentes)
+    // let continentes = [...limpiar]
+
 
     const filtroContinentes = e => {
-        const seleccionado = (e.target.value)
-        // props.VisibilidadAviso(longitud)
-        props.FiltroSelect(ciudades, seleccionado)
-
+        props.FiltroSelect(props.ciudades, e.target.value)
     }
     const parametroBusqueda = parametro => {
-        props.Filtrar(filtroSelect, parametro)
+        props.Filtrar(props.filtroSelect, parametro)
 
     }
-    props.VisibilidadAviso(longitud)
+
     return (
         <BuscadorContenedor>
             <SearchIcon> </SearchIcon>
             <Buscador type="search" value={busqueda} onChange={(evento) => parametroBusqueda(evento.target.value)}></Buscador>
             <Selector onChange={filtroContinentes}>
-                <option value="todos" onChange={filtroContinentes}>All continets</option>
-                {continentes?.map((continente, index) =>
-                    <option value={continente} onChange={filtroContinentes} key={index}>{continente}</option>
+                <option value="todos">All continets</option>
+                {props.continentes?.map((continente, index) =>
+                    <option value={continente} key={index}>{continente}</option>
                 )}
             </Selector>
         </BuscadorContenedor>
@@ -55,10 +52,7 @@ const mapStateToProps = (state) => {
         filtroSelect: state.ReducerCiudades.filtroSelect,
         datosFiltrados: state.ReducerCiudades.datosFiltrados,
         auxiliar: state.ReducerCiudades.auxiliar,
-        Valores: state.ReducerCiudades.Valores,
-        visivilidad: state.ReducerCiudades.visivilidad,
-
-
+        continentes: state.ReducerCiudades.continentes,
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Filtro)

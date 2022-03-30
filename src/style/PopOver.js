@@ -46,14 +46,20 @@ export const ContenedorBoton = Styled.div`
     flex-direction: column;
 `;
 export const ContenedorImagen = Styled.div`
-    height: 3rem;
-    width: 3rem;
-    
-
+    /* height: 3rem;
+    width: 3rem; */
+    background: none;
     img{
         width: 3rem;
         height: 3rem;
         border-radius: 100px;
         object-fit: cover;
     }
-`;
+    svg{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+    `;
+

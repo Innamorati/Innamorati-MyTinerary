@@ -38,14 +38,9 @@ const AccionesCiudades = {
     },
     FiltroSelect: (ciudades, seleccionado) => {
         return (despachar, getState) => {
-            despachar({ type: 'FiltroSelect', payload: { ciudades, seleccionado } })
+            despachar({ type: 'selecFiltro', payload: { ciudades, seleccionado } })
         }
     },
-    VisibilidadAviso: (longitud) => {
-        return (despachar, getState) => {
-            despachar({ type: 'VisivilidadAlerta', payload: { longitud } },)
-        }
-    }
 }
 
 export default AccionesCiudades;

@@ -13,7 +13,7 @@ const Validador = (req, respuesta, next) => {
         correo: joi.string().email({ minDomainSegments: 2 }).required().messages({
             'string.email': 'Wrong email format '
         }),
-        contrasena: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({
+        contrasena: joi.string().pattern(new RegExp('[a-zA-Z0-9\]')).required().trim().min(8).max(30).messages({
             'string.min': 'The password must contain at least 8 characters and contain uppercase, lowercase and number ',
             'string.pattern': "The password must be alphanumeric and contain a number "
         }),

@@ -1,63 +1,65 @@
 const Ciudades = require('../modelos/Ciudades')
 
 const controladorCiudades = {
-    
-    obtenerCiudades: async (req, res)=>{
+
+    obtenerCiudades: async (req, res) => {
         let ciudades
         let error = null
-        try{
+        try {
             ciudades = await Ciudades.find()
-        }catch(err){
+        } catch (err) {
             error = err
             console.log(error)
         }
         res.json({
-            respuesta: error ? 'ERROR' : {ciudades},
-            estado : error ? false : true,
-            error: error 
+            respuesta: error ? 'ERROR' : { ciudades },
+            estado: error ? false : true,
+            error: error
         })
     },
-    BorrarCiudad: async(req,res)=>{
+    BorrarCiudad: async (req, res) => {
         const id = req.params.id
         let ciudad
-        try{
-            await Ciudades.findOneAndDelete({_id:id})
+        try {
+            await Ciudades.findOneAndDelete({ _id: id })
             ciudad = await Ciudades.find()
 
-        }catch(error){
+        } catch (error) {
             console.log(error)
         }
-        res.json({respuesta: ciudad,success:true})
+        res.json({ respuesta: ciudad, success: true })
 
     },
-    cargarCiudad: async(req,res)=>{
-        const {Ciudad, Pais, Continente,} = req.body.dataInput
-        new Ciudades({nombre:Ciudad, 
-                     pais:Pais,
-                     continente:Continente}).save()
-            .then((respuesta) => res.json({respuesta}))
+    cargarCiudad: async (req, res) => {
+        const { Ciudad, Pais, Continente, } = req.body.dataInput
+        new Ciudades({
+            nombre: Ciudad,
+            pais: Pais,
+            continente: Continente
+        }).save()
+            .then((respuesta) => res.json({ respuesta }))
     },
-    modificarCiudad: async (req, res)=>{
+    modificarCiudad: async (req, res) => {
         const id = req.params.id
         const ciudad = req.body.dataInput
 
-        let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
+        let ciudadb = await Ciudades.findOneAndUpdate({ _id: id }, ciudad)
 
     },
-    obtenerUnaCiudad: async (req, res)=>{
-        const id =req.params.id  
+    obtenerUnaCiudad: async (req, res) => {
+        const id = req.params.id
         let seleccionada
         let error = null
 
-        try{
-            seleccionada = await Ciudades.findOne({_id:id})
-            
-        }catch(err){
+        try {
+            seleccionada = await Ciudades.findOne({ _id: id })
+
+        } catch (err) {
             error = err
             console.log(error)
         }
         res.json({
-            respuesta: error ? 'ERROR' : seleccionada, 
+            respuesta: error ? 'ERROR' : seleccionada,
             success: error ? false : true,
             error: error
         })

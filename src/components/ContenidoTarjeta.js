@@ -1,7 +1,8 @@
-import  {useState} from 'react'
+import { useState } from 'react'
+import { connect } from 'react-redux'
 
 import {
-    Duracion, 
+    Duracion,
     Etiquetas,
     NumeroLike,
     ImagenPerfil,
@@ -20,48 +21,54 @@ import {
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PaidIcon from '@mui/icons-material/Paid';
+import ContenidoActividades from './ContenidoActividades'
 
-export default function ContenidoTarjeta({itinerarios}){
+
+export default function ContenidoTarjeta({ itinerarios, actividades }) {
+
 
     const [estado, setEstado] = useState(true)
- 
 
-    const cambiarEstado=()=> {
+
+    const cambiarEstado = () => {
 
         setEstado(!estado)
-      }
-      const cantidad = []
-      for (let index = 0; index < itinerarios.Precio; index++) {
-          cantidad.push(index) 
-      }
-      
-    return(
-            <IntinerariosInformacion  key={itinerarios._id} expandir={estado}>
-                <ContenedorSinExpandir>
-                    <ContenedorImgfPerfil>
-                        <NombreActividad>{itinerarios.Actividad}</NombreActividad>
-                        <ImagenPerfil src={process.env.PUBLIC_URL+`/imagenes/ImgenesPerfiles/${itinerarios.FotoUsuario}`}/>
-                        <NombreUsuario>{itinerarios.NombreUsuario}</NombreUsuario>
-                    </ContenedorImgfPerfil>
+    }
+    const cantidad = []
+    for (let index = 0; index < itinerarios.Precio; index++) {
+        cantidad.push(index)
+    }
+    console.log(itinerarios._id)
+    return (
+
+        <IntinerariosInformacion key={itinerarios._id} expandir={estado}>
+            <ContenedorSinExpandir>
+                <ContenedorImgfPerfil>
+                    <NombreActividad>{itinerarios.Actividad}</NombreActividad>
+                    <ImagenPerfil src={process.env.PUBLIC_URL + `/imagenes/ImgenesPerfiles/${itinerarios.FotoUsuario}`} />
+                    <NombreUsuario>{itinerarios.NombreUsuario}</NombreUsuario>
+                </ContenedorImgfPerfil>
                 <ContenedorPrecio>
-                    {cantidad.map((index,precio) =><PaidIcon key={index}/>)}
+                    {cantidad.map((index, precio) => <PaidIcon key={index} />)}
                 </ContenedorPrecio>
                 <ContenedorDuracion>
-                    <AccessTimeIcon/>
-                        <Duracion>: {itinerarios.Duracion} Horas</Duracion>
+                    <AccessTimeIcon />
+                    <Duracion>: {itinerarios.Duracion} Horas</Duracion>
                 </ContenedorDuracion>
                 <ContenedorLike>
-                    <FavoriteIcon/>
+                    <FavoriteIcon />
                     <NumeroLike>{itinerarios.Like}</NumeroLike>
                 </ContenedorLike>
                 <ContenedorEtiquetas>
                     <Etiquetas>#{itinerarios.Etiquetas}</Etiquetas>
                 </ContenedorEtiquetas>
-                    <VerMas onClick={cambiarEstado}>View more</VerMas>
-                </ContenedorSinExpandir>
-                <ContenedorExpandir expandir={estado}>
-                    <h3>Under construction</h3>
-                </ContenedorExpandir>
-            </IntinerariosInformacion>
+                <VerMas onClick={cambiarEstado}>View more</VerMas>
+            </ContenedorSinExpandir>
+            <ContenedorExpandir expandir={estado}>
+                <ContenidoActividades actividades={actividades.filter(actividades => actividades.Itinerario === itinerarios._id)} />
+            </ContenedorExpandir>
+        </IntinerariosInformacion>
+
     )
 }
+

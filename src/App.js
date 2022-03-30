@@ -21,7 +21,6 @@ const RegistroWhitRouter = withRouter(Registro);
 
 function App(props) {
   useEffect(() => {
-    props.obtenerToken()
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem("token")
       props.VerificarToken(token)
@@ -36,7 +35,7 @@ function App(props) {
           <Route path="*" element={<Index />}></Route>
           <Route path="/Cities" element={<Cities />}></Route>
           <Route path="/Cities/Detalle/:id" element={<DetallesCiudadwithRouter />}></Route>
-          <Route path="/Registro" element={<RegistroWhitRouter />}></Route>
+          {props.usuarios ? <Route path="/Registro" element={<RegistroWhitRouter />}></Route> : <Route path="*" element={<RegistroWhitRouter />}></Route>}
         </Routes>
         <CustomizedSnackbars></CustomizedSnackbars>
         <Piepagina />
@@ -49,4 +48,9 @@ const mapDispatchToProps = {
   obtenerToken: AccionesUsuarios.obtenerToken,
 
 }
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = (state) => {
+  return {
+    usuarios: state.ReducerUsuarios.usuarios
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
