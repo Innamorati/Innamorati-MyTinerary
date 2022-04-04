@@ -125,7 +125,7 @@ const ControladorUsuarios = {
         }
     },
     inicioDeSecion: async (req, respuesta) => {
-        const { correo, contrasena, from } = req.body.datosUsuarios
+        const { correo, contrasena, from, imagen } = req.body.datosUsuarios
         try {
             const usuarioExiste = await Usuario.findOne({ correo })
             if (!usuarioExiste) {
@@ -139,7 +139,8 @@ const ControladorUsuarios = {
                             id: usuarioExiste._id,
                             nombre: usuarioExiste.fullname,
                             apellido: usuarioExiste.apellido,
-                            correo: usuarioExiste.correo
+                            correo: usuarioExiste.correo,
+                            imagen: usuarioExiste.imagen
                         }
                         await usuarioExiste.save()
 
@@ -204,7 +205,7 @@ const ControladorUsuarios = {
     cerrarSecion: async (req, respuesta) => {
         const correo = req.body.cerrarSecion
         const user = await Usuario.findOne({ correo })
-        respuesta.json({ success: true, mensaje: "Closed session", })
+        respuesta.json({ success: true, mensaje: "Closed session", correo: null, contrasena: null })
     },
     verificarToken: (req, res) => {
         console.log(req.user)
@@ -214,6 +215,7 @@ const ControladorUsuarios = {
                 response: { id: req.user.id, nombre: req.user.nombre, correo: req.user.correo, from: "token" },
                 mensaje: "Welcome again " + req.user.nombre
             })
+            // console.log(req.user),
         } else {
             res.json({
                 success: false,

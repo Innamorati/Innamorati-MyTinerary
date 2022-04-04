@@ -9,12 +9,11 @@ function FacebookIniciarSecion(props) {
     const responseFacebook = async (respuesta) => {
 
         const datosUsuarios = {
-            imagen: "respuesta.picture",
+            imagen: respuesta.picture.data.url,
             correo: respuesta.email,
             contrasena: respuesta.id,
             from: "facebook",
         }
-        console.log(respuesta)
         await props.iniciarSecion(datosUsuarios)
     }
 

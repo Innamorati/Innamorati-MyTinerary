@@ -35,5 +35,26 @@ const controladorItinerarios = {
             error: error,
         })
     },
+    LikeyDislike: async (req, res) => {
+        let id = req.params.id
+        let usuario = req.user.id
+        console.log(req.params.id)
+        await Itinerarios.findOne({ _id: id })
+            // console.log(Itinerarios.findOne({ _id: id }))
+            .then((itinerarios) => {
+                if (itinerarios.Like.includes(usuario)) {
+                    Itinerarios.findOneAndUpdate({ _id: id }, { $pull: { Like: usuario } }, { new: true })
+                        .then((respuesta) => res.json({ success: true, respuesta: respuesta.Like }))
+                        .catch((error) => console.log(error))
+                    console.log("if" + res)
+                } else {
+                    Itinerarios.findOneAndUpdate({ _id: id }, { $push: { Like: usuario } }, { new: true })
+                        .then((respuesta) => res.json({ success: true, respuesta: respuesta.likes }))
+                        .catch((error) => console.log(error))
+                    console.log("else" + " " + res)
+                }
+
+            })
+    }
 }
 module.exports = controladorItinerarios

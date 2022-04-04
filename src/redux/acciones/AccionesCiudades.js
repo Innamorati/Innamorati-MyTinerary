@@ -27,7 +27,7 @@ const AccionesCiudades = {
     },
     ObtenerUnaCiudad: (id) => {
         return async (despachar, getState) => {
-            const respuesta = await axios.get('http://localhost:4000/api/Cities/Detalles/' + id.id)
+            const respuesta = await axios.get('http://localhost:4000/api/Cities/Detalles/' + id)
             despachar({ type: 'ObtenerUnaCiudad', payload: respuesta.data.respuesta })
         }
     },

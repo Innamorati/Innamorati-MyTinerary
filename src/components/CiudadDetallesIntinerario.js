@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import {
     TituloIntinerarios,
@@ -9,47 +10,51 @@ import AccionesItinerarios from "../redux/acciones/AccionesItinerarios";
 import ContenidoTarjeta from "./ContenidoTarjeta";
 import { AvisoItinerarios } from "../style/Cities.elements";
 import AccionesActividades from "../redux/acciones/AccionesActividades";
+import AccionesComentarios from "../redux/acciones/AccionesComentarios"
 
 
 
 
 
+function CiudadDetallesIntinerarios(props) {
 
-class CiudadDetallesIntinerarios extends React.Component {
+    let id = props.params.id
+    let longitud = props.itinerariosCiudades.length
 
-    id = this.props.params.id
-    longitud = this.props.itinerariosCiudades.length
-    componentDidMount() {
-        this.props.ObtenerItinerariosPorCiudad(this.id)
-        this.props.obtenerActividades(this.id)
-    }
+    useEffect(() => {
+        props.ObtenerItinerariosPorCiudad(id)
+        props.obtenerActividades(id)
+    }, [props.Actualizar])
 
 
-    render() {
 
-        return (
-            <div>
-                <ContenedortIntinerarios>
-                    <TituloIntinerarios>Itineraries</TituloIntinerarios>
-                    <ItinerariosContenedor>
-                        {this.props.itinerariosCiudades.length > 0 ? (this.props.itinerariosCiudades?.map((itinerarios) =>
-                            <ContenidoTarjeta itinerarios={itinerarios} actividades={this.props.Actividades} />
-                        )) : <h2 style={{ color: 'white' }}>Under construction</h2>}
-                        <AvisoItinerarios>
+    return (
+        <div>
+            <ContenedortIntinerarios>
+                <TituloIntinerarios>Itineraries</TituloIntinerarios>
+                <ItinerariosContenedor>
+                    {props.itinerariosCiudades.length > 0 ? (props.itinerariosCiudades?.map((itinerarios) =>
+                        <ContenidoTarjeta key={itinerarios._id} itinerarios={itinerarios} actividades={props.Actividades} like={props.LikeyDislike} Recargar={props.Recargar} Usuario={props.user} Add={props.agregarComentario} Del={props.borrarComentario} />
+                    )) : <h2 style={{ color: 'white' }}>Under construction</h2>}
+                    <AvisoItinerarios>
 
-                        </AvisoItinerarios>
-                    </ItinerariosContenedor>
-                </ContenedortIntinerarios>
+                    </AvisoItinerarios>
+                </ItinerariosContenedor>
+            </ContenedortIntinerarios>
 
-            </div>
-        )
-    }
+        </div>
+    )
 }
+
 const mapDispatchToProps = {
     ObtenerItinerariosPorCiudad: AccionesItinerarios.ObtenerItinerariosPorCiudad,
     CambiarEstado: AccionesItinerarios.CambiarEstado,
     VisibilidadAvisoItinerarios: AccionesItinerarios.VisibilidadAvisoItinerarios,
     obtenerActividades: AccionesActividades.obtenerActividades,
+    LikeyDislike: AccionesItinerarios.LikeyDislike,
+    Recargar: AccionesItinerarios.Recargar,
+    agregarComentario: AccionesComentarios.agregarComentario,
+    borrarComentario: AccionesComentarios.borrarComentario
 }
 
 const mapStateToProps = (state) => {
@@ -57,6 +62,8 @@ const mapStateToProps = (state) => {
         itinerariosCiudades: state.ReducerItinerarios.itinerariosCiudades,
         visivilidadItinerarios: state.ReducerItinerarios.visivilidadItinerarios,
         Actividades: state.ReducerActividades.Actividades,
+        Actualizar: state.ReducerItinerarios.Actualizar,
+        user: state.ReducerUsuarios.user
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CiudadDetallesIntinerarios)

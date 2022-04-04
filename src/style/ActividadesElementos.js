@@ -31,7 +31,10 @@ export const ContenedorActividades = styled.div`
     flex-direction: row;
 `;
 export const ContenedorComentarios = styled.div`
-    height: 13.2rem;
+    height: 12.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 `;
 export const ContenedorInput = styled.div`
  display: flex;
@@ -41,7 +44,7 @@ export const ContenedorInput = styled.div`
         margin:.5rem 0 0 1rem;
     }
 `;
-export const Comentario = styled.input`
+export const Comentario = styled.div`
     width: 36rem;
     height: 2rem;
     outline: none;
@@ -52,6 +55,29 @@ export const Comentario = styled.input`
     caret-color:white;
     color: white;
     font-size: 1.3rem;
-    overflow: scroll;
     max-width: 36rem;
+`;
+export const ComentarioBurbuja = styled.div`
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    border-radius: 10px;
+    padding: 0px 1rem;
+    width: 97%;
+    svg{
+        color: white;
+    }
+    p{
+        color: white;
+        margin-left: 1rem;
+        width: 90%;
+    }
+`;
+export const ImagenComentario = styled.div`
+    height: 2rem;
+    width: 2rem;
+    border-radius: 15px;
+    background-size: 2rem 2rem;
+
 `;

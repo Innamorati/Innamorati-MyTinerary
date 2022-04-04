@@ -22,7 +22,31 @@ const AccionesItinerarios = {
   },
   VisibilidadAvisoItinerarios: (longitud) => {
     return (despachar, getState) => {
-      despachar({ type: 'VisivilidadAlertaItinerarios', payload: longitud }, console.log(despachar))
+      despachar({ type: 'VisivilidadAlertaItinerarios', payload: longitud })
+    }
+  },
+  LikeyDislike: (itinerarioID) => {
+    const token = localStorage.getItem('token')
+
+    return async () => {
+      try {
+        let respuesta = await axios.put(`http://localhost:4000/api/Itinerario/LikeyDislike/${itinerarioID}`, {},
+          {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          })
+
+        return respuesta
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  },
+  Recargar: (reload) => {
+    return (despachar, getState) => {
+      despachar({ type: 'Actualizar', payload: reload })
     }
   }
 }

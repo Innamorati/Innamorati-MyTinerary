@@ -23,7 +23,6 @@ const AccionesUsuarios = {
                 localStorage.setItem('token', usuarios.data.respuesta.token)
                 despachar({ type: 'iniciarSecion', payload: usuarios.data.respuesta.datosUsuarios });
                 despachar({ type: 'mensaje', payload: usuarios.data.mensaje });
-                console.log(usuarios.data.respuesta.datosUsuarios)
             }
             despachar({
                 type: 'mensaje',
@@ -47,8 +46,10 @@ const AccionesUsuarios = {
             const usuario = await axios.get('http://localhost:4000/api/auth/signInToken', { headers: { 'Authorization': 'Bearer ' + token } })
             if (usuario.data.success) {
                 despachar({ type: 'iniciarSecion', payload: usuario.data.response });
+                console.log(usuario.data.response)
                 despachar({ type: 'mensaje', payload: { view: true, mensaje: usuario.data.mensaje, success: usuario.data.success } });
-            } else { localStorage.removeItem('token') }
+            }
+            else { localStorage.removeItem('token') }
 
         }
     },

@@ -12,7 +12,6 @@ function PopOverConUsuario(props) {
     }
 
     return (
-
         <>
             <Contenedor>
                 <ContenedorBoton>

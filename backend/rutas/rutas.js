@@ -6,11 +6,12 @@ const controladorCiudades = require('../controladores/controladorCiudades')
 const controladorItinerarios = require('../controladores/ControladoresItinerarios')
 const controladorUsuarios = require('../controladores/ControladorUsuarios')
 const controladoresActividades = require('../controladores/controladoresActividades')
-
+const ControladoresComentarios = require('../controladores/ControladoresComentarios')
 const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUnaCiudad } = controladorCiudades
-const { ObtenerItinerarios, ObtenerItinerariosPorCiudad } = controladorItinerarios
+const { ObtenerItinerarios, ObtenerItinerariosPorCiudad, LikeyDislike } = controladorItinerarios
 const { inicioDeSecion, cerrarSecion, cargarUsuarios, verificarCorreo, verificarToken } = controladorUsuarios
 const { obtenerActividades, obtenerTodasLasActividades } = controladoresActividades
+const { agregarComentario, borrarComentario } = ControladoresComentarios
 
 Router.route('/todaslasciudades')
     .get(obtenerCiudades)
@@ -50,6 +51,15 @@ Router.route('/Actividades/:id')
 
 Router.route('/allActividades')
     .get(obtenerTodasLasActividades)
+
+Router.route('/Itinerario/LikeyDislike/:id')
+    .put(passport.authenticate('jwt', { session: false }), LikeyDislike)
+
+Router.route('/Itinerario/Comentarios/')
+    .post(passport.authenticate('jwt', { session: false }), agregarComentario)
+
+Router.route('/Itinerario/Comentarios/:id')
+    .post(passport.authenticate('jwt', { session: false }), borrarComentario)
 
 module.exports = Router
 

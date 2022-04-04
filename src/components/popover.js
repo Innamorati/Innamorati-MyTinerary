@@ -14,7 +14,6 @@ import {
 } from "../style/PopOver";
 
 import AccionesUsuarios from "../redux/acciones/AccionesUsuarios";
-import PopOverSinUsuario from "./PopOverSinUsuario";
 import PopOverConUsuario from "./PopOverConUsuario";
 import FacebookIniciarSecion from "./FacebookIniciarSecion";
 import { ImageNotSupported } from "@mui/icons-material";
@@ -38,7 +37,6 @@ function PopoverNavbar(props) {
 
   const enviarInformacion = (event) => {
     event.preventDefault(event);
-
     const datosUsuarios = {
       correo: event.target[0].value,
       contrasena: event.target[1].value,
@@ -46,7 +44,7 @@ function PopoverNavbar(props) {
     };
     props.iniciarSecion(datosUsuarios)
   };
-  console.log(props)
+
   return (
     <ContenedorPrincipal >
 
