@@ -3,7 +3,7 @@ const cors = require('cors')
 const express = require('express')
 require('./configuracion/basededato')
 const Router = require('./rutas/rutas')
-const PORT = 4000
+
 const app = express()
 
 app.use(cors())
@@ -21,4 +21,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0', () => console.log(`Server listener in port ${process.env.PORT}`))
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${PORT}`);
+});

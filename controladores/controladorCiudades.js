@@ -56,6 +56,7 @@ const controladorCiudades = {
 
         } catch (err) {
             error = err
+            console.log(err)
         }
         res.json({
             respuesta: error ? 'ERROR' : seleccionada,
