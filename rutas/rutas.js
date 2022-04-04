@@ -5,7 +5,7 @@ const passport = require('../configuracion/Pasaporte')
 const controladorCiudades = require('../controladores/controladorCiudades')
 const controladorItinerarios = require('../controladores/ControladoresItinerarios')
 const controladorUsuarios = require('../controladores/ControladorUsuarios')
-const controladoresActividades = require('../controladores/controladoresActividades')
+const controladoresActividades = require('../controladores/ControladoresActividades')
 
 const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUnaCiudad } = controladorCiudades
 const { ObtenerItinerarios, ObtenerItinerariosPorCiudad } = controladorItinerarios
