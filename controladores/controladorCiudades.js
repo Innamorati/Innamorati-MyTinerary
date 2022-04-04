@@ -1,4 +1,4 @@
-const Ciudades = require('../modelos/Ciudades')
+const Ciudades = require('../modelos/ciudades')
 
 const controladorCiudades = {
 
