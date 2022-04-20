@@ -18,14 +18,15 @@ import {
 } from "../style/Detalles.elementos";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PaidIcon from '@mui/icons-material/Paid';
 import ContenidoActividades from './ContenidoActividades'
-
+import { useDispatch } from 'react-redux';
 
 
 export default function ContenidoTarjeta({ like, itinerarios, actividades, Recargar, Usuario, Add, Del }) {
 
-    const [reload, setReload] = useState(false)
+    const dispatch = useDispatch()
     const [estado, setEstado] = useState(true)
 
 
@@ -42,10 +43,11 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
 
     async function Like() {
         await like(id)
-        setReload(!reload)
-        Recargar(!reload)
-    }
+        dispatch({ type: 'Actualizar', payload: !Recargar })
 
+    }
+    const likeUser = itinerarios.Like?.filter(filter => Usuario?.id === filter)
+    const etiquetas = itinerarios.Etiquetas.map(etiquetas => "#" + etiquetas + " ")
     return (
 
         <IntinerariosInformacion key={itinerarios._id} expandir={estado}>
@@ -62,19 +64,19 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
                     <AccessTimeIcon />
                     <Duracion>: {itinerarios.Duracion} Horas</Duracion>
                 </ContenedorDuracion>
-                <ContenedorLike>
-                    <FavoriteIcon onClick={Like} />
+                <ContenedorLike onClick={Like}>
+                    {likeUser.length === 0 ? <FavoriteBorderIcon /> : <FavoriteIcon />}
                     <NumeroLike>{itinerarios.Like.length}</NumeroLike>
                 </ContenedorLike>
                 <ContenedorEtiquetas>
-                    <Etiquetas>#{itinerarios.Etiquetas}</Etiquetas>
+                    <Etiquetas>{etiquetas}</Etiquetas>
                 </ContenedorEtiquetas>
                 <VerMas onClick={cambiarEstado}>View more</VerMas>
             </ContenedorSinExpandir>
             <ContenedorExpandir expandir={estado} >
-                <ContenidoActividades actividades={actividades.filter(actividades => actividades.Itinerario === itinerarios._id)} Usuario={Usuario} Add={Add} Itinerario={itinerarios} Del={Del} />
+                <ContenidoActividades actividades={actividades.filter(actividades => actividades.Itinerario === itinerarios._id)} Usuario={Usuario} Add={Add} Itinerario={itinerarios} Del={Del} Recargar={Recargar} />
             </ContenedorExpandir >
-        </IntinerariosInformacion>
+        </IntinerariosInformacion >
 
     )
 }

@@ -167,9 +167,9 @@ export const ContenedorLike = styled.div`
     margin-top: .5rem;
     display: flex;
     flex-direction: column;
-   svg{
-       color:red;
-   } 
+    svg{
+        color: red;
+    }
 `;
 export const NumeroLike = styled.h4`
     color:red;

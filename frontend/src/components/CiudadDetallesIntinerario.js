@@ -25,16 +25,14 @@ function CiudadDetallesIntinerarios(props) {
         props.ObtenerItinerariosPorCiudad(id)
         props.obtenerActividades(id)
     }, [props.Actualizar])
-
-
-
+    console.log(props.Actualizar)
     return (
         <div>
             <ContenedortIntinerarios>
                 <TituloIntinerarios>Itineraries</TituloIntinerarios>
                 <ItinerariosContenedor>
                     {props.itinerariosCiudades.length > 0 ? (props.itinerariosCiudades?.map((itinerarios) =>
-                        <ContenidoTarjeta key={itinerarios._id} itinerarios={itinerarios} actividades={props.Actividades} like={props.LikeyDislike} Recargar={props.Recargar} Usuario={props.user} Add={props.agregarComentario} Del={props.borrarComentario} />
+                        <ContenidoTarjeta key={itinerarios._id} itinerarios={itinerarios} actividades={props.Actividades} like={props.LikeyDislike} Recargar={props.Actualizar} Usuario={props.user} Add={props.agregarComentario} Del={props.borrarComentario} />
                     )) : <h2 style={{ color: 'white' }}>Under construction</h2>}
                     <AvisoItinerarios>
 

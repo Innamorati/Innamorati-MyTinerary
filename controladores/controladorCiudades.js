@@ -48,7 +48,6 @@ const controladorCiudades = {
     },
     obtenerUnaCiudad: async (req, res) => {
         const id = req.params.id
-        console.log("hola")
         let seleccionada
         let error = null
 

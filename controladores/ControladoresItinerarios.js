@@ -35,7 +35,6 @@ const controladorItinerarios = {
             error: error,
         })
     },
-<<<<<<< HEAD
     LikeyDislike: async (req, res) => {
         let id = req.params.id
         let usuario = req.user.id
@@ -57,7 +56,5 @@ const controladorItinerarios = {
 
             })
     }
-=======
->>>>>>> 51706960914f20b4c8549c318c5a5e2a7c48c37e
 }
 module.exports = controladorItinerarios

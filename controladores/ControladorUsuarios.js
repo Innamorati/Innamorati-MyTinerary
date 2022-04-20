@@ -208,14 +208,12 @@ const ControladorUsuarios = {
         respuesta.json({ success: true, mensaje: "Closed session", correo: null, contrasena: null })
     },
     verificarToken: (req, res) => {
-        console.log(req.user)
         if (!req.err) {
             res.json({
                 success: true,
-                response: { id: req.user.id, nombre: req.user.nombre, correo: req.user.correo, from: "token" },
+                response: { id: req.user.id, nombre: req.user.nombre, correo: req.user.correo, from: "token", imagen: req.user.imagen },
                 mensaje: "Welcome again " + req.user.nombre
             })
-            // console.log(req.user),
         } else {
             res.json({
                 success: false,

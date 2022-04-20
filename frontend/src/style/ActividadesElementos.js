@@ -12,7 +12,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-p{
+div{
     margin-top: .8rem;
     color: white;
     font-size: 1.2rem;
@@ -29,12 +29,21 @@ export const ContenedorImagen = styled.div`
 export const ContenedorActividades = styled.div`
     display: flex;
     flex-direction: row;
+    p{
+        color: white;
+        font-size: 1rem;
+    }
 `;
 export const ContenedorComentarios = styled.div`
     height: 12.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow-y: scroll;
+
+`;
+export const ContenedorMensajes = styled.div`
+    height: auto;
 `;
 export const ContenedorInput = styled.div`
  display: flex;
@@ -44,7 +53,7 @@ export const ContenedorInput = styled.div`
         margin:.5rem 0 0 1rem;
     }
 `;
-export const Comentario = styled.div`
+export const Comentario = styled.input`
     width: 36rem;
     height: 2rem;
     outline: none;
@@ -56,10 +65,12 @@ export const Comentario = styled.div`
     color: white;
     font-size: 1.3rem;
     max-width: 36rem;
+    margin-top: 1rem;
 `;
 export const ComentarioBurbuja = styled.div`
     background-color: black;
     display: flex;
+    margin: .1rem 0;
     align-items: center;
     height: 3rem;
     border-radius: 10px;
@@ -80,4 +91,12 @@ export const ImagenComentario = styled.div`
     border-radius: 15px;
     background-size: 2rem 2rem;
 
+`;
+export const Form = styled.form`
+
+`;
+export const BotonComentar = styled.button`
+    width: 1rem;
+    background: none;
+    border: none;
 `;

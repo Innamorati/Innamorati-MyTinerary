@@ -6,7 +6,7 @@ const ItinerariosSchema = new mongoose.Schema({
     Duracion: { type: String, require: true },
     Like: { type: Array, require: true },
     Precio: { type: Number, require: true },
-    Etiquetas: { type: String, require: true },
+    Etiquetas: { type: Array, require: true },
     NombreUsuario: { type: String, require: true },
     Ciudad: { type: String },
     Comentarios: [{

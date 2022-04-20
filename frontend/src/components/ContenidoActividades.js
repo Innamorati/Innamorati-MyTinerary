@@ -9,35 +9,38 @@ import {
     ContenedorInput,
     ComentarioBurbuja,
     ImagenComentario,
-
+    ContenedorMensajes,
+    Form,
+    BotonComentar
 } from '../style/ActividadesElementos'
 import SendIcon from '@mui/icons-material/Send';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
+import { useDispatch, getState } from 'react-redux'
 
-export default function ContenidoActividades({ actividades, Usuario, Add, Itinerario, Del }) {
+export default function ContenidoActividades({ actividades, Usuario, Add, Itinerario, Del, Recargar }) {
     const [inputText, setInputText] = useState("")
     let id = actividades.map(itinerarios => itinerarios.Itinerario)
+    const dispatch = useDispatch()
 
-    useEffect(() => {
 
-    }, [])
 
-    const nuevoComentario = () => {
-
+    async function nuevoComentario(e) {
+        e.preventDefault()
         const datos = {
-            Comentario: "Amazing bro",
+            Comentario: e.target[0].value,
             UsuarioId: Usuario.id,
             FotoUsuario: Usuario.imagen,
             Itinerario: id[0]
         }
-        Add(datos)
+        await Add(datos)
+        dispatch({ type: 'Actualizar', payload: !Recargar })
+        e.target[0].value = ""
     }
-    const borrarComentario = (event) => {
-        console.log(event.target.id)
-        Del(event.target.id)
+    async function borrarComentario(id) {
+        await Del(id)
+        dispatch({ type: 'Actualizar', payload: !Recargar })
     }
-    // console.log(Itinerario.Comentarios)
     return (
         <ContenedorPrincipal>
             <ContenedorActividades>
@@ -49,21 +52,25 @@ export default function ContenidoActividades({ actividades, Usuario, Add, Itiner
                     </CotenedorDivImagen>)}
             </ContenedorActividades>
             <ContenedorComentarios>
-                {
-                    Itinerario.Comentarios.map(comentarios =>
-                        <ComentarioBurbuja>
-                            <ImagenComentario style={{ backgroundImage: `url(${comentarios.FotoUsuario})` }} />
-                            <p>{comentarios.Comentario}</p>
-                            {Usuario ? Usuario.id === comentarios.UsuarioId ? <><DeleteOutlineIcon id={comentarios._id} onClick={borrarComentario} /> <EditIcon /></> : ""
-                                : ""}
-                        </ComentarioBurbuja>
-                    )
-                }
+                <ContenedorMensajes>
+
+                    {
+                        Itinerario.Comentarios.map(comentarios =>
+                            <ComentarioBurbuja>
+                                <ImagenComentario style={{ backgroundImage: `url(${comentarios.FotoUsuario})` }} />
+                                <p>{comentarios.Comentario}</p>
+                                {Usuario ? Usuario.id === comentarios.UsuarioId ? <><DeleteOutlineIcon id={comentarios._id} onClick={() => borrarComentario(comentarios._id)} /> <EditIcon /></> : ""
+                                    : ""}
+                            </ComentarioBurbuja>
+                        )
+                    }
+                </ContenedorMensajes>
             </ContenedorComentarios >
             <ContenedorInput>
-                <Comentario id="comentario" onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable>
-                </Comentario>
-                <SendIcon onClick={nuevoComentario} />
+                <Form onSubmit={nuevoComentario}>
+                    <Comentario type="text"></Comentario>
+                    <BotonComentar type="submit"><SendIcon /></BotonComentar>
+                </Form>
             </ContenedorInput >
         </ContenedorPrincipal >
     )
