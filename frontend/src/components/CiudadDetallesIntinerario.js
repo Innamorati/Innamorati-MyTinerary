@@ -10,6 +10,7 @@ import ContenidoTarjeta from "./ContenidoTarjeta";
 import { AvisoItinerarios } from "../style/Cities.elements";
 import AccionesActividades from "../redux/acciones/AccionesActividades";
 import AccionesComentarios from "../redux/acciones/AccionesComentarios"
+import { useEffect } from "react";
 
 
 
