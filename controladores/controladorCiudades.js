@@ -1,4 +1,4 @@
-const Ciudades = require('../modelos/Ciudades')
+const Ciudades = require('../modelos/ciudades')
 
 const controladorCiudades = {
 
@@ -57,7 +57,7 @@ const controladorCiudades = {
 
         } catch (err) {
             error = err
-            console.log(error)
+            console.log(err)
         }
         res.json({
             respuesta: error ? 'ERROR' : seleccionada,

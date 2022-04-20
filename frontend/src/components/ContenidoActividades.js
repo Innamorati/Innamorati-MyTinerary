@@ -49,15 +49,17 @@ export default function ContenidoActividades({ actividades, Usuario, Add, Itiner
                     </CotenedorDivImagen>)}
             </ContenedorActividades>
             <ContenedorComentarios>
-                {Itinerario.Comentarios.map(comentarios =>
-                    <ComentarioBurbuja>
-                        <ImagenComentario style={{ backgroundImage: `url(${comentarios.FotoUsuario})` }} />
-                        <p>{comentarios.Comentario}</p>
-                        {Usuario ? Usuario.id === comentarios.UsuarioId ? <><DeleteOutlineIcon id={comentarios._id} onClick={borrarComentario} /> <EditIcon /></> : ""
-                            : ""}
-                    </ComentarioBurbuja>
-                )}
-            </ContenedorComentarios>
+                {
+                    Itinerario.Comentarios.map(comentarios =>
+                        <ComentarioBurbuja>
+                            <ImagenComentario style={{ backgroundImage: `url(${comentarios.FotoUsuario})` }} />
+                            <p>{comentarios.Comentario}</p>
+                            {Usuario ? Usuario.id === comentarios.UsuarioId ? <><DeleteOutlineIcon id={comentarios._id} onClick={borrarComentario} /> <EditIcon /></> : ""
+                                : ""}
+                        </ComentarioBurbuja>
+                    )
+                }
+            </ContenedorComentarios >
             <ContenedorInput>
                 <Comentario id="comentario" onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable>
                 </Comentario>
