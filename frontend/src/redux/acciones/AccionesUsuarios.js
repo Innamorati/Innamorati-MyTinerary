@@ -6,7 +6,6 @@ const AccionesUsuarios = {
         return async (despachar, getState) => {
             const respuesta = await axios.post('http://localhost:4000/api/Autenticacion/Registro', { datos })
             despachar({ type: 'mensaje', payload: { seccess: respuesta.data.success, mensaje: respuesta.data.mensaje, view: true } })
-            console.log(respuesta)
         }
     },
     obtenerUsuarios: () => {
@@ -28,7 +27,6 @@ const AccionesUsuarios = {
                 type: 'mensaje',
                 payload: { success: usuarios.data.success, mensaje: usuarios.data.mensaje, view: true }
             });
-            // console.log(usuarios)
         }
     },
     cerrarSecion: (correo) => {
@@ -46,7 +44,6 @@ const AccionesUsuarios = {
             const usuario = await axios.get('http://localhost:4000/api/auth/signInToken', { headers: { 'Authorization': 'Bearer ' + token } })
             if (usuario.data.success) {
                 despachar({ type: 'iniciarSecion', payload: usuario.data.response });
-                console.log(usuario.data.response)
                 despachar({ type: 'mensaje', payload: { view: true, mensaje: usuario.data.mensaje, success: usuario.data.success } });
             }
             else { localStorage.removeItem('token') }

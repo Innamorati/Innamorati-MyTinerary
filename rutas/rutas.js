@@ -11,7 +11,7 @@ const { obtenerCiudades, cargarCiudad, BorrarCiudad, modificarCiudad, obtenerUna
 const { ObtenerItinerarios, ObtenerItinerariosPorCiudad, LikeyDislike } = controladorItinerarios
 const { inicioDeSecion, cerrarSecion, cargarUsuarios, verificarCorreo, verificarToken } = controladorUsuarios
 const { obtenerActividades, obtenerTodasLasActividades } = controladoresActividades
-const { agregarComentario, borrarComentario } = ControladoresComentarios
+const { agregarComentario, borrarComentario, modificarComentario } = ControladoresComentarios
 
 Router.route('/todaslasciudades')
     .get(obtenerCiudades)
@@ -60,6 +60,9 @@ Router.route('/Itinerario/Comentarios/')
 
 Router.route('/Itinerario/Comentarios/:id')
     .post(passport.authenticate('jwt', { session: false }), borrarComentario)
+
+Router.route('/Itinerario/BorrarComentario')
+    .put(modificarComentario)
 
 module.exports = Router
 

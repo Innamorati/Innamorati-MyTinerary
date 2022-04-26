@@ -4,10 +4,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Datos from '../dates/ciudades';
-import "../style/style.css";
+// import "../style/style2.css";
+import '../../src/style/style.css'
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function carrusel() {
+  console.log(Datos)
   return (
     <>
       <Swiper
@@ -27,7 +29,7 @@ export default function carrusel() {
           "@0.00": {
             slidesPerView: 1,
             spaceBetween: 0,
-            
+
           },
           "@0.75": {
             slidesPerGroup: 4,
@@ -42,21 +44,21 @@ export default function carrusel() {
           "@1.50": {
             slidesPerGroup: 4,
             slidesPerView: 4,
-            spaceBetween:  0,
+            spaceBetween: 0,
           },
         }}
       >
-        {Datos.map((ciudades)=>   
-                      <SwiperSlide key={ciudades.id}>
-                             <div className="imagenescarrusel">
-                                 <img src={process.env.PUBLIC_URL+`/imagenes/ciudades/${ciudades.Imagen}` } ></img>
-                                 <div className="textoimagenes">
-                                   <p className="imgtext">{ciudades.Pais}</p>
-                                   <p className="imgtext">{ciudades.ciudad}</p>
-                                 </div>
-                             </div>                        
-                     </SwiperSlide>
-                  )}
+        {Datos.map((ciudades) =>
+          <SwiperSlide key={ciudades.id}>
+            <div className="imagenescarrusel">
+              <img src={process.env.PUBLIC_URL + `/imagenes/ciudades/${ciudades.Imagen}`} ></img>
+              <div className="textoimagenes">
+                <p className="imgtext">{ciudades.Pais}</p>
+                <p className="imgtext">{ciudades.ciudad}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        )}
       </Swiper>
     </>
   );

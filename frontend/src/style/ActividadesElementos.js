@@ -3,30 +3,49 @@ import styled from 'styled-components'
 export const ContenedorPrincipal = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
 `;
 export const CotenedorDivImagen = styled.div`
-height: 12rem;
-width: 12.6rem;
+height: 10rem;
+width: 37%;
 margin: .5rem ;
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-div{
-    margin-top: .8rem;
-    color: white;
-    font-size: 1.2rem;
-}
+
+     @media (max-width:900px){
+        border-radiusr: 3px;
+         object-fit: cover;
+        min-width: 15rem;
+        width: 60%;
+    }
+    @media (max-width:570px){
+        min-width: 10rem;
+        width: 60%;
+    }  
 `;
 export const ContenedorImagen = styled.div`
-    min-height: 10rem;
-    width: 12rem;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    background-size: 15rem 11rem;
+    background-size: 15rem 10rem;
     background-repeat: no-repeat;
-    border-radius: 3px; 
+    border-radius: 3px;
+    @media (max-width:900px){
+        display: flex;
+        justify-content: center;
+         object-fit: cover;
+         width: 80%;
+        min-width: 15rem;
+    } 
+    @media (max-width:570px){
+        min-width: 10rem;
+        width: 60%;
+    }  
 `;
 export const ContenedorActividades = styled.div`
+width: 100%;
     display: flex;
     flex-direction: row;
     p{
@@ -44,17 +63,21 @@ export const ContenedorComentarios = styled.div`
 `;
 export const ContenedorMensajes = styled.div`
     height: auto;
+    @media (max-width:500px){
+        width: 100%;
+}
 `;
 export const ContenedorInput = styled.div`
  display: flex;
-    flex-direction: row;
+flex-direction: row;
+width: 100%;
     svg{
         color: white;
         margin:.5rem 0 0 1rem;
     }
 `;
 export const Comentario = styled.input`
-    width: 36rem;
+    width: 100%;
     height: 2rem;
     outline: none;
     padding: 0 .2rem;
@@ -93,10 +116,18 @@ export const ImagenComentario = styled.div`
 
 `;
 export const Form = styled.form`
-
-`;
+    display: flex;
+    width: 100%;
+`
 export const BotonComentar = styled.button`
-    width: 1rem;
+    /* width: 1rem; */
     background: none;
     border: none;
+`
+export const ContendedorActividadesSinCArrusel = styled.div`
+    display: flex;
+    object-fit: cover;
+    width: 100%;
+    @media (max-width:900px){
+        display: none;    }
 `;

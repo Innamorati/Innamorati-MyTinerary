@@ -25,7 +25,7 @@ function CiudadDetallesIntinerarios(props) {
         props.ObtenerItinerariosPorCiudad(id)
         props.obtenerActividades(id)
     }, [props.Actualizar])
-    console.log(props.Actualizar)
+
     return (
         <div>
             <ContenedortIntinerarios>

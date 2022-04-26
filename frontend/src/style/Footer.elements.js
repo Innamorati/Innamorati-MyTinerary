@@ -244,12 +244,13 @@ input{
     }
 }
 @media screen and (max-width: 425px){
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     input{
         height:2rem ;
-        width: 22rem;
+        width: 100%;
+        margin-left: 0;
     }
 }
 @media screen and (max-width: 320px){
@@ -279,9 +280,11 @@ input{
     }
 }
 @media screen and (max-width: 768px){
+    width: 100%;
+    margin: 0 .5rem;
     input{
         height: 3rem;
-        width: 38rem;
+        width: 100%;
         margin: .4rem .4rem;
         font-size: 1.8rem;
         ::placeholder{
@@ -290,9 +293,14 @@ input{
     }
 }
 @media screen and (max-width: 425px){
+    width: 100%;
+    margin: 0;
+    padding: 0;
     input{
         height: 2rem;
-        width: 22rem;
+        width: 100%;
+        margin: 0;
+        margin-top: .4rem;
     }  
     }
 @media screen and (max-width: 320px){
@@ -317,22 +325,25 @@ width: 22.5rem;
     height: 2rem;
 }
 @media screen and (max-width: 768px){
-  margin: .4rem .4rem;
+  margin: .4rem .5rem;
+  margin-left: .5rem;
   height: 3rem;
-  width: 38rem;
+  width: 100%;
   font-size: 1.5rem;
   font-weight: 600;
 }
 @media screen and (max-width: 425px){
     height: 2rem;
     width: 22rem;
+    margin-top: 1rem;
 }
 @media screen and (max-width: 320px){
   width: 18rem;
 }
 @media screen and (max-width: 375px){
-    width: 17rem;
-    margin: .4rem 0 .4rem 0;
+    width: 100%;
+    margin: .4rem .4rem;
+    margin-top: 1rem;
 }
 `;
 export const Politicas = styled.div`

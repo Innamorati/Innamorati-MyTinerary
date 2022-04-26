@@ -42,10 +42,15 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
     let id = itinerarios._id
 
     async function Like() {
-        await like(id)
-        dispatch({ type: 'Actualizar', payload: !Recargar })
-
+        if (Usuario === null) {
+            dispatch({ type: 'mensaje', payload: { mensaje: 'Please login, and then leave your like', view: true } })
+        }
+        else {
+            await like(id)
+            dispatch({ type: 'Actualizar', payload: !Recargar })
+        }
     }
+
     const likeUser = itinerarios.Like?.filter(filter => Usuario?.id === filter)
     const etiquetas = itinerarios.Etiquetas.map(etiquetas => "#" + etiquetas + " ")
     return (
@@ -71,7 +76,7 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
                 <ContenedorEtiquetas>
                     <Etiquetas>{etiquetas}</Etiquetas>
                 </ContenedorEtiquetas>
-                <VerMas onClick={cambiarEstado}>View more</VerMas>
+                {estado ? <VerMas onClick={cambiarEstado}>View more</VerMas> : <VerMas onClick={cambiarEstado}>View less</VerMas>}
             </ContenedorSinExpandir>
             <ContenedorExpandir expandir={estado} >
                 <ContenidoActividades actividades={actividades.filter(actividades => actividades.Itinerario === itinerarios._id)} Usuario={Usuario} Add={Add} Itinerario={itinerarios} Del={Del} Recargar={Recargar} />

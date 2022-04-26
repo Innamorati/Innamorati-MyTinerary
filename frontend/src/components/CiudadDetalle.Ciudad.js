@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 
 import {
-    Contenedor,
+    VerMas,
     Titulo,
-    BotonVolver,
+    Parrafo,
+    Contenedor,
     ImagenDetalle,
+    ParrafoIcon,
+    DatosCiudades,
+    ContenedorDatos,
     ImagenContenedor,
     ContenedorTitulo,
     ContenedorInformacion,
     ContenedorDescripcion,
-    Parrafo,
-    DatosCiudades,
-    ContenedorDatos,
-    ParrafoIcon,
+    ContenedorTextoDescripcion,
+    ContenedorMediaQueries,
+    ContenedorTransicion,
+    ContenedorBoton,
 } from '../style/Detalles.elementos'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PublicIcon from '@mui/icons-material/Public';
@@ -21,7 +25,7 @@ import AccionesActividades from "../redux/acciones/AccionesActividades";
 import { connect } from "react-redux";
 
 function CiudadDetalleCiudad(props) {
-
+    const [detalles, setDetalles] = useState(false)
     let id = props.params.id
 
     useEffect(() => {
@@ -31,18 +35,20 @@ function CiudadDetalleCiudad(props) {
 
 
     return (
-        <Contenedor>
+        <Contenedor >
             <ContenedorTitulo>
                 <Titulo>{props.ciudadDetalle.Ciudad}</Titulo>
             </ContenedorTitulo>
-            <ContenedorInformacion>
-                <ImagenContenedor>
+            <ContenedorInformacion detalles={detalles}>
+                <ImagenContenedor >
                     <ImagenDetalle src={process.env.PUBLIC_URL + `/imagenes/ciudades/${props.ciudadDetalle.Imagen}`} />
                 </ImagenContenedor>
                 <ContenedorDescripcion>
                     <DatosCiudades>
-                        <Parrafo>{props.ciudadDetalle.Descripcion}</Parrafo>
-                        <ContenedorDatos>
+                        <ContenedorTextoDescripcion>
+                            <Parrafo>{props.ciudadDetalle.Descripcion}</Parrafo>
+                        </ContenedorTextoDescripcion>
+                        <ContenedorDatos style={{}}>
                             <ParrafoIcon>
                                 <MonetizationOnIcon color="success" />
                                 <Parrafo>:  {props.ciudadDetalle.Moneda}</Parrafo>
@@ -52,10 +58,36 @@ function CiudadDetalleCiudad(props) {
                                 <Parrafo>: {props.ciudadDetalle.Continente}</Parrafo>
                             </ParrafoIcon>
                         </ContenedorDatos>
+                        <ContenedorDatos>
+                        </ContenedorDatos>
                     </DatosCiudades>
                 </ContenedorDescripcion>
+                <ContenedorMediaQueries detalles={detalles}>
+                    <ContenedorTransicion detalles={detalles}>
+                        <DatosCiudades>
+                            <ContenedorTextoDescripcion>
+                                <Parrafo>{props.ciudadDetalle.Descripcion}</Parrafo>
+                            </ContenedorTextoDescripcion>
+                            <ContenedorDatos style={{}}>
+                                <ParrafoIcon>
+                                    <MonetizationOnIcon color="success" />
+                                    <Parrafo>:  {props.ciudadDetalle.Moneda}</Parrafo>
+                                </ParrafoIcon>
+                                <ParrafoIcon>
+                                    <PublicIcon color="primary" />
+                                    <Parrafo>: {props.ciudadDetalle.Continente}</Parrafo>
+                                </ParrafoIcon>
+                            </ContenedorDatos>
+                            <ContenedorDatos>
+                            </ContenedorDatos>
+                        </DatosCiudades>
+                    </ContenedorTransicion>
+                </ContenedorMediaQueries>
+                <ContenedorBoton>
+                    <VerMas onClick={() => setDetalles(!detalles)}>Description</VerMas>
+                </ContenedorBoton>
             </ContenedorInformacion>
-        </Contenedor>
+        </Contenedor >
     )
 }
 

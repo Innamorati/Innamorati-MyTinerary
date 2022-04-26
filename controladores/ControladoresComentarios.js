@@ -18,15 +18,26 @@ const controladorComentarios = {
     borrarComentario: async (req, res) => {
 
         const id = req.params.id
-        console.log(id)
+
         try {
             const borrarComentario = await Itinerarios.findOneAndUpdate({ "Comentarios._id": id }, { $pull: { Comentarios: { _id: id } } }, { new: true })
-            console.log(borrarComentario)
             res.json({ success: true, respuesta: { borrarComentario }, mensaje: "Comment deleted successfully" })
         }
         catch (error) {
             console.log(error)
             res.json({ success: false, mensaje: "Something went wrong try again in a few minutes" })
+        }
+    },
+    modificarComentario: async (req, res) => {
+        const { comentarioId, comentario } = req.body.datos
+        console.log(comentario)
+        try {
+            const nuevoComentario = await Itinerarios.findOneAndUpdate({ "Comentarios._id": comentarioId }, { $set: { "Comentarios.$.Comentario": comentario }, }, { new: true })
+            res.json({ success: true, view: true, mensaje: "Comment modified successfully" })
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, view: true, mensaje: "Something went wrong try again in a few minutes" })
         }
     }
 

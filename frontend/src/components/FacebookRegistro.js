@@ -7,10 +7,9 @@ import AccionesUsuarios from '../redux/acciones/AccionesUsuarios';
 function FacebookRegistro(props) {
 
     const responseFacebook = async (respuesta) => {
-        console.log(respuesta)
-        console.log(respuesta.name)
+
         const separoNombre = respuesta.name.split(" ")
-        console.log(separoNombre)
+
 
         const datos = {
             nombre: separoNombre[0],
@@ -23,7 +22,6 @@ function FacebookRegistro(props) {
             // pais: props.pais
         }
         await props.cargarUsuarios(datos)
-        console.log(datos)
     }
     return (
         <FacebookLogin
