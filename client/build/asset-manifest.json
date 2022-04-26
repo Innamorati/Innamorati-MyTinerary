@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.83f5f7af.css",
+    "main.js": "/static/js/main.9a8bfe9c.js",
+    "static/js/787.bde45700.chunk.js": "/static/js/787.bde45700.chunk.js",
+    "static/media/Carpa.jpg": "/static/media/Carpa.066ac62004264f51321b.jpg",
+    "static/media/LogosinFondoNegro.png": "/static/media/LogosinFondoNegro.e680c035e663d1810154.png",
+    "index.html": "/index.html",
+    "main.83f5f7af.css.map": "/static/css/main.83f5f7af.css.map",
+    "main.9a8bfe9c.js.map": "/static/js/main.9a8bfe9c.js.map",
+    "787.bde45700.chunk.js.map": "/static/js/787.bde45700.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83f5f7af.css",
+    "static/js/main.9a8bfe9c.js"
+  ]
+}
