@@ -27,12 +27,10 @@ import { connect } from "react-redux";
 function CiudadDetalleCiudad(props) {
     const [detalles, setDetalles] = useState(false)
     let id = props.params.id
-
     useEffect(() => {
         props.ObtenerUnaCiudad(id)
         props.obtenerActividades(id)
     }, [])
-
 
     return (
         <Contenedor >

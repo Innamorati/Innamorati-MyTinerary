@@ -30,7 +30,6 @@ const controladorComentarios = {
     },
     modificarComentario: async (req, res) => {
         const { comentarioId, comentario } = req.body.datos
-        console.log(comentario)
         try {
             const nuevoComentario = await Itinerarios.findOneAndUpdate({ "Comentarios._id": comentarioId }, { $set: { "Comentarios.$.Comentario": comentario }, }, { new: true })
             res.json({ success: true, view: true, mensaje: "Comment modified successfully" })

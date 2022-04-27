@@ -24,7 +24,6 @@ const AccionesComentarios = {
         }
     },
     modificarComentario: (datos) => {
-        console.log(datos)
         return async (dispatch, getState) => {
             const res = await axios.put('http://localhost:4000/api/Itinerario/BorrarComentario', { datos })
             dispatch({ type: 'mensaje', payload: { view: res.data.view, mensaje: res.data.mensaje, success: res.data.success } })

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Form,
     Comentario,
@@ -12,12 +12,11 @@ import {
     ContenedorPrincipal,
     ContenedorActividades,
     ContenedorComentarios,
-    ContenedorCarrusel,
     ContendedorActividadesSinCArrusel
 } from '../style/ActividadesElementos'
 import SendIcon from '@mui/icons-material/Send';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { useDispatch, getState } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Modal from './Modal'
 import CarruselActividades from "./CarruselActividades";
 
@@ -25,10 +24,9 @@ import CarruselActividades from "./CarruselActividades";
 
 
 export default function ContenidoActividades({ actividades, Usuario, Add, Itinerario, Del, Recargar }) {
-    const [inputText, setInputText] = useState("")
-    let id = actividades.map(itinerarios => itinerarios.Itinerario)
+    let id = actividades?.map(itinerarios => itinerarios.Itinerario)
     const dispatch = useDispatch()
-    const [open, setOpen] = useState(false)
+
 
 
     async function nuevoComentario(e) {
@@ -58,7 +56,7 @@ export default function ContenidoActividades({ actividades, Usuario, Add, Itiner
             <ContenedorActividades>
                 <CarruselActividades actividades={actividades} />
                 <ContendedorActividadesSinCArrusel>
-                    {actividades.map((actividades) =>
+                    {actividades?.map((actividades) =>
                         <CotenedorDivImagen key={actividades._id}>
                             <ContenedorImagen style={{ backgroundImage: `url(${actividades.Imagen})` }}>
                             </ContenedorImagen >
@@ -70,7 +68,7 @@ export default function ContenidoActividades({ actividades, Usuario, Add, Itiner
             <ContenedorComentarios>
                 <ContenedorMensajes>
                     {
-                        Itinerario.Comentarios.map((comentarios, index) =>
+                        Itinerario?.Comentarios?.map((comentarios, index) =>
                             <ComentarioBurbuja key={index}>
                                 <ImagenComentario style={{ backgroundImage: `url(${comentarios.FotoUsuario})` }} />
                                 <p>{comentarios.Comentario}</p>

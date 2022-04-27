@@ -9,7 +9,7 @@ import '../../src/style/style.css'
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function carrusel() {
-  console.log(Datos)
+
   return (
     <>
       <Swiper

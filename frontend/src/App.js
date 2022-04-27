@@ -20,6 +20,7 @@ const DetallesCiudadwithRouter = withRouter(Detalleciudades);
 const RegistroWhitRouter = withRouter(Registro);
 
 function App(props) {
+
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem("token")

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
     Duracion,
     Etiquetas,
@@ -63,7 +63,7 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
                     <NombreUsuario>{itinerarios.NombreUsuario}</NombreUsuario>
                 </ContenedorImgfPerfil>
                 <ContenedorPrecio>
-                    {cantidad.map((index, precio) => <PaidIcon key={index} />)}
+                    {cantidad?.map((index, precio) => <PaidIcon key={index} />)}
                 </ContenedorPrecio>
                 <ContenedorDuracion>
                     <AccessTimeIcon />
@@ -79,7 +79,7 @@ export default function ContenidoTarjeta({ like, itinerarios, actividades, Recar
                 {estado ? <VerMas onClick={cambiarEstado}>View more</VerMas> : <VerMas onClick={cambiarEstado}>View less</VerMas>}
             </ContenedorSinExpandir>
             <ContenedorExpandir expandir={estado} >
-                <ContenidoActividades actividades={actividades.filter(actividades => actividades.Itinerario === itinerarios._id)} Usuario={Usuario} Add={Add} Itinerario={itinerarios} Del={Del} Recargar={Recargar} />
+                <ContenidoActividades actividades={actividades?.filter(actividades => actividades.Itinerario === itinerarios._id)} Usuario={Usuario} Add={Add} Itinerario={itinerarios} Del={Del} Recargar={Recargar} />
             </ContenedorExpandir >
         </IntinerariosInformacion >
 

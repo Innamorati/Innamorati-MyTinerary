@@ -19,7 +19,6 @@ import { useEffect } from "react";
 function CiudadDetallesIntinerarios(props) {
 
     let id = props.params.id
-    let longitud = props.itinerariosCiudades.length
 
     useEffect(() => {
         props.ObtenerItinerariosPorCiudad(id)
