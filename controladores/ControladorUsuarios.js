@@ -5,31 +5,7 @@ const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
 
-const verificacionCorreo = async (correo, uniqueString) => {
 
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: "mytinerarycheck@gmail.com",
-            pass: "240499aI",
-        }
-    })
-
-    let sender = "mytinerarycheck@gmail.com"
-    let correoOpciones = {
-        from: sender,
-        to: correo,
-        subject: "Account verification MyTinerary",
-        html: `<h1>Para verificar tu mail presiona <a href=http://localhost:4000/api/Verificacion/${uniqueString}>aqui</a></h1>`
-    };
-    await transporter.sendMail(correoOpciones, function (error, response) {
-        if (error) { console.log(error) }
-        else { console.log("mensaje enviado") }
-    })
-
-}
 
 
 
@@ -66,7 +42,6 @@ const ControladorUsuarios = {
                     if (from === "registro") {
                         usuarioExiste.uniqueString = crypto.randomBytes(15).toString('hex')
                         await usuarioExiste.save()
-                        await verificacionCorreo(correo, usuarioExiste.uniqueString)
                         respuesta.json({
                             success: true,
                             from: "registro",
