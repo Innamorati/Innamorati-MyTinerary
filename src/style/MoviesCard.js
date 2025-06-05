@@ -15,7 +15,7 @@ export const TitleMovie = styled.h3`
     font-size: 35px;
 `
 export const ImgContainer = styled.div`
-    width: 48%;
+    width: 50%;
 `
 export const ImgMovie = styled.img`
     height: 100%;
